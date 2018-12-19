@@ -3,7 +3,7 @@ import { Component } from '@stencil/core';
 
 @Component({
     tag: 'eon-input',
-    styleUrl: 'eon-input.css'
+    styleUrl: 'eon-input.scss'
 })
 export class EonInput {
 

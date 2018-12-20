@@ -11,7 +11,7 @@ export class EonInput {
 
     render() {
         return (
-            <ion-input>
+            <ion-input >
             </ion-input>
         );
     }

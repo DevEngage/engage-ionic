@@ -1,10 +1,10 @@
 import { Component } from '@stencil/core';
 
 @Component({
-  tag: 'app-home',
-  styleUrl: 'app-home.css'
+  tag: 'eon-engage-home',
+  styleUrl: 'eon-engage-home.css'
 })
-export class AppHome {
+export class EonEngageHome {
 
   render() {
     return [

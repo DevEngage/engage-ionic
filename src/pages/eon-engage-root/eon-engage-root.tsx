@@ -1,10 +1,10 @@
 import { Component, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'app-root',
-  styleUrl: 'app-root.css'
+  tag: 'eon-engage-root',
+  styleUrl: 'eon-engage-root.css'
 })
-export class AppRoot {
+export class EonEngageRoot {
 
   @Prop({ connect: 'ion-toast-controller' }) toastCtrl: HTMLIonToastControllerElement;
 
@@ -12,7 +12,7 @@ export class AppRoot {
     return (
       <ion-app>
         <ion-router useHash={false}>
-          <ion-route url="/" component="app-home" />
+          <ion-route url="/" component="eon-engage-home" />
         </ion-router>
         <ion-nav />
       </ion-app>

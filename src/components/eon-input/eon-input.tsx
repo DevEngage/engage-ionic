@@ -1,4 +1,4 @@
-import { Component } from '@stencil/core';
+import {Component, Prop} from '@stencil/core';
 
 
 @Component({
@@ -7,11 +7,21 @@ import { Component } from '@stencil/core';
 })
 export class EonInput {
 
-    
+    @Prop() accept: string | undefined;
+    @Prop() autocapitalize: string;
+    @Prop() autocomplete: 'off' | 'on';
+    @Prop() autocorrect: 'off' | 'on';
+    @Prop() autofocus: boolean;
 
     render() {
         return (
-            <ion-input >
+            <ion-input
+              accept={this.accept}
+              autocapitalize={this.autocapitalize}
+              autocomplete={this.autocomplete}
+              autocorrect={this.autocorrect}
+              autofocus={this.autofocus}
+            >
             </ion-input>
         );
     }

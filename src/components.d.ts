@@ -13,62 +13,96 @@ import 'ionicons';
 
 export namespace Components {
 
-  interface AppHome {}
-  interface AppHomeAttributes extends StencilHTMLAttributes {}
-
-  interface AppProfile {
-    'name': string;
+  interface EonFlip {
+    'flip': () => void;
+    'flipButtonId': string;
+    'flipSelector': string;
+    'flipType': 'hover' | 'click' | 'button';
+    'type': 'static' | 'flip' | 'pass';
+    'visible': number;
   }
-  interface AppProfileAttributes extends StencilHTMLAttributes {
-    'name'?: string;
+  interface EonFlipAttributes extends StencilHTMLAttributes {
+    'flipButtonId'?: string;
+    'flipSelector'?: string;
+    'flipType'?: 'hover' | 'click' | 'button';
+    'type'?: 'static' | 'flip' | 'pass';
+    'visible'?: number;
   }
 
-  interface AppRoot {}
-  interface AppRootAttributes extends StencilHTMLAttributes {}
+  interface EonInput {
+    'accept': string | undefined;
+    'autocapitalize': string;
+    'autocomplete': 'off' | 'on';
+    'autocorrect': 'off' | 'on';
+    'autofocus': boolean;
+  }
+  interface EonInputAttributes extends StencilHTMLAttributes {
+    'accept'?: string | undefined;
+    'autocapitalize'?: string;
+    'autocomplete'?: 'off' | 'on';
+    'autocorrect'?: 'off' | 'on';
+    'autofocus'?: boolean;
+  }
+
+  interface EonEngageHome {}
+  interface EonEngageHomeAttributes extends StencilHTMLAttributes {}
+
+  interface EonEngageRoot {}
+  interface EonEngageRootAttributes extends StencilHTMLAttributes {}
 }
 
 declare global {
   interface StencilElementInterfaces {
-    'AppHome': Components.AppHome;
-    'AppProfile': Components.AppProfile;
-    'AppRoot': Components.AppRoot;
+    'EonFlip': Components.EonFlip;
+    'EonInput': Components.EonInput;
+    'EonEngageHome': Components.EonEngageHome;
+    'EonEngageRoot': Components.EonEngageRoot;
   }
 
   interface StencilIntrinsicElements {
-    'app-home': Components.AppHomeAttributes;
-    'app-profile': Components.AppProfileAttributes;
-    'app-root': Components.AppRootAttributes;
+    'eon-flip': Components.EonFlipAttributes;
+    'eon-input': Components.EonInputAttributes;
+    'eon-engage-home': Components.EonEngageHomeAttributes;
+    'eon-engage-root': Components.EonEngageRootAttributes;
   }
 
 
-  interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {}
-  var HTMLAppHomeElement: {
-    prototype: HTMLAppHomeElement;
-    new (): HTMLAppHomeElement;
+  interface HTMLEonFlipElement extends Components.EonFlip, HTMLStencilElement {}
+  var HTMLEonFlipElement: {
+    prototype: HTMLEonFlipElement;
+    new (): HTMLEonFlipElement;
   };
 
-  interface HTMLAppProfileElement extends Components.AppProfile, HTMLStencilElement {}
-  var HTMLAppProfileElement: {
-    prototype: HTMLAppProfileElement;
-    new (): HTMLAppProfileElement;
+  interface HTMLEonInputElement extends Components.EonInput, HTMLStencilElement {}
+  var HTMLEonInputElement: {
+    prototype: HTMLEonInputElement;
+    new (): HTMLEonInputElement;
   };
 
-  interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {}
-  var HTMLAppRootElement: {
-    prototype: HTMLAppRootElement;
-    new (): HTMLAppRootElement;
+  interface HTMLEonEngageHomeElement extends Components.EonEngageHome, HTMLStencilElement {}
+  var HTMLEonEngageHomeElement: {
+    prototype: HTMLEonEngageHomeElement;
+    new (): HTMLEonEngageHomeElement;
+  };
+
+  interface HTMLEonEngageRootElement extends Components.EonEngageRoot, HTMLStencilElement {}
+  var HTMLEonEngageRootElement: {
+    prototype: HTMLEonEngageRootElement;
+    new (): HTMLEonEngageRootElement;
   };
 
   interface HTMLElementTagNameMap {
-    'app-home': HTMLAppHomeElement
-    'app-profile': HTMLAppProfileElement
-    'app-root': HTMLAppRootElement
+    'eon-flip': HTMLEonFlipElement
+    'eon-input': HTMLEonInputElement
+    'eon-engage-home': HTMLEonEngageHomeElement
+    'eon-engage-root': HTMLEonEngageRootElement
   }
 
   interface ElementTagNameMap {
-    'app-home': HTMLAppHomeElement;
-    'app-profile': HTMLAppProfileElement;
-    'app-root': HTMLAppRootElement;
+    'eon-flip': HTMLEonFlipElement;
+    'eon-input': HTMLEonInputElement;
+    'eon-engage-home': HTMLEonEngageHomeElement;
+    'eon-engage-root': HTMLEonEngageRootElement;
   }
 
 

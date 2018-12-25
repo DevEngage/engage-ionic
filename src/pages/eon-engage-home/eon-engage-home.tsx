@@ -23,6 +23,12 @@ export class EonEngageHome {
         </p>
 
         <ion-button href="/profile/ionic" expand="block">Profile page</ion-button>
+
+        <eon-flip>
+          <ion-card class="ion-text-center"><p>James Rocks</p></ion-card>
+          <ion-card class="ion-text-center"><h2>Just Kidding</h2><p>Mike Rocks</p></ion-card>
+        </eon-flip>
+
       </ion-content>
     ];
   }

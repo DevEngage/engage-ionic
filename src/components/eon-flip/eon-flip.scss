@@ -1,0 +1,59 @@
+eon-flip {
+  position: relative;
+
+  .eon-flip-card-base {
+    position: relative;
+  }
+
+  /* entire container, keeps perspective */
+  .eon-flip-card {
+    perspective: 1000px;
+    max-width: 100%;
+    width: 100%;
+  }
+  /* flip the pane when hovered */
+  .eon-flip-card-hover:hover .eon-flip,
+  .eon-flip-card-hover.hover .eon-flip {
+    transform: rotateY(180deg);
+  }
+
+  .eon-flip-card-flipped .eon-flip,
+  .eon-flip-card-flipped .eon-flip {
+    transform: rotateY(180deg);
+  }
+
+  &,
+  .eon-flip-card-front,
+  .eon-flip-card-back {
+    width: 100%;
+    //height: 115px;
+  }
+
+  /* flip speed goes here */
+  .eon-flip {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+
+  /* hide back of pane during swap */
+  .eon-flip-card-front,
+  .eon-flip-card-back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* front pane, placed above back */
+  .eon-flip-card-front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+  }
+
+  /* back, initially hidden pane */
+  .eon-flip-card-back {
+    transform: rotateY(180deg);
+  }
+}

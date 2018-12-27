@@ -4,11 +4,11 @@ import _ from 'lodash';
  * TODO:
  *  [ ] add ion-item with label/floating to this input
  *  [ ] large and small sizes
- *  [X] Icon left and right side
+ *  [ ] Icon left and right side
  *  [ ] Disable
  *  [ ] Auto sizing
  *  [ ] Clear icon on left (for search and select)
- *  [X] Textarea
+ *  [ ] Textarea
  *  [ ] Fix auto grow on textarea
  *  [ ] Help Text
  *  [ ] More validation -password - number -url -tel
@@ -120,6 +120,43 @@ export class EonInput {
       this.eonInput.emit(this._value);
     }
   }
+
+  /*
+   * [X] email
+   * [ ] password
+   * [ ]
+   * */
+  validate(requireMsg = true) {
+    if ((requireMsg && !this.errorMsg) || _.isEmpty(this._value)) return null;
+    switch (this.type) {
+      case 'email':
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(this._value).toLowerCase());
+    }
+  }
+
+  // getValidColor(focused = false) {
+  //   switch (this.validate()) {
+  //     case true:
+  //       return `var(--success)`;
+  //     case false:
+  //       return `var(--danger)`;
+  //     default:
+  //       if (focused) {
+  //         return `var(--${this.context})`;
+  //       }
+  //       return this.defaultLabelStyle.bottomColor;
+  //   }
+  // }
+
+  // getMessage() {
+  //   if (_.isEmpty(this._value) && !this.manualMsg) return null;
+  //   if (!this.validate() && this.errorMsg) {
+  //     return <div class="text-danger">{this.errorMsg}</div>;
+  //   } else if (this.successMsg) {
+  //     return <div class="text-success">{this.successMsg}</div>;
+  //   }
+  // }
 
   render() {
     return (

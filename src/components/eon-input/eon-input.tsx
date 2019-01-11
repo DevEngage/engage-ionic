@@ -74,7 +74,6 @@ export class EonInput {
   @Prop() rows: number | undefined;
   @Prop() wrap: 'hard' | 'off' | 'soft' | undefined;
 
-
   componentDidLoad() {
     this.watchTrueValue();
   }
@@ -120,7 +119,7 @@ export class EonInput {
   updateBinding(value) {
     if (this.bind && this.name) {
       this.bind[this.name] = value;
-      this.bind = {...this.bind};
+      this.bind = { ...this.bind };
     }
   }
 
@@ -174,11 +173,9 @@ export class EonInput {
   renderItem() {
     return (
       <ion-item>
-        <ion-label
-          position={this.labelPosition}
-          mode={this.labelMode || this.mode}
-          color={this.labelColor || this.color}
-        >{this.label}</ion-label>
+        <ion-label position={this.labelPosition} mode={this.labelMode || this.mode} color={this.labelColor || this.color}>
+          {this.label}
+        </ion-label>
         {this.textarea ? this.renderTextarea() : this.renderInput()}
       </ion-item>
     );

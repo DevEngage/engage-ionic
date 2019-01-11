@@ -29,6 +29,10 @@ export class EonEngageHome {
           <ion-card class="ion-text-center"><h2>Just Kidding</h2><p>Mike Rocks</p></ion-card>
         </eon-flip>
 
+        <br/>
+
+        <eon-input></eon-input>
+
       </ion-content>
     ];
   }

@@ -35,7 +35,7 @@ export namespace Components {
     'autocomplete': 'off' | 'on';
     'autocorrect': 'off' | 'on';
     'autofocus': boolean;
-    'bind': string;
+    'bind': any;
     'bindSelector': string;
     'clear': () => void;
     'clearInput': boolean;
@@ -48,6 +48,10 @@ export namespace Components {
     'getName': () => string;
     'getValue': () => any;
     'inputmode': string | undefined;
+    'label': string;
+    'labelColor': string | undefined;
+    'labelMode': 'ios' | 'md';
+    'labelPosition': 'floating' | 'fixed' | 'stacked' | undefined;
     'max': string | undefined;
     'maxlength': number | undefined;
     'min': string | undefined;
@@ -74,7 +78,7 @@ export namespace Components {
     'autocomplete'?: 'off' | 'on';
     'autocorrect'?: 'off' | 'on';
     'autofocus'?: boolean;
-    'bind'?: string;
+    'bind'?: any;
     'bindSelector'?: string;
     'clearInput'?: boolean;
     'clearOnEdit'?: boolean | undefined;
@@ -84,6 +88,10 @@ export namespace Components {
     'errorMsg'?: string;
     'errorSelector'?: string;
     'inputmode'?: string | undefined;
+    'label'?: string;
+    'labelColor'?: string | undefined;
+    'labelMode'?: 'ios' | 'md';
+    'labelPosition'?: 'floating' | 'fixed' | 'stacked' | undefined;
     'max'?: string | undefined;
     'maxlength'?: number | undefined;
     'min'?: string | undefined;

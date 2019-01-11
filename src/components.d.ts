@@ -41,6 +41,7 @@ export namespace Components {
     'clearInput': boolean;
     'clearOnEdit': boolean | undefined;
     'color': string | undefined;
+    'cols': number | undefined;
     'debounce': number;
     'disabled': boolean;
     'errorMsg': string;
@@ -63,14 +64,17 @@ export namespace Components {
     'placeholder': null | string | undefined;
     'readonly': boolean;
     'required': boolean;
+    'rows': number | undefined;
     'setFocus': () => void;
     'setValue': (value?: string) => void;
     'size': number | undefined;
     'spellcheck': boolean;
     'step': string | undefined;
     'successMsg': string;
+    'textarea': boolean;
     'type': 'date' | 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'time' | 'url';
     'value': null | string | undefined | number;
+    'wrap': 'hard' | 'off' | 'soft' | undefined;
   }
   interface EonInputAttributes extends StencilHTMLAttributes {
     'accept'?: string | undefined;
@@ -83,6 +87,7 @@ export namespace Components {
     'clearInput'?: boolean;
     'clearOnEdit'?: boolean | undefined;
     'color'?: string | undefined;
+    'cols'?: number | undefined;
     'debounce'?: number;
     'disabled'?: boolean;
     'errorMsg'?: string;
@@ -109,12 +114,15 @@ export namespace Components {
     'placeholder'?: null | string | undefined;
     'readonly'?: boolean;
     'required'?: boolean;
+    'rows'?: number | undefined;
     'size'?: number | undefined;
     'spellcheck'?: boolean;
     'step'?: string | undefined;
     'successMsg'?: string;
+    'textarea'?: boolean;
     'type'?: 'date' | 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'time' | 'url';
     'value'?: null | string | undefined | number;
+    'wrap'?: 'hard' | 'off' | 'soft' | undefined;
   }
 
   interface EonEngageHome {}

@@ -1,10 +1,18 @@
-import { Component } from '@stencil/core';
+import {Component, State} from '@stencil/core';
 
 @Component({
   tag: 'eon-engage-home',
   styleUrl: 'eon-engage-home.css'
 })
 export class EonEngageHome {
+
+  @State() fields = {
+    test: ''
+  };
+
+  checkBind() {
+    alert(this.fields.test);
+  }
 
   render() {
     return [
@@ -33,7 +41,9 @@ export class EonEngageHome {
 
         <h5>Input</h5>
         <eon-input placeholder="Hello" />
-        <eon-input label="Test" labelPosition="floating" />
+        <eon-input label="Test" labelPosition="floating" name="test" bind={this.fields} />
+        <eon-input label="Test" labelPosition="floating" textarea={true} />
+        <ion-button onClick={() => this.checkBind()}>Check Binding</ion-button>
 
       </ion-content>
     ];

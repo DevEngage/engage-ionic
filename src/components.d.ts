@@ -125,6 +125,9 @@ export namespace Components {
     'wrap'?: 'hard' | 'off' | 'soft' | undefined;
   }
 
+  interface EonEngageBootstrap {}
+  interface EonEngageBootstrapAttributes extends StencilHTMLAttributes {}
+
   interface EonEngageHome {}
   interface EonEngageHomeAttributes extends StencilHTMLAttributes {}
 
@@ -136,6 +139,7 @@ declare global {
   interface StencilElementInterfaces {
     'EonFlip': Components.EonFlip;
     'EonInput': Components.EonInput;
+    'EonEngageBootstrap': Components.EonEngageBootstrap;
     'EonEngageHome': Components.EonEngageHome;
     'EonEngageRoot': Components.EonEngageRoot;
   }
@@ -143,6 +147,7 @@ declare global {
   interface StencilIntrinsicElements {
     'eon-flip': Components.EonFlipAttributes;
     'eon-input': Components.EonInputAttributes;
+    'eon-engage-bootstrap': Components.EonEngageBootstrapAttributes;
     'eon-engage-home': Components.EonEngageHomeAttributes;
     'eon-engage-root': Components.EonEngageRootAttributes;
   }
@@ -160,6 +165,12 @@ declare global {
     new (): HTMLEonInputElement;
   };
 
+  interface HTMLEonEngageBootstrapElement extends Components.EonEngageBootstrap, HTMLStencilElement {}
+  var HTMLEonEngageBootstrapElement: {
+    prototype: HTMLEonEngageBootstrapElement;
+    new (): HTMLEonEngageBootstrapElement;
+  };
+
   interface HTMLEonEngageHomeElement extends Components.EonEngageHome, HTMLStencilElement {}
   var HTMLEonEngageHomeElement: {
     prototype: HTMLEonEngageHomeElement;
@@ -175,6 +186,7 @@ declare global {
   interface HTMLElementTagNameMap {
     'eon-flip': HTMLEonFlipElement
     'eon-input': HTMLEonInputElement
+    'eon-engage-bootstrap': HTMLEonEngageBootstrapElement
     'eon-engage-home': HTMLEonEngageHomeElement
     'eon-engage-root': HTMLEonEngageRootElement
   }
@@ -182,6 +194,7 @@ declare global {
   interface ElementTagNameMap {
     'eon-flip': HTMLEonFlipElement;
     'eon-input': HTMLEonInputElement;
+    'eon-engage-bootstrap': HTMLEonEngageBootstrapElement;
     'eon-engage-home': HTMLEonEngageHomeElement;
     'eon-engage-root': HTMLEonEngageRootElement;
   }

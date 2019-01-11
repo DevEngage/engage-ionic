@@ -2,7 +2,7 @@ import { Component, State } from '@stencil/core';
 
 @Component({
   tag: 'eon-engage-home',
-  styleUrl: 'eon-engage-home.css'
+  styleUrl: 'eon-engage-home.scss'
 })
 export class EonEngageHome {
   @State() fields = {

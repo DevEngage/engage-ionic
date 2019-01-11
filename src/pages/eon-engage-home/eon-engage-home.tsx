@@ -31,7 +31,9 @@ export class EonEngageHome {
 
         <br/>
 
-        <eon-input></eon-input>
+        <h5>Input</h5>
+        <eon-input placeholder="Hello" />
+        <eon-input label="Test" labelPosition="floating" />
 
       </ion-content>
     ];

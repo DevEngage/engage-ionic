@@ -192,8 +192,8 @@ export class EonInput {
         onIonChange={(event) => this.eonChange.emit(event.detail)}
         onIonFocus={(event) => this.eonFocus.emit(event.detail)}
         onIonInput={(event) => this.updateValue(event)}
-        onIonInputDidLoad={(event) => this.eonInputDidLoad.emit(event.detail)}
-        onIonInputDidUnload={(event) => this.eonInputDidUnload.emit(event.detail)}
+        // onIonInputDidLoad={(event) => this.eonInputDidLoad.emit(event.detail)}
+        // onIonInputDidUnload={(event) => this.eonInputDidUnload.emit(event.detail)}
       />
     );
   }

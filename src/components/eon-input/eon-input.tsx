@@ -2,14 +2,15 @@ import { Component, EventEmitter, Method, Prop, State, Watch, Element, Event } f
 import _ from 'lodash';
 /*
  * TODO:
- *  [ ] add ion-item with label/floating to this input
+ *  [X] add ion-item with label/floating to this input
+ *  [X] Disabled
+ *  [X] Textarea
+ *  [ ] Add error text below input
  *  [ ] large and small sizes
  *  [ ] Icon left and right side
- *  [ ] Disable
  *  [ ] Auto sizing
  *  [ ] Clear icon on left (for search and select)
- *  [ ] Textarea
- *  [ ] Fix auto grow on textarea
+ *  [ ] Auto grow on textarea
  *  [ ] Help Text
  *  [ ] More validation -password - number -url -tel
  *  [ ] Mask -tel -custom - date -time -color
@@ -50,7 +51,7 @@ export class EonInput {
   @Prop() type: 'date' | 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'time' | 'url';
   @Prop() value: null | string | undefined | number;
   /* eon specific */
-  @Prop() bind: string;
+  @Prop() bind: any;
   @Prop() bindSelector = '[eon-bind]';
   @Prop() errorSelector = '[eon-error]';
   @Prop() errorMsg: string = '';
@@ -62,6 +63,16 @@ export class EonInput {
   @Event() eonInputDidUnload: EventEmitter;
   @Event() eonChange: EventEmitter;
   @State() private _value: any;
+  /* item based input */
+  @Prop() label: string = '';
+  @Prop() labelPosition: 'floating' | 'fixed' | 'stacked' | undefined;
+  @Prop() labelColor: string | undefined;
+  @Prop() labelMode: 'ios' | 'md';
+  /* Textarea */
+  @Prop() textarea: boolean;
+  @Prop() cols: number | undefined;
+  @Prop() rows: number | undefined;
+  @Prop() wrap: 'hard' | 'off' | 'soft' | undefined;
 
   componentDidLoad() {
     this.watchTrueValue();
@@ -102,22 +113,23 @@ export class EonInput {
   @Watch('_value')
   watchValue() {
     this.updateBinding(this._value);
-    this.eonInput.emit(this._value);
+    this.eonChange.emit(this._value);
   }
 
   updateBinding(value) {
     if (this.bind && this.name) {
       this.bind[this.name] = value;
+      this.bind = { ...this.bind };
     }
   }
 
   updateValue(event) {
-    if (event && event.detail && !_.isEmpty(event.detail)) {
-      this._value = event.detail;
-      this.eonInput.emit(this._value);
+    if (event && event.detail && event.detail.value && !_.isEmpty(event.detail.value)) {
+      this._value = event.detail.value;
+      this.eonChange.emit(this._value);
     } else {
       this._value = '';
-      this.eonInput.emit(this._value);
+      this.eonChange.emit(this._value);
     }
   }
 
@@ -158,7 +170,51 @@ export class EonInput {
   //   }
   // }
 
-  render() {
+  renderItem() {
+    return (
+      <ion-item>
+        <ion-label position={this.labelPosition} mode={this.labelMode || this.mode} color={this.labelColor || this.color}>
+          {this.label}
+        </ion-label>
+        {this.textarea ? this.renderTextarea() : this.renderInput()}
+      </ion-item>
+    );
+  }
+
+  renderTextarea() {
+    return (
+      <ion-textarea
+        autocapitalize={this.autocapitalize}
+        autocorrect={this.autocorrect}
+        autofocus={this.autofocus}
+        clearOnEdit={this.clearOnEdit}
+        color={this.color}
+        debounce={this.debounce}
+        disabled={this.disabled}
+        inputmode={this.inputmode}
+        maxlength={this.maxlength}
+        minlength={this.minlength}
+        mode={this.mode}
+        name={this.name}
+        placeholder={this.placeholder}
+        readonly={this.readonly}
+        required={this.required}
+        spellcheck={this.spellcheck}
+        value={this._value}
+        cols={this.cols}
+        rows={this.rows}
+        wrap={this.wrap}
+        onIonBlur={(event) => this.eonBlur.emit(event.detail)}
+        onIonChange={(event) => this.updateValue(event)}
+        onIonFocus={(event) => this.eonFocus.emit(event.detail)}
+        onIonInput={(event) => this.eonInput.emit(event.detail)}
+        // onIonInputDidLoad={(event) => this.eonInputDidLoad.emit(event.detail)}
+        // onIonInputDidUnload={(event) => this.eonInputDidUnload.emit(event.detail)}
+      />
+    );
+  }
+
+  renderInput() {
     return (
       <ion-input
         accept={this.accept}
@@ -189,12 +245,22 @@ export class EonInput {
         type={this.type}
         value={this._value}
         onIonBlur={(event) => this.eonBlur.emit(event.detail)}
-        onIonChange={(event) => this.eonChange.emit(event.detail)}
+        onIonChange={(event) => this.updateValue(event)}
         onIonFocus={(event) => this.eonFocus.emit(event.detail)}
-        onIonInput={(event) => this.updateValue(event)}
+        onIonInput={(event) => this.eonInput.emit(event.detail)}
         // onIonInputDidLoad={(event) => this.eonInputDidLoad.emit(event.detail)}
         // onIonInputDidUnload={(event) => this.eonInputDidUnload.emit(event.detail)}
       />
     );
+  }
+
+  render() {
+    if (this.label) {
+      return this.renderItem();
+    }
+    if (this.textarea) {
+      return this.renderTextarea();
+    }
+    return this.renderInput();
   }
 }

@@ -4,7 +4,8 @@ import _ from 'lodash';
  * TODO:
  *  [X] add ion-item with label/floating to this input
  *  [X] Disabled
- *  [ ] Textarea
+ *  [X] Textarea
+ *  [ ] Add error text below input
  *  [ ] large and small sizes
  *  [ ] Icon left and right side
  *  [ ] Auto sizing

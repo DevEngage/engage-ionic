@@ -73,6 +73,17 @@ export class EonInput {
   @Prop() cols: number | undefined;
   @Prop() rows: number | undefined;
   @Prop() wrap: 'hard' | 'off' | 'soft' | undefined;
+  /* Item */
+  @Prop() itemButton: boolean;
+  @Prop() itemColor: string | undefined;
+  @Prop() itemDetail: boolean | undefined;
+  @Prop() itemDetailIcon: string;
+  @Prop() itemDisabled: boolean;
+  @Prop() itemHref: string | undefined;
+  @Prop() itemLines: "full" | "inset" | "none" | undefined;
+  @Prop() itemMode: "ios" | "md";
+  @Prop() itemRouterDirection: "back" | "forward" | "root";
+  @Prop() itemType: "button" | "reset" | "submit";
 
   componentDidLoad() {
     this.watchTrueValue();
@@ -172,8 +183,23 @@ export class EonInput {
 
   renderItem() {
     return (
-      <ion-item>
-        <ion-label position={this.labelPosition} mode={this.labelMode || this.mode} color={this.labelColor || this.color}>
+      <ion-item
+        button={this.itemButton}
+        color={this.itemColor}
+        detail={this.itemDetail}
+        detailIcon={this.itemDetailIcon}
+        disabled={this.itemDisabled}
+        href={this.itemHref}
+        lines={this.itemLines}
+        mode={this.itemMode}
+        routerDirection={this.itemRouterDirection}
+        type={this.itemType}
+      >
+        <ion-label
+          position={this.labelPosition}
+          mode={this.labelMode || this.mode}
+          color={this.labelColor || this.color}
+        >
           {this.label}
         </ion-label>
         {this.textarea ? this.renderTextarea() : this.renderInput()}

@@ -24,10 +24,11 @@ export class EonEngageBootstrap {
       <ion-content padding>
 
         <div class="container">
+          <h1 class="m-1">margin 1</h1>
+          <h1 class="m-2">margin 2</h1>
           <h1 class="m-5">margin 5</h1>
         </div>
 
-        <ion-button onClick={() => this.checkBind()}>Check Binding</ion-button>
       </ion-content>
     ];
   }

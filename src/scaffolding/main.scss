@@ -19,6 +19,7 @@
 @import "../../node_modules/bootstrap/scss/mixins/text-hide";
 @import "../../node_modules/bootstrap/scss/mixins/text-truncate";
 @import "../../node_modules/bootstrap/scss/mixins/visibility";
+@import "../../node_modules/bootstrap/scss/mixins/background-variant";
 
 // Layout
 @import "../../node_modules/bootstrap/scss/mixins/clearfix";
@@ -27,7 +28,6 @@
 @import "../../node_modules/bootstrap/scss/mixins/float";
 
 // Optional
-@import "../../node_modules/bootstrap/scss/images";
 @import "../../node_modules/bootstrap/scss/grid";
 
 // Utilities
@@ -58,8 +58,30 @@
 //@import "../../node_modules/bootstrap/scss/type";
 //@import "../../node_modules/bootstrap/scss/reboot";
 
+/* Images */
+.img-fluid {
+  @include img-fluid;
+}
+
+
+// Image thumbnails
+.img-thumbnail {
+  padding: $thumbnail-padding;
+  background-color: $thumbnail-bg;
+  border: $thumbnail-border-width solid $thumbnail-border-color;
+  @include border-radius($thumbnail-border-radius);
+  @include box-shadow($thumbnail-box-shadow);
+
+  // Keep them at most 100% wide
+  @include img-fluid;
+}
 
 /* Type */
+@mixin list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
 .list-unstyled {
   @include list-unstyled;
 }

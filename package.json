@@ -1,18 +1,28 @@
 {
-  "name": "engage-ionic",
-  "private": true,
+  "name": "@dev-engage/engage-ionic",
+  "private": false,
   "version": "0.1.0",
-  "description": "engage-ionic",
+  "description": "Engage ionic extends the amazing ionic component library",
+  "main": "dist/eon.js",
+  "module": "dist/index.js",
+  "types": "dist/types/components.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
   "license": "MIT",
+  "author": "DevEngage",
   "files": [
-    "dist/"
+    "dist/",
+    "colors/",
+    "themes/",
+    "src/databases/",
+    "src/helpers/"
   ],
   "scripts": {
     "build": "stencil build",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watch",
-    "prettier": "pretty-quick"
+    "prettier": "pretty-quick",
+    "publish": "npm run build && npm publish --access public"
   },
   "dependencies": {
     "@ionic/core": "4.0.0-rc.1",

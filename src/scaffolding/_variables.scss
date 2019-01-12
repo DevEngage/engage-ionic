@@ -135,9 +135,14 @@ $spacers: map-merge(
       0: 0,
       1: ($spacer * .25),
       2: ($spacer * .5),
-      3: $spacer,
-      4: ($spacer * 1.5),
-      5: ($spacer * 3)
+      3: ($spacer * .75),
+      4: $spacer,
+      5: ($spacer * 1.5),
+      6: ($spacer * 2),
+      7: ($spacer * 2.5),
+      8: ($spacer * 3),
+      9: ($spacer * 3.5),
+      10: ($spacer * 4)
     ),
     $spacers
 );
@@ -284,8 +289,11 @@ $font-family-base:            $font-family-sans-serif !default;
 // stylelint-enable value-keyword-case
 
 $font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
+$font-size-xl:                ($font-size-base * 1.5) !default;
 $font-size-lg:                ($font-size-base * 1.25) !default;
+$font-size-md:                ($font-size-base) !default;
 $font-size-sm:                ($font-size-base * .875) !default;
+$font-size-xs:                ($font-size-base * .6) !default;
 
 $font-weight-lighter:         lighter !default;
 $font-weight-light:           300 !default;
@@ -494,3 +502,17 @@ $positions: static, relative, absolute, fixed, sticky !default;
 
 $print-page-size:                   a3 !default;
 $print-body-min-width:              map-get($grid-breakpoints, "lg") !default;
+
+
+// CSS Variables
+
+$max-font-size-px: 32;
+
+root {
+  --font-size-base: $font-size-base;
+  --font-size-xs: $font-size-xs;
+  --font-size-sm: $font-size-sm;
+  --font-size-md: $font-size-md;
+  --font-size-lg: $font-size-lg;
+  --font-size-xl: $font-size-xl;
+}

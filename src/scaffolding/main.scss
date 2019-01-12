@@ -58,6 +58,32 @@
 //@import "../../node_modules/bootstrap/scss/type";
 //@import "../../node_modules/bootstrap/scss/reboot";
 
+
+/* Text */
+
+.font-size-xs {
+  font-size: $font-size-xs;
+}
+.font-size-sm {
+  font-size: $font-size-sm;
+}
+.font-size-md {
+  font-size: $font-size-md;
+}
+.font-size-lg {
+  font-size: $font-size-lg;
+}
+.font-size-xl {
+  font-size: $font-size-xl;
+}
+
+@for $i from 1 through $max-font-size-px {
+  .font-size-#{$i}px {
+    font-size: 0px + $i;
+  }
+}
+
+
 /* Images */
 .img-fluid {
   @include img-fluid;

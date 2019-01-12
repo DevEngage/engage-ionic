@@ -11,10 +11,7 @@
   "author": "DevEngage",
   "files": [
     "dist/",
-    "colors/",
-    "themes/",
-    "src/databases/",
-    "src/helpers/"
+    "scaffolding/"
   ],
   "scripts": {
     "build": "stencil build",

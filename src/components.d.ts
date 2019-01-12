@@ -29,6 +29,42 @@ export namespace Components {
     'visible'?: number;
   }
 
+  interface EonForm {
+    'adapter': any;
+    'allowUndefined': boolean;
+    'bindSelector': string;
+    'eonId': string | number;
+    'errorSelector': string;
+    'getValues': () => object;
+    'handleUpload': boolean;
+    'inputSelector': string;
+    'path': string;
+    'propertyNameAttribute': string;
+    'refresh': boolean;
+    'reset': () => void;
+    'setValue': (value?: object) => void;
+    'submit': () => void;
+    'type': 'save' | 'update' | 'patch' | 'create' | 'custom';
+    'uploadSelector': string;
+    'value': object;
+  }
+  interface EonFormAttributes extends StencilHTMLAttributes {
+    'adapter'?: any;
+    'allowUndefined'?: boolean;
+    'bindSelector'?: string;
+    'eonId'?: string | number;
+    'errorSelector'?: string;
+    'handleUpload'?: boolean;
+    'inputSelector'?: string;
+    'onOnSubmit'?: (event: CustomEvent) => void;
+    'path'?: string;
+    'propertyNameAttribute'?: string;
+    'refresh'?: boolean;
+    'type'?: 'save' | 'update' | 'patch' | 'create' | 'custom';
+    'uploadSelector'?: string;
+    'value'?: object;
+  }
+
   interface EonInput {
     'accept': string | undefined;
     'autocapitalize': string;
@@ -158,6 +194,7 @@ export namespace Components {
 declare global {
   interface StencilElementInterfaces {
     'EonFlip': Components.EonFlip;
+    'EonForm': Components.EonForm;
     'EonInput': Components.EonInput;
     'EonEngageBootstrap': Components.EonEngageBootstrap;
     'EonEngageHome': Components.EonEngageHome;
@@ -166,6 +203,7 @@ declare global {
 
   interface StencilIntrinsicElements {
     'eon-flip': Components.EonFlipAttributes;
+    'eon-form': Components.EonFormAttributes;
     'eon-input': Components.EonInputAttributes;
     'eon-engage-bootstrap': Components.EonEngageBootstrapAttributes;
     'eon-engage-home': Components.EonEngageHomeAttributes;
@@ -177,6 +215,12 @@ declare global {
   var HTMLEonFlipElement: {
     prototype: HTMLEonFlipElement;
     new (): HTMLEonFlipElement;
+  };
+
+  interface HTMLEonFormElement extends Components.EonForm, HTMLStencilElement {}
+  var HTMLEonFormElement: {
+    prototype: HTMLEonFormElement;
+    new (): HTMLEonFormElement;
   };
 
   interface HTMLEonInputElement extends Components.EonInput, HTMLStencilElement {}
@@ -205,6 +249,7 @@ declare global {
 
   interface HTMLElementTagNameMap {
     'eon-flip': HTMLEonFlipElement
+    'eon-form': HTMLEonFormElement
     'eon-input': HTMLEonInputElement
     'eon-engage-bootstrap': HTMLEonEngageBootstrapElement
     'eon-engage-home': HTMLEonEngageHomeElement
@@ -213,6 +258,7 @@ declare global {
 
   interface ElementTagNameMap {
     'eon-flip': HTMLEonFlipElement;
+    'eon-form': HTMLEonFormElement;
     'eon-input': HTMLEonInputElement;
     'eon-engage-bootstrap': HTMLEonEngageBootstrapElement;
     'eon-engage-home': HTMLEonEngageHomeElement;

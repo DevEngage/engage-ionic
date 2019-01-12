@@ -185,13 +185,13 @@ export class EonInput {
     return (
       <ion-item
         button={this.itemButton}
-        color={this.itemColor}
+        color={this.itemColor || this.color}
         detail={this.itemDetail}
         detailIcon={this.itemDetailIcon}
         disabled={this.itemDisabled}
         href={this.itemHref}
         lines={this.itemLines}
-        mode={this.itemMode}
+        mode={this.itemMode || this.mode}
         routerDirection={this.itemRouterDirection}
         type={this.itemType}
       >

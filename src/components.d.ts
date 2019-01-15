@@ -19,6 +19,75 @@ import {
 
 export namespace Components {
 
+  interface EonButton {
+    'buttonType': string;
+    'color': string | undefined;
+    'disabled': boolean;
+    'enableToggle': boolean;
+    'endLoading': () => void;
+    'expand': 'block' | 'full' | undefined;
+    'fill': 'clear' | 'default' | 'outline' | 'solid' | undefined;
+    'href': string | undefined;
+    'icon': string;
+    'iconSize': string;
+    'loading': boolean;
+    'loadingColor': any;
+    'loadingCurrent': any;
+    'loadingMax': any;
+    'loadingMin': any;
+    'loadingType': 'bar' | 'spinner' | 'full' | 'center';
+    'mode': 'ios' | 'md';
+    'onClick': (event) => any;
+    'preventDefault': boolean;
+    'rightIcon': string;
+    'routerDirection': 'back' | 'forward' | 'root';
+    'setLoadingCurrent': (loadingCurrent: any) => void;
+    'shape': 'round' | undefined;
+    'size': Size | 'default' | 'large' | 'small' | undefined;
+    'startLoading': () => void;
+    'stop': boolean;
+    'stopPropagation': boolean;
+    'strong': boolean;
+    'target': string;
+    'toggle': () => void;
+    'toggleLoading': () => void;
+    'tooltip': string;
+    'tooltipPosition': 'top' | 'bottom' | 'left' | 'right';
+    'type': 'button' | 'reset' | 'submit';
+  }
+  interface EonButtonAttributes extends StencilHTMLAttributes {
+    'buttonType'?: string;
+    'color'?: string | undefined;
+    'disabled'?: boolean;
+    'enableToggle'?: boolean;
+    'expand'?: 'block' | 'full' | undefined;
+    'fill'?: 'clear' | 'default' | 'outline' | 'solid' | undefined;
+    'href'?: string | undefined;
+    'icon'?: string;
+    'iconSize'?: string;
+    'loading'?: boolean;
+    'loadingColor'?: any;
+    'loadingCurrent'?: any;
+    'loadingMax'?: any;
+    'loadingMin'?: any;
+    'loadingType'?: 'bar' | 'spinner' | 'full' | 'center';
+    'mode'?: 'ios' | 'md';
+    'onClick'?: (event) => any;
+    'onEonAction'?: (event: CustomEvent) => void;
+    'preventDefault'?: boolean;
+    'rightIcon'?: string;
+    'routerDirection'?: 'back' | 'forward' | 'root';
+    'shape'?: 'round' | undefined;
+    'size'?: Size | 'default' | 'large' | 'small' | undefined;
+    'stop'?: boolean;
+    'stopPropagation'?: boolean;
+    'strong'?: boolean;
+    'target'?: string;
+    'tooltip'?: string;
+    'tooltipPosition'?: 'top' | 'bottom' | 'left' | 'right';
+    'type'?: 'button' | 'reset' | 'submit';
+  }
+
   interface EonFlip {
     'flip': () => void;
     'flipButtonId': string;
@@ -255,6 +324,7 @@ export namespace Components {
 
 declare global {
   interface StencilElementInterfaces {
+    'EonButton': Components.EonButton;
     'EonFlip': Components.EonFlip;
     'EonForm': Components.EonForm;
     'EonInput': Components.EonInput;
@@ -265,6 +335,7 @@ declare global {
   }
 
   interface StencilIntrinsicElements {
+    'eon-button': Components.EonButtonAttributes;
     'eon-flip': Components.EonFlipAttributes;
     'eon-form': Components.EonFormAttributes;
     'eon-input': Components.EonInputAttributes;
@@ -274,6 +345,12 @@ declare global {
     'eon-engage-root': Components.EonEngageRootAttributes;
   }
 
+
+  interface HTMLEonButtonElement extends Components.EonButton, HTMLStencilElement {}
+  var HTMLEonButtonElement: {
+    prototype: HTMLEonButtonElement;
+    new (): HTMLEonButtonElement;
+  };
 
   interface HTMLEonFlipElement extends Components.EonFlip, HTMLStencilElement {}
   var HTMLEonFlipElement: {
@@ -318,6 +395,7 @@ declare global {
   };
 
   interface HTMLElementTagNameMap {
+    'eon-button': HTMLEonButtonElement
     'eon-flip': HTMLEonFlipElement
     'eon-form': HTMLEonFormElement
     'eon-input': HTMLEonInputElement
@@ -328,6 +406,7 @@ declare global {
   }
 
   interface ElementTagNameMap {
+    'eon-button': HTMLEonButtonElement;
     'eon-flip': HTMLEonFlipElement;
     'eon-form': HTMLEonFormElement;
     'eon-input': HTMLEonInputElement;

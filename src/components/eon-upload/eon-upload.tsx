@@ -291,13 +291,13 @@ export class EonUpload {
     return [
       !this.uploadOnSelect ?
         <div class="row dropzone-controls">
-          <eon-button class="float-right" context="warning" outline={true} size="sm" onClick={(e) => this.clear(e)}>
+          <eon-button class="float-right" color="warning" fill="outline" size="sm" onClick={(e) => this.clear(e)}>
             Clear All
           </eon-button>
-          <eon-button class="float-right" context="primary" outline={true} size="sm" onClick={(e) => this.start(e)}>
+          <eon-button class="float-right" color="primary" fill="outline" size="sm" onClick={(e) => this.start(e)}>
             Upload All
           </eon-button>
-          <eon-button class="float-right" context="primary" outline={true} size="sm">
+          <eon-button class="float-right" color="primary" fill="outline" size="sm">
             Add
           </eon-button>
         </div>
@@ -318,10 +318,10 @@ export class EonUpload {
               {file.state === 'success' ?
                   <h5 class="text-center"> Uploaded! </h5>
                 : [
-                  <eon-button class="" context="clear" outline={false} size="sm" onClick={(e) => this.removeFile(e, file)}>
+                  <eon-button class="" color="clear" fill="outline" size="sm" onClick={(e) => this.removeFile(e, file)}>
                     remove
                   </eon-button>,
-                  <eon-button class="" context="clear" outline={false} size="sm" onClick={(e) => this.start(e, [file])}>
+                  <eon-button class="" color="clear" fill="outline" size="sm" onClick={(e) => this.start(e, [file])}>
                     upload
                   </eon-button>
               ]}

@@ -1,0 +1,166 @@
+eon-button {
+  //--border: 1px solid transparent;
+  //--padding: .375rem .75rem;
+  //--font-size: 1rem;
+  //--line-height: 1.5;
+  //--border-radius: .25rem;
+  //--transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  //--text-transform: none;
+  //.btn {
+  //  display: inline-block;
+  //  cursor: pointer;
+  //  font-weight: var(--font-weight, 400);
+  //  text-align: var(--align-text, center);
+  //  white-space: var(--white-space, nowrap);
+  //  vertical-align: var(--vertical-align, middle);
+  //  -webkit-user-select: var(--user-select, none);
+  //  -moz-user-select: var(--user-select, none);
+  //  -ms-user-select: var(--user-select, none);
+  //  user-select: var(--user-select, none);
+  //  border: var(--border);
+  //  text-transform: var(--text-transform);
+  //  padding: var(--padding);
+  //  font-size: var(--font-size);
+  //  line-height: var(--line-height);
+  //  -webkit-border-radius: var(--border-radius);
+  //  border-radius: var(--border-radius);
+  //  -webkit-transition: var(--transition);
+  //  transition: var(--transition);
+  //  -o-transition: var(--transition-2);
+  //  transition: var(--transition-2);
+  //  transition: var(--transition-3);
+  //}
+  //position: relative;
+  //
+  //button {
+  //  position: relative;
+  //  overflow: var(--overflow, hidden);
+  //}
+  //
+  //.eon-ripple-effect {
+  //  position: absolute;
+  //  border-radius: 100%;
+  //  background-color: rgba(0, 0, 0, 0.15);
+  //  background-clip: padding-box;
+  //  pointer-events: none;
+  //  user-select: none;
+  //  transform: scale(0);
+  //  opacity: 1;
+  //  perspective: 1000px;
+  //  backface-visibility: hidden;
+  //  &.eon-z-active {
+  //    opacity: 0;
+  //    transform: scale(2);
+  //    transition: opacity 1.2s ease-out, transform 0.6s ease-out;
+  //  }
+  //}
+  //
+  //[type=reset], [type=submit], button, html [type=button] {
+  //  -webkit-appearance: none !important;
+  //}
+  //
+  //.eon-btn-ignore-case {
+  //  text-transform: none !important;
+  //}
+  //
+  //.eon-btn-fab {
+  //  /* TODO: add css vars */
+  //  width: 47px !important;
+  //  height: 47px !important;
+  //  font-size: 18px !important;
+  //  position: relative;
+  //  z-index: 1;
+  //  vertical-align: middle;
+  //  display: inline-block;
+  //  overflow: hidden;
+  //  -webkit-transition: all .2s ease-in-out;
+  //  -o-transition: all .2s ease-in-out;
+  //  transition: all .2s ease-in-out;
+  //  margin: 10px;
+  //  -webkit-border-radius: 50%;
+  //  border-radius: 50% !important;
+  //  padding: 0 !important;
+  //  cursor: pointer;
+  //  text-align: center;
+  //
+  //}
+  //
+  //.btn-xs.eon-btn-fab {
+  //  width: 24px !important;
+  //  height: 24px !important;
+  //  font-size: 10px !important;
+  //
+  //}
+  //.btn-sm.eon-btn-fab {
+  //  width: 35px !important;
+  //  height: 35px !important;
+  //  font-size: 14px !important;
+  //
+  //}
+  //.btn-md.eon-btn-fab {
+  //  width: 47px !important;
+  //  height: 47px !important;
+  //  font-size: 18px !important;
+  //}
+  //.btn-lg.eon-btn-fab {
+  //  width: 65px !important;
+  //  height: 65px !important;
+  //  font-size: 24px !important;
+  //}
+  //.btn-xl.eon-btn-fab {
+  //  width: 80px !important;
+  //  height: 80px !important;
+  //  font-size: 32px !important;
+  //}
+  //
+  //.button-loading-spinner {
+  //  position: absolute;
+  //  top: 11px;
+  //  right: 5px;
+  //}
+  //
+  //.button-loading-bar {
+  //  position: absolute;
+  //  bottom: -16px;
+  //  left: -2px;
+  //  width: calc(100% + 4px);
+  //}
+  //
+  //.button-loading-center {
+  //  position: absolute;
+  //  top: calc(50% - 11px);
+  //  left: -2px;
+  //  width: calc(100% + 4px);
+  //  color: white;
+  //}
+  //
+  //$fab-list-buffer: 55px;
+  //.eon-fab-list {
+  //  position: absolute;
+  //  &.direction-up {
+  //    left: -5px;
+  //    bottom: $fab-list-buffer;
+  //  }
+  //  &.direction-down {
+  //    left: -5px;
+  //    top: $fab-list-buffer;
+  //  }
+  //  &.direction-left {
+  //    top: -6px;
+  //    right: $fab-list-buffer;
+  //  }
+  //  &.direction-right {
+  //    top: -6px;
+  //    left: $fab-list-buffer;
+  //  }
+  //}
+  //
+  //.button-allow-overflow {
+  //  overflow: visible;
+  //}
+  //
+  //.btn-clear {
+  //  padding:5px;
+  //}
+
+}

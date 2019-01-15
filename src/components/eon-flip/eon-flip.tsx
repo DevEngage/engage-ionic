@@ -13,7 +13,7 @@ import _ from 'lodash';
     theme: 'eon-flip'
   }
 })
-export class EngageFlipCard {
+export class EonFlipCard {
 
   @Prop({ context: 'config' }) config: any;
   @Prop() flipType: 'hover' | 'click' | 'button' = 'click';

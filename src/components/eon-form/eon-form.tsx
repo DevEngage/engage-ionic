@@ -156,14 +156,14 @@ export class EonForm {
     const promises = [];
     let files: any[] = [];
     if (!this.handleUpload) return;
-    // this.getEonUploads().forEach((item: HTMLEonUploadElement) => {
-    //   if (!item.classList.contains('eon-exclude')) {
-    //     item.setAdapter(adapter);
-    //     let itemPromise = item.start();
-    //     itemPromise.then(_files => files = files.concat(_files));
-    //     promises.push(itemPromise);
-    //   }
-    // });
+    this.getEonUploads().forEach((item: HTMLEonUploadElement) => {
+      if (!item.classList.contains('eon-exclude')) {
+        item.setAdapter(adapter);
+        let itemPromise = item.start();
+        itemPromise.then(_files => files = files.concat(_files));
+        promises.push(itemPromise);
+      }
+    });
     return Promise.all(promises).then(() => files);
   }
 

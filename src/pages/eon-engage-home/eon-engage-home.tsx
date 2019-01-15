@@ -1,16 +1,36 @@
-import { Component, State } from '@stencil/core';
+import { Component, State, Element } from '@stencil/core';
 
 @Component({
   tag: 'eon-engage-home',
   styleUrl: 'eon-engage-home.scss'
 })
 export class EonEngageHome {
+  @Element() element: HTMLElement;
+  private formElement: HTMLEonFormElement;
+
   @State() fields = {
-    test: ''
+    name: '',
+    email: ''
   };
 
+
+  componentDidLoad() {
+    this.formElement = this.element.querySelector('.eng-form-example')
+  }
+
+  submitForm() {
+    this.formElement.submit();
+  }
+
   checkBind() {
-    alert(this.fields.test);
+    alert(this.fields.name);
+  }
+
+  testAdapter() {
+    return {
+      path: 'collection',
+      save: (doc) => console.log(doc)
+    }
   }
 
   render() {
@@ -41,9 +61,18 @@ export class EonEngageHome {
 
         <h5>Input</h5>
         <eon-input placeholder="Hello" />
-        <eon-input label="Test" labelPosition="floating" name="test" bind={this.fields} />
+        <eon-input label="Test" labelPosition="floating" name="name" bind={this.fields} />
         <eon-input label="Test" labelPosition="floating" textarea={true} />
         <ion-button onClick={() => this.checkBind()}>Check Binding</ion-button>
+
+        <h5>Form</h5>
+        <eon-form class="eng-form-example" value={{ test: 'name', pass: 'Bob' }} adapter={this.testAdapter()}>
+          <input type="text" name="name" value="hello" />
+          <eon-input label="Email" name="email" />
+          <eon-upload></eon-upload>
+        </eon-form>
+        <ion-button onClick={() => this.submitForm()}>Submit</ion-button>
+
       </ion-content>
     ];
   }

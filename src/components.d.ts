@@ -9,6 +9,12 @@ import '@stencil/core';
 
 import '@ionic/core';
 import 'ionicons';
+import {
+  ImageStyle,
+  Size,
+  UploadStyle,
+  UploadType,
+} from './types/theme';
 
 
 export namespace Components {
@@ -181,6 +187,62 @@ export namespace Components {
     'wrap'?: 'hard' | 'off' | 'soft' | undefined;
   }
 
+  interface EonUpload {
+    'accept': string;
+    'adapter': any;
+    'bindSelector': string;
+    'clear': (event?: any) => void;
+    'context': string;
+    'engStyle': UploadStyle;
+    'eonId': string;
+    'errorMsg': string;
+    'errorSelector': string;
+    'getInputElement': () => HTMLInputElement;
+    'imageStyle': ImageStyle;
+    'mainImage': boolean;
+    'method': string;
+    'multiple': boolean;
+    'name': string;
+    'pause': () => void;
+    'placeholder': string;
+    'preview': boolean;
+    'select': () => void;
+    'setAdapter': (adapter: any, onlyIfMissing?: boolean) => any;
+    'size': Size;
+    'start': (event?: any, files?: any) => Promise<any[]>;
+    'successMsg': string;
+    'type': UploadType;
+    'uploadOnSelect': boolean;
+    'value': any;
+  }
+  interface EonUploadAttributes extends StencilHTMLAttributes {
+    'accept'?: string;
+    'adapter'?: any;
+    'bindSelector'?: string;
+    'context'?: string;
+    'engStyle'?: UploadStyle;
+    'eonId'?: string;
+    'errorMsg'?: string;
+    'errorSelector'?: string;
+    'imageStyle'?: ImageStyle;
+    'mainImage'?: boolean;
+    'method'?: string;
+    'multiple'?: boolean;
+    'name'?: string;
+    'onEonFileClear'?: (event: CustomEvent) => void;
+    'onEonFileSelect'?: (event: CustomEvent) => void;
+    'onEonUploadEnd'?: (event: CustomEvent) => void;
+    'onEonUploadProgress'?: (event: CustomEvent) => void;
+    'onEonUploadStart'?: (event: CustomEvent) => void;
+    'placeholder'?: string;
+    'preview'?: boolean;
+    'size'?: Size;
+    'successMsg'?: string;
+    'type'?: UploadType;
+    'uploadOnSelect'?: boolean;
+    'value'?: any;
+  }
+
   interface EonEngageBootstrap {}
   interface EonEngageBootstrapAttributes extends StencilHTMLAttributes {}
 
@@ -196,6 +258,7 @@ declare global {
     'EonFlip': Components.EonFlip;
     'EonForm': Components.EonForm;
     'EonInput': Components.EonInput;
+    'EonUpload': Components.EonUpload;
     'EonEngageBootstrap': Components.EonEngageBootstrap;
     'EonEngageHome': Components.EonEngageHome;
     'EonEngageRoot': Components.EonEngageRoot;
@@ -205,6 +268,7 @@ declare global {
     'eon-flip': Components.EonFlipAttributes;
     'eon-form': Components.EonFormAttributes;
     'eon-input': Components.EonInputAttributes;
+    'eon-upload': Components.EonUploadAttributes;
     'eon-engage-bootstrap': Components.EonEngageBootstrapAttributes;
     'eon-engage-home': Components.EonEngageHomeAttributes;
     'eon-engage-root': Components.EonEngageRootAttributes;
@@ -229,6 +293,12 @@ declare global {
     new (): HTMLEonInputElement;
   };
 
+  interface HTMLEonUploadElement extends Components.EonUpload, HTMLStencilElement {}
+  var HTMLEonUploadElement: {
+    prototype: HTMLEonUploadElement;
+    new (): HTMLEonUploadElement;
+  };
+
   interface HTMLEonEngageBootstrapElement extends Components.EonEngageBootstrap, HTMLStencilElement {}
   var HTMLEonEngageBootstrapElement: {
     prototype: HTMLEonEngageBootstrapElement;
@@ -251,6 +321,7 @@ declare global {
     'eon-flip': HTMLEonFlipElement
     'eon-form': HTMLEonFormElement
     'eon-input': HTMLEonInputElement
+    'eon-upload': HTMLEonUploadElement
     'eon-engage-bootstrap': HTMLEonEngageBootstrapElement
     'eon-engage-home': HTMLEonEngageHomeElement
     'eon-engage-root': HTMLEonEngageRootElement
@@ -260,6 +331,7 @@ declare global {
     'eon-flip': HTMLEonFlipElement;
     'eon-form': HTMLEonFormElement;
     'eon-input': HTMLEonInputElement;
+    'eon-upload': HTMLEonUploadElement;
     'eon-engage-bootstrap': HTMLEonEngageBootstrapElement;
     'eon-engage-home': HTMLEonEngageHomeElement;
     'eon-engage-root': HTMLEonEngageRootElement;

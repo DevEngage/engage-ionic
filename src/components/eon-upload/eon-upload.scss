@@ -1,0 +1,88 @@
+
+eon-upload {
+  .eon-dropzone {
+    border-radius: 2px;
+    border: 2px dashed var(--secondary);
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .dropzone-controls {
+    display: block;
+  }
+
+  .eon-dropzone-xs {
+    padding: 5px;
+    .dropzone-controls {
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+  }
+  .eon-dropzone-sm {
+    padding: 10px;
+    .dropzone-controls {
+      margin-top: -20px;
+      margin-bottom: 20px;
+    }
+  }
+  .eon-dropzone-md {
+    padding: 25px;
+    .dropzone-controls {
+      margin-top: -50px;
+      margin-bottom: 50px;
+    }
+  }
+  .eon-dropzone-lg {
+    padding: 50px;
+    .dropzone-controls {
+      margin-top: -100px;
+      margin-bottom: 100px;
+    }
+  }
+  .eon-dropzone-xl {
+    padding: 100px;
+    .dropzone-controls {
+      margin-top: -200px;
+      margin-bottom: 200px;
+    }
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+  }
+
+  .eon-profile-image {
+    cursor: pointer;
+  }
+
+  .profile-image-rounded {
+    img, eon-icon i {
+      //border: 2px solid var(--primary);
+      border-radius: 10px;
+      max-width: 200px;
+      min-width: 50px;
+    }
+  }
+
+  .profile-image-circle {
+    img, eon-icon i {
+      //border: 2px solid var(--primary);
+      border-radius: 50%;
+      max-width: 200px;
+      max-height: 200px;
+      min-width: 50px;
+      min-height: 50px;
+    }
+  }
+
+  .profile-image-square {
+    img, eon-icon i {
+      //border: 2px solid var(--primary);
+      border-radius: 0;
+      max-width: 200px;
+      min-width: 50px;
+    }
+  }
+}

@@ -322,6 +322,7 @@ export class EonButton {
       this.icon && <eon-icon name={this.icon} size={this.iconSize || this.size} />,
       <slot/>,
       this.rightIcon && <eon-icon name={this.rightIcon} />,
+      this._loading && this.loadingType !== 'bar' && this.renderLoading()
     ];
   }
 
@@ -368,23 +369,23 @@ export class EonButton {
     // );
     //
     return [
-        <ion-button
-          disabled={this.disabled}
-          buttonType={this.buttonType}
-          fill={this.fill}
-          expand={this.expand}
-          color={this.color}
-          href={this.href}
-          mode={this.mode}
-          routerDirection={this.routerDirection}
-          shape={this.shape}
-          size={this.getSize()}
-          strong={this.strong}
-          type={this.type}
-        >
-          {this.renderInner()}
-        </ion-button>,
-      this._loading && this.renderLoading()
+      <ion-button
+        disabled={this.disabled}
+        buttonType={this.buttonType}
+        fill={this.fill}
+        expand={this.expand}
+        color={this.color}
+        href={this.href}
+        mode={this.mode}
+        routerDirection={this.routerDirection}
+        shape={this.shape}
+        size={this.getSize()}
+        strong={this.strong}
+        type={this.type}
+      >
+        {this.renderInner()}
+      </ion-button>,
+      this._loading && this.loadingType === 'bar' && this.renderLoading()
     ];
   }
 

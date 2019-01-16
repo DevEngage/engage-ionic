@@ -1,5 +1,6 @@
 eon-button {
   display: inline-block;
+  position: relative;
   //--border: 1px solid transparent;
   //--padding: .375rem .75rem;
   //--font-size: 1rem;
@@ -115,9 +116,10 @@ eon-button {
   //}
   //
   .button-loading-spinner {
-    position: absolute;
-    top: 11px;
-    right: 5px;
+    position: relative;
+    display: block;
+    top: 1px;
+    right: -8px;
   }
   //
   .button-loading-bar {

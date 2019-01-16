@@ -300,7 +300,7 @@ export namespace Components {
     'classes': string;
     'color': string;
     'current': number | EonProgressInterface | EonProgressInterface[];
-    'getProgress': () => any;
+    'getProgress': () => number | EonProgressInterface | EonProgressInterface[];
     'max': number;
     'message': string;
     'min': number;

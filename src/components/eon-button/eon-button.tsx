@@ -306,8 +306,8 @@ export class EonButton {
       <eon-loading
         class={`button-loading-${this.loadingType}`}
         type={this.loadingType === 'bar' ? 'bar' : 'spinner'}
-        mode={this._loadingCurrent > -1 ?  'determinate' : 'indeterminate'}
-        context={this.loadingColor ? this.loadingColor : this.color}
+        frequency={this._loadingCurrent > -1 ?  'determinate' : 'indeterminate'}
+        color={this.loadingColor ? this.loadingColor : this.color}
         size="xs"
         current={this._loadingCurrent}
         min={this.loadingMin}
@@ -322,7 +322,6 @@ export class EonButton {
       this.icon && <eon-icon name={this.icon} size={this.iconSize || this.size} />,
       <slot/>,
       this.rightIcon && <eon-icon name={this.rightIcon} />,
-      this._loading && this.renderLoading()
     ];
   }
 
@@ -368,24 +367,25 @@ export class EonButton {
     //   </button>
     // );
     //
-    return (
-      <ion-button
-        disabled={this.disabled}
-        buttonType={this.buttonType}
-        fill={this.fill}
-        expand={this.expand}
-        color={this.color}
-        href={this.href}
-        mode={this.mode}
-        routerDirection={this.routerDirection}
-        shape={this.shape}
-        size={this.getSize()}
-        strong={this.strong}
-        type={this.type}
-      >
-        {this.renderInner()}
-      </ion-button>
-    );
+    return [
+        <ion-button
+          disabled={this.disabled}
+          buttonType={this.buttonType}
+          fill={this.fill}
+          expand={this.expand}
+          color={this.color}
+          href={this.href}
+          mode={this.mode}
+          routerDirection={this.routerDirection}
+          shape={this.shape}
+          size={this.getSize()}
+          strong={this.strong}
+          type={this.type}
+        >
+          {this.renderInner()}
+        </ion-button>,
+      this._loading && this.renderLoading()
+    ];
   }
 
   // renderATag() {

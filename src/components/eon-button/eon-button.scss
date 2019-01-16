@@ -1,4 +1,5 @@
 eon-button {
+  display: inline-block;
   //--border: 1px solid transparent;
   //--padding: .375rem .75rem;
   //--font-size: 1rem;
@@ -113,26 +114,32 @@ eon-button {
   //  font-size: 32px !important;
   //}
   //
-  //.button-loading-spinner {
-  //  position: absolute;
-  //  top: 11px;
-  //  right: 5px;
-  //}
+  .button-loading-spinner {
+    position: absolute;
+    top: 11px;
+    right: 5px;
+  }
   //
-  //.button-loading-bar {
-  //  position: absolute;
-  //  bottom: -16px;
-  //  left: -2px;
-  //  width: calc(100% + 4px);
-  //}
+  .button-loading-bar {
+    position: absolute;
+    bottom: -12px;
+    left: 2px;
+    width: calc(100% + -4px);
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    .progress-md {
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+    }
+  }
   //
-  //.button-loading-center {
-  //  position: absolute;
-  //  top: calc(50% - 11px);
-  //  left: -2px;
-  //  width: calc(100% + 4px);
-  //  color: white;
-  //}
+  .button-loading-center {
+    position: absolute;
+    top: calc(50% - 11px);
+    left: -2px;
+    width: calc(100% + 4px);
+    color: white;
+  }
   //
   //$fab-list-buffer: 55px;
   //.eon-fab-list {

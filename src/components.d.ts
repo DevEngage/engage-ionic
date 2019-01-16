@@ -15,6 +15,9 @@ import {
   UploadStyle,
   UploadType,
 } from './types/theme';
+import {
+  EonProgressInterface,
+} from './components/eon-progress/eon-progress.interface';
 
 
 export namespace Components {
@@ -256,6 +259,82 @@ export namespace Components {
     'wrap'?: 'hard' | 'off' | 'soft' | undefined;
   }
 
+  interface EonLoading {
+    'adapter': any;
+    'color': string;
+    'current': number;
+    'duration': number;
+    'frequency': 'indeterminate' | 'determinate' | 'regular' | 'ion' | undefined;
+    'hide': () => void;
+    'max': number;
+    'message': string;
+    'min': number;
+    'modal': boolean;
+    'modalOptions': any;
+    'mode': 'ios' | 'md';
+    'show': () => void;
+    'size': Size;
+    'toggle': () => void;
+    'type': 'spinner' | 'bar';
+  }
+  interface EonLoadingAttributes extends StencilHTMLAttributes {
+    'adapter'?: any;
+    'color'?: string;
+    'current'?: number;
+    'duration'?: number;
+    'frequency'?: 'indeterminate' | 'determinate' | 'regular' | 'ion' | undefined;
+    'max'?: number;
+    'message'?: string;
+    'min'?: number;
+    'modal'?: boolean;
+    'modalOptions'?: any;
+    'mode'?: 'ios' | 'md';
+    'onEonFinish'?: (event: CustomEvent) => void;
+    'onEonStart'?: (event: CustomEvent) => void;
+    'onEonUpdate'?: (event: CustomEvent) => void;
+    'size'?: Size;
+    'type'?: 'spinner' | 'bar';
+  }
+
+  interface EonProgress {
+    'classes': string;
+    'color': string;
+    'current': number | EonProgressInterface | EonProgressInterface[];
+    'getProgress': () => any;
+    'max': number;
+    'message': string;
+    'min': number;
+    'type': 'indeterminate' | 'determinate' | 'regular' | 'ion';
+  }
+  interface EonProgressAttributes extends StencilHTMLAttributes {
+    'classes'?: string;
+    'color'?: string;
+    'current'?: number | EonProgressInterface | EonProgressInterface[];
+    'max'?: number;
+    'message'?: string;
+    'min'?: number;
+    'onEonComplete'?: (event: CustomEvent) => void;
+    'type'?: 'indeterminate' | 'determinate' | 'regular' | 'ion';
+  }
+
+  interface EonSpinner {
+    'color': string;
+    'duration': number | undefined;
+    'name': 'bubbles' | 'circles' | 'crescent' | 'dots' | 'lines' | 'lines-small' | undefined;
+    'paused': boolean;
+    'size': Size | 'fit';
+    'type': 'indeterminate' | 'determinate' | 'regular' | 'graph' | 'ion';
+  }
+  interface EonSpinnerAttributes extends StencilHTMLAttributes {
+    'color'?: string;
+    'duration'?: number | undefined;
+    'name'?: 'bubbles' | 'circles' | 'crescent' | 'dots' | 'lines' | 'lines-small' | undefined;
+    'onEonComplete'?: (event: CustomEvent) => void;
+    'paused'?: boolean;
+    'size'?: Size | 'fit';
+    'type'?: 'indeterminate' | 'determinate' | 'regular' | 'graph' | 'ion';
+  }
+
   interface EonUpload {
     'accept': string;
     'adapter': any;
@@ -328,6 +407,9 @@ declare global {
     'EonFlip': Components.EonFlip;
     'EonForm': Components.EonForm;
     'EonInput': Components.EonInput;
+    'EonLoading': Components.EonLoading;
+    'EonProgress': Components.EonProgress;
+    'EonSpinner': Components.EonSpinner;
     'EonUpload': Components.EonUpload;
     'EonEngageBootstrap': Components.EonEngageBootstrap;
     'EonEngageHome': Components.EonEngageHome;
@@ -339,6 +421,9 @@ declare global {
     'eon-flip': Components.EonFlipAttributes;
     'eon-form': Components.EonFormAttributes;
     'eon-input': Components.EonInputAttributes;
+    'eon-loading': Components.EonLoadingAttributes;
+    'eon-progress': Components.EonProgressAttributes;
+    'eon-spinner': Components.EonSpinnerAttributes;
     'eon-upload': Components.EonUploadAttributes;
     'eon-engage-bootstrap': Components.EonEngageBootstrapAttributes;
     'eon-engage-home': Components.EonEngageHomeAttributes;
@@ -370,6 +455,24 @@ declare global {
     new (): HTMLEonInputElement;
   };
 
+  interface HTMLEonLoadingElement extends Components.EonLoading, HTMLStencilElement {}
+  var HTMLEonLoadingElement: {
+    prototype: HTMLEonLoadingElement;
+    new (): HTMLEonLoadingElement;
+  };
+
+  interface HTMLEonProgressElement extends Components.EonProgress, HTMLStencilElement {}
+  var HTMLEonProgressElement: {
+    prototype: HTMLEonProgressElement;
+    new (): HTMLEonProgressElement;
+  };
+
+  interface HTMLEonSpinnerElement extends Components.EonSpinner, HTMLStencilElement {}
+  var HTMLEonSpinnerElement: {
+    prototype: HTMLEonSpinnerElement;
+    new (): HTMLEonSpinnerElement;
+  };
+
   interface HTMLEonUploadElement extends Components.EonUpload, HTMLStencilElement {}
   var HTMLEonUploadElement: {
     prototype: HTMLEonUploadElement;
@@ -399,6 +502,9 @@ declare global {
     'eon-flip': HTMLEonFlipElement
     'eon-form': HTMLEonFormElement
     'eon-input': HTMLEonInputElement
+    'eon-loading': HTMLEonLoadingElement
+    'eon-progress': HTMLEonProgressElement
+    'eon-spinner': HTMLEonSpinnerElement
     'eon-upload': HTMLEonUploadElement
     'eon-engage-bootstrap': HTMLEonEngageBootstrapElement
     'eon-engage-home': HTMLEonEngageHomeElement
@@ -410,6 +516,9 @@ declare global {
     'eon-flip': HTMLEonFlipElement;
     'eon-form': HTMLEonFormElement;
     'eon-input': HTMLEonInputElement;
+    'eon-loading': HTMLEonLoadingElement;
+    'eon-progress': HTMLEonProgressElement;
+    'eon-spinner': HTMLEonSpinnerElement;
     'eon-upload': HTMLEonUploadElement;
     'eon-engage-bootstrap': HTMLEonEngageBootstrapElement;
     'eon-engage-home': HTMLEonEngageHomeElement;

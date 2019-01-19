@@ -19,7 +19,8 @@
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watch",
     "prettier": "pretty-quick",
-    "publish": "npm run build && npm publish --access public"
+    "publish": "npm run build && npm publish --access public",
+    "just.publish": "npm publish --access public"
   },
   "dependencies": {
     "@ionic/core": "4.0.0-rc.1",

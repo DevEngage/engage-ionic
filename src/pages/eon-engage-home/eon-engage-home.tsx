@@ -80,6 +80,30 @@ export class EonEngageHome {
         <eon-button loading={true}>Testing</eon-button>
         <eon-button loading={true} loadingType="spinner">Testing</eon-button>
 
+        <br/>
+        <br/>
+        <h3>Collapse</h3>
+        <eon-collapse>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+              <ion-card-title>Card Title</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+              Keep close to Nature's heart... and break clear away, once in awhile,
+              and climb a mountain or spend a week in the woods. Wash your spirit clean.
+            </ion-card-content>
+          </ion-card>
+
+          <ion-list>
+            <ion- item>
+              <ion-icon name="wifi" slot="start"></ion-icon>
+              <ion-label>Card Link Item 1 .activated</ion-label>
+            </ion->
+          </ion-list>
+        </eon-collapse>
+
       </ion-content>
     ];
   }

@@ -16,6 +16,9 @@ import {
   UploadType,
 } from './types/theme';
 import {
+  EonPrivacyPartnerInterface,
+} from './components/eon-privacy-policy/eon-privacy-policy.interface';
+import {
   EonProgressInterface,
 } from './components/eon-progress/eon-progress.interface';
 
@@ -296,6 +299,63 @@ export namespace Components {
     'type'?: 'spinner' | 'bar';
   }
 
+  interface EonPrivacyPolicy {
+    'advertising': EonPrivacyPartnerInterface[];
+    'analytics': EonPrivacyPartnerInterface[];
+    'appleStore': boolean;
+    'braintree': boolean;
+    'contacts': object[];
+    'covers': string[];
+    'effective': Date;
+    'facebook': boolean;
+    'firebase': boolean;
+    'googleAdSense': boolean;
+    'googleAdWords': boolean;
+    'googleAdmob': boolean;
+    'googleAnalytics': boolean;
+    'googleStore': boolean;
+    'kitchenSink': boolean;
+    'legalName': string;
+    'mobile': string;
+    'payments': EonPrivacyPartnerInterface[];
+    'paypal': boolean;
+    'personalData': string[];
+    'remarketing': EonPrivacyPartnerInterface[];
+    'showHeader': boolean;
+    'storage': EonPrivacyPartnerInterface[];
+    'stripe': boolean;
+    'twitter': boolean;
+    'url': string;
+  }
+  interface EonPrivacyPolicyAttributes extends StencilHTMLAttributes {
+    'advertising'?: EonPrivacyPartnerInterface[];
+    'analytics'?: EonPrivacyPartnerInterface[];
+    'appleStore'?: boolean;
+    'braintree'?: boolean;
+    'contacts'?: object[];
+    'covers'?: string[];
+    'effective'?: Date;
+    'facebook'?: boolean;
+    'firebase'?: boolean;
+    'googleAdSense'?: boolean;
+    'googleAdWords'?: boolean;
+    'googleAdmob'?: boolean;
+    'googleAnalytics'?: boolean;
+    'googleStore'?: boolean;
+    'kitchenSink'?: boolean;
+    'legalName'?: string;
+    'mobile'?: string;
+    'payments'?: EonPrivacyPartnerInterface[];
+    'paypal'?: boolean;
+    'personalData'?: string[];
+    'remarketing'?: EonPrivacyPartnerInterface[];
+    'showHeader'?: boolean;
+    'storage'?: EonPrivacyPartnerInterface[];
+    'stripe'?: boolean;
+    'twitter'?: boolean;
+    'url'?: string;
+  }
+
   interface EonProgress {
     'classes': string;
     'color': string;
@@ -408,6 +468,7 @@ declare global {
     'EonForm': Components.EonForm;
     'EonInput': Components.EonInput;
     'EonLoading': Components.EonLoading;
+    'EonPrivacyPolicy': Components.EonPrivacyPolicy;
     'EonProgress': Components.EonProgress;
     'EonSpinner': Components.EonSpinner;
     'EonUpload': Components.EonUpload;
@@ -422,6 +483,7 @@ declare global {
     'eon-form': Components.EonFormAttributes;
     'eon-input': Components.EonInputAttributes;
     'eon-loading': Components.EonLoadingAttributes;
+    'eon-privacy-policy': Components.EonPrivacyPolicyAttributes;
     'eon-progress': Components.EonProgressAttributes;
     'eon-spinner': Components.EonSpinnerAttributes;
     'eon-upload': Components.EonUploadAttributes;
@@ -459,6 +521,12 @@ declare global {
   var HTMLEonLoadingElement: {
     prototype: HTMLEonLoadingElement;
     new (): HTMLEonLoadingElement;
+  };
+
+  interface HTMLEonPrivacyPolicyElement extends Components.EonPrivacyPolicy, HTMLStencilElement {}
+  var HTMLEonPrivacyPolicyElement: {
+    prototype: HTMLEonPrivacyPolicyElement;
+    new (): HTMLEonPrivacyPolicyElement;
   };
 
   interface HTMLEonProgressElement extends Components.EonProgress, HTMLStencilElement {}
@@ -503,6 +571,7 @@ declare global {
     'eon-form': HTMLEonFormElement
     'eon-input': HTMLEonInputElement
     'eon-loading': HTMLEonLoadingElement
+    'eon-privacy-policy': HTMLEonPrivacyPolicyElement
     'eon-progress': HTMLEonProgressElement
     'eon-spinner': HTMLEonSpinnerElement
     'eon-upload': HTMLEonUploadElement
@@ -517,6 +586,7 @@ declare global {
     'eon-form': HTMLEonFormElement;
     'eon-input': HTMLEonInputElement;
     'eon-loading': HTMLEonLoadingElement;
+    'eon-privacy-policy': HTMLEonPrivacyPolicyElement;
     'eon-progress': HTMLEonProgressElement;
     'eon-spinner': HTMLEonSpinnerElement;
     'eon-upload': HTMLEonUploadElement;

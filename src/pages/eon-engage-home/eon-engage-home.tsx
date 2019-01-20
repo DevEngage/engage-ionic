@@ -95,13 +95,25 @@ export class EonEngageHome {
               and climb a mountain or spend a week in the woods. Wash your spirit clean.
             </ion-card-content>
           </ion-card>
+          
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+              <ion-card-title>Card Title</ion-card-title>
+            </ion-card-header>
 
-          <ion-list>
+            <ion-card-content>
+              Keep close to Nature's heart... and break clear away, once in awhile,
+              and climb a mountain or spend a week in the woods. Wash your spirit clean.
+            </ion-card-content>
+          </ion-card>
+
+          {/* <ion-list>
             <ion- item>
               <ion-icon name="wifi" slot="start"></ion-icon>
               <ion-label>Card Link Item 1 .activated</ion-label>
             </ion->
-          </ion-list>
+          </ion-list> */}
         </eon-collapse>
 
       </ion-content>

@@ -1,5 +1,65 @@
 eon-collapse {
+    $animation-duration: 600ms; //.35s
+
     .eon-collapse-content {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        -webkit-transition: height $animation-duration ease, padding-top $animation-duration ease, padding-bottom $animation-duration ease;
+        -o-transition: height $animation-duration ease, padding-top $animation-duration ease, padding-bottom $animation-duration ease;
+        transition: height $animation-duration ease, padding-top $animation-duration ease, padding-bottom $animation-duration ease;
+    }
+
+    .eon-collapse-hidden {
         display: none;
     }
+
+    .eon-collapse-visible {
+        display: block;
+    }
+
+    .eon-collapse-change-height {
+        height: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+  .card,
+  ion-card,
+  .eon-collapse {
+    -webkit-transition: width, margin-left $animation-duration;
+    -o-transition: width, margin-left $animation-duration;
+    transition: width, margin-left $animation-duration;
+  }
+
+  .eon-collapse-popout {
+    width: calc(100% + 30px);
+    margin-left: -15px;
+  }
+
+    .ion-card-header {
+    cursor: pointer;
+  }
+
+  .card,
+  ion-card,
+  .eon-collapse {
+    &:first-of-type {
+        border-bottom: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        margin-bottom: 0;
+    }
+    &:not(:first-of-type):not(:last-of-type) {
+        border-bottom: 0;
+        border-radius: 0;
+        margin-bottom: 0;
+    }
+    &:last-of-type {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        margin-top: 0;
+    }
+  }
+
 }

@@ -17,6 +17,7 @@ export class EonCollapse {
   private headerElements: any[];
   private contentElements: any[];
   private elementEventListeners: any[] = [];
+  private offsets: any[] = [];
 
   getMainElments(): any {
     return this.element.querySelectorAll(this.selector);
@@ -34,6 +35,7 @@ export class EonCollapse {
     this.headerElements = this.getHeaderElments();
     this.contentElements = this.getContentElments();
     this.initToggle();
+    this.hideAll();
     this.watchSelected();
   }
 
@@ -41,8 +43,12 @@ export class EonCollapse {
     this.elementEventListeners = [];
     this.headerElements.forEach((element, i) => {
         const listener = () => this.toggle(i);
-        this.elementEventListeners[i] = listener
+        this.elementEventListeners[i] = listener;
         element.addEventListener('click', listener);
+    });
+    this.contentElements.forEach((_, i) => {
+      this.offsets[i] = this.contentElements[i].offsetHeight;
+      this.contentElements[i].classList.add('eon-collapse-content');
     });
   }
 
@@ -57,9 +63,10 @@ export class EonCollapse {
     if (this.accordion) {
         this.hideAll();
     }
-    console.log(this.contentElements)
     if (this.contentElements[itemPosition]) {
-        this.contentElements[itemPosition].classList.remove('eon-collapse-content');
+      this.contentElements[itemPosition].classList.remove('eon-collapse-hidden');
+      this.contentElements[itemPosition].classList.remove('eon-collapse-change-height');
+      this.contentElements[itemPosition].style.height = this.offsets[itemPosition] + 'px';
     }
   }
 
@@ -68,8 +75,9 @@ export class EonCollapse {
     if (itemPosition === this._selected) {
         this._selected = -1;
     }
-    if (this.contentElements[itemPosition] && !this.contentElements[itemPosition].classList.contains('eon-collapse-content')) {
-        this.contentElements[itemPosition].classList.add('eon-collapse-content');
+    if (this.contentElements[itemPosition] && !this.contentElements[itemPosition].classList.contains('eon-collapse-change-height')) {
+      this.contentElements[itemPosition].style.height = 0;
+      this.contentElements[itemPosition].classList.add('eon-collapse-change-height');
     }
   }
 
@@ -82,10 +90,10 @@ export class EonCollapse {
   
   @Method('toggle')
   toggle(itemPosition: number) {
-    if (itemPosition === this._selected) {
-        this.hide(itemPosition);
+    if (this.contentElements[itemPosition].classList.contains('eon-collapse-change-height')) {
+      this.show(itemPosition);
     } else {
-        this.show(itemPosition);
+        this.hide(itemPosition);
     }
   }
 

@@ -29,6 +29,10 @@ export class EonEngageHome {
           <ion-card class="ion-text-center"><h2>Just Kidding</h2><p>Mike Rocks</p></ion-card>
         </eon-flip>
 
+        <div><p>fadeInLeft</p>
+        <eon-icon name="fas fa-chess-rook" size="2.5em" color="#343a40" type="animated" animation="rock"/>
+      </div>
+
       </ion-content>
     ];
   }

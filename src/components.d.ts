@@ -4,106 +4,136 @@
  * It contains typing information for all components that exist in this project.
  */
 
+
 import '@stencil/core';
 
 import '@ionic/core';
 import 'ionicons';
 
+
 export namespace Components {
+
   interface EonFlip {
-    flip: () => void;
-    flipButtonId: string;
-    flipSelector: string;
-    flipType: 'hover' | 'click' | 'button';
-    type: 'static' | 'flip' | 'pass';
-    visible: number;
+    'flip': () => void;
+    'flipButtonId': string;
+    'flipSelector': string;
+    'flipType': 'hover' | 'click' | 'button';
+    'type': 'static' | 'flip' | 'pass';
+    'visible': number;
   }
   interface EonFlipAttributes extends StencilHTMLAttributes {
-    flipButtonId?: string;
-    flipSelector?: string;
-    flipType?: 'hover' | 'click' | 'button';
-    type?: 'static' | 'flip' | 'pass';
-    visible?: number;
+    'flipButtonId'?: string;
+    'flipSelector'?: string;
+    'flipType'?: 'hover' | 'click' | 'button';
+    'type'?: 'static' | 'flip' | 'pass';
+    'visible'?: number;
+  }
+
+  interface EonIcon {
+    'animation': 'rock' | 'ring' | 'vertical' | 'horizontal' | 'flash' | 'bounce' | 'spin' | 'float' | 'pulse' | 'shake' | 'tada' | 'passing' | 'burst';
+    'brand': 'fa' | 'nf' | 'ion' | '';
+    'color': string;
+    'fa': 'fas' | 'far' | 'fal' | 'fab' | '';
+    'name': string;
+    'size': string;
+    'src': string;
+    'transition': 'none' | 'bounceIn' | 'bounceInDown' | 'bounceInLeft' | 'bounceInRight' |'bounceInUp' | 'fadeIn' | 'fadeInDown' | 'fadeInDownBig' | 'fadeInLeft' | 'fadeInLeftBig' | 'fadeInRight' | 'fadeInRightBig' | 'fadeInUp' | 'fadeInUpBig' | 'flipInX' | 'flipInY' | 'lightSpeedIn' | 'rotateIn' | 'rotateInDownLeft' | 'rotateInDownRight' | 'rotateInUpLeft' | 'rotateInUpRight' | 'rollIn' | 'zoomIn' | 'zoomInDown' | 'zoomInLeft' | 'zoomInRight' | 'zoomInUp' | 'slideInDown' | 'slideInLeft' | 'slideInRight' | 'slideInUp';
+    'transitionDelay': string;
+    'transitionPosition': 'top' | 'middle' | 'bottom';
+    'type': 'static' | 'animated' | 'hover';
+  }
+  interface EonIconAttributes extends StencilHTMLAttributes {
+    'animation'?: 'rock' | 'ring' | 'vertical' | 'horizontal' | 'flash' | 'bounce' | 'spin' | 'float' | 'pulse' | 'shake' | 'tada' | 'passing' | 'burst';
+    'brand'?: 'fa' | 'nf' | 'ion' | '';
+    'color'?: string;
+    'fa'?: 'fas' | 'far' | 'fal' | 'fab' | '';
+    'name'?: string;
+    'size'?: string;
+    'src'?: string;
+    'transition'?: 'none' | 'bounceIn' | 'bounceInDown' | 'bounceInLeft' | 'bounceInRight' |'bounceInUp' | 'fadeIn' | 'fadeInDown' | 'fadeInDownBig' | 'fadeInLeft' | 'fadeInLeftBig' | 'fadeInRight' | 'fadeInRightBig' | 'fadeInUp' | 'fadeInUpBig' | 'flipInX' | 'flipInY' | 'lightSpeedIn' | 'rotateIn' | 'rotateInDownLeft' | 'rotateInDownRight' | 'rotateInUpLeft' | 'rotateInUpRight' | 'rollIn' | 'zoomIn' | 'zoomInDown' | 'zoomInLeft' | 'zoomInRight' | 'zoomInUp' | 'slideInDown' | 'slideInLeft' | 'slideInRight' | 'slideInUp';
+    'transitionDelay'?: string;
+    'transitionPosition'?: 'top' | 'middle' | 'bottom';
+    'type'?: 'static' | 'animated' | 'hover';
   }
 
   interface EonInput {
-    accept: string | undefined;
-    autocapitalize: string;
-    autocomplete: 'off' | 'on';
-    autocorrect: 'off' | 'on';
-    autofocus: boolean;
-    bind: string;
-    bindSelector: string;
-    clear: () => void;
-    clearInput: boolean;
-    clearOnEdit: boolean | undefined;
-    color: string | undefined;
-    debounce: number;
-    disabled: boolean;
-    errorMsg: string;
-    errorSelector: string;
-    getName: () => string;
-    getValue: () => any;
-    inputmode: string | undefined;
-    max: string | undefined;
-    maxlength: number | undefined;
-    min: string | undefined;
-    minlength: number | undefined;
-    mode: 'ios' | 'md';
-    multiple: boolean | undefined;
-    name: string;
-    pattern: string | undefined;
-    placeholder: null | string | undefined;
-    readonly: boolean;
-    required: boolean;
-    setFocus: () => void;
-    setValue: (value?: string) => void;
-    size: number | undefined;
-    spellcheck: boolean;
-    step: string | undefined;
-    successMsg: string;
-    type: 'date' | 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'time' | 'url';
-    value: null | string | undefined | number;
+    'accept': string | undefined;
+    'autocapitalize': string;
+    'autocomplete': 'off' | 'on';
+    'autocorrect': 'off' | 'on';
+    'autofocus': boolean;
+    'bind': string;
+    'bindSelector': string;
+    'clear': () => void;
+    'clearInput': boolean;
+    'clearOnEdit': boolean | undefined;
+    'color': string | undefined;
+    'debounce': number;
+    'disabled': boolean;
+    'errorMsg': string;
+    'errorSelector': string;
+    'getName': () => string;
+    'getValue': () => any;
+    'inputmode': string | undefined;
+    'max': string | undefined;
+    'maxlength': number | undefined;
+    'min': string | undefined;
+    'minlength': number | undefined;
+    'mode': 'ios' | 'md';
+    'multiple': boolean | undefined;
+    'name': string;
+    'pattern': string | undefined;
+    'placeholder': null | string | undefined;
+    'readonly': boolean;
+    'required': boolean;
+    'setFocus': () => void;
+    'setValue': (value?: string) => void;
+    'size': number | undefined;
+    'spellcheck': boolean;
+    'step': string | undefined;
+    'successMsg': string;
+    'type': 'date' | 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'time' | 'url';
+    'value': null | string | undefined | number;
   }
   interface EonInputAttributes extends StencilHTMLAttributes {
-    accept?: string | undefined;
-    autocapitalize?: string;
-    autocomplete?: 'off' | 'on';
-    autocorrect?: 'off' | 'on';
-    autofocus?: boolean;
-    bind?: string;
-    bindSelector?: string;
-    clearInput?: boolean;
-    clearOnEdit?: boolean | undefined;
-    color?: string | undefined;
-    debounce?: number;
-    disabled?: boolean;
-    errorMsg?: string;
-    errorSelector?: string;
-    inputmode?: string | undefined;
-    max?: string | undefined;
-    maxlength?: number | undefined;
-    min?: string | undefined;
-    minlength?: number | undefined;
-    mode?: 'ios' | 'md';
-    multiple?: boolean | undefined;
-    name?: string;
-    onEonBlur?: (event: CustomEvent) => void;
-    onEonChange?: (event: CustomEvent) => void;
-    onEonFocus?: (event: CustomEvent) => void;
-    onEonInput?: (event: CustomEvent) => void;
-    onEonInputDidLoad?: (event: CustomEvent) => void;
-    onEonInputDidUnload?: (event: CustomEvent) => void;
-    pattern?: string | undefined;
-    placeholder?: null | string | undefined;
-    readonly?: boolean;
-    required?: boolean;
-    size?: number | undefined;
-    spellcheck?: boolean;
-    step?: string | undefined;
-    successMsg?: string;
-    type?: 'date' | 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'time' | 'url';
-    value?: null | string | undefined | number;
+    'accept'?: string | undefined;
+    'autocapitalize'?: string;
+    'autocomplete'?: 'off' | 'on';
+    'autocorrect'?: 'off' | 'on';
+    'autofocus'?: boolean;
+    'bind'?: string;
+    'bindSelector'?: string;
+    'clearInput'?: boolean;
+    'clearOnEdit'?: boolean | undefined;
+    'color'?: string | undefined;
+    'debounce'?: number;
+    'disabled'?: boolean;
+    'errorMsg'?: string;
+    'errorSelector'?: string;
+    'inputmode'?: string | undefined;
+    'max'?: string | undefined;
+    'maxlength'?: number | undefined;
+    'min'?: string | undefined;
+    'minlength'?: number | undefined;
+    'mode'?: 'ios' | 'md';
+    'multiple'?: boolean | undefined;
+    'name'?: string;
+    'onEonBlur'?: (event: CustomEvent) => void;
+    'onEonChange'?: (event: CustomEvent) => void;
+    'onEonFocus'?: (event: CustomEvent) => void;
+    'onEonInput'?: (event: CustomEvent) => void;
+    'onEonInputDidLoad'?: (event: CustomEvent) => void;
+    'onEonInputDidUnload'?: (event: CustomEvent) => void;
+    'pattern'?: string | undefined;
+    'placeholder'?: null | string | undefined;
+    'readonly'?: boolean;
+    'required'?: boolean;
+    'size'?: number | undefined;
+    'spellcheck'?: boolean;
+    'step'?: string | undefined;
+    'successMsg'?: string;
+    'type'?: 'date' | 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'time' | 'url';
+    'value'?: null | string | undefined | number;
   }
 
   interface EonEngageHome {}
@@ -115,23 +145,32 @@ export namespace Components {
 
 declare global {
   interface StencilElementInterfaces {
-    EonFlip: Components.EonFlip;
-    EonInput: Components.EonInput;
-    EonEngageHome: Components.EonEngageHome;
-    EonEngageRoot: Components.EonEngageRoot;
+    'EonFlip': Components.EonFlip;
+    'EonIcon': Components.EonIcon;
+    'EonInput': Components.EonInput;
+    'EonEngageHome': Components.EonEngageHome;
+    'EonEngageRoot': Components.EonEngageRoot;
   }
 
   interface StencilIntrinsicElements {
     'eon-flip': Components.EonFlipAttributes;
+    'eon-icon': Components.EonIconAttributes;
     'eon-input': Components.EonInputAttributes;
     'eon-engage-home': Components.EonEngageHomeAttributes;
     'eon-engage-root': Components.EonEngageRootAttributes;
   }
 
+
   interface HTMLEonFlipElement extends Components.EonFlip, HTMLStencilElement {}
   var HTMLEonFlipElement: {
     prototype: HTMLEonFlipElement;
     new (): HTMLEonFlipElement;
+  };
+
+  interface HTMLEonIconElement extends Components.EonIcon, HTMLStencilElement {}
+  var HTMLEonIconElement: {
+    prototype: HTMLEonIconElement;
+    new (): HTMLEonIconElement;
   };
 
   interface HTMLEonInputElement extends Components.EonInput, HTMLStencilElement {}
@@ -153,18 +192,21 @@ declare global {
   };
 
   interface HTMLElementTagNameMap {
+    'eon-flip': HTMLEonFlipElement
+    'eon-icon': HTMLEonIconElement
+    'eon-input': HTMLEonInputElement
+    'eon-engage-home': HTMLEonEngageHomeElement
+    'eon-engage-root': HTMLEonEngageRootElement
+  }
+
+  interface ElementTagNameMap {
     'eon-flip': HTMLEonFlipElement;
+    'eon-icon': HTMLEonIconElement;
     'eon-input': HTMLEonInputElement;
     'eon-engage-home': HTMLEonEngageHomeElement;
     'eon-engage-root': HTMLEonEngageRootElement;
   }
 
-  interface ElementTagNameMap {
-    'eon-flip': HTMLEonFlipElement;
-    'eon-input': HTMLEonInputElement;
-    'eon-engage-home': HTMLEonEngageHomeElement;
-    'eon-engage-root': HTMLEonEngageRootElement;
-  }
 
   export namespace JSX {
     export interface Element {}
@@ -173,4 +215,5 @@ declare global {
     }
   }
   export interface HTMLAttributes extends StencilHTMLAttributes {}
+
 }

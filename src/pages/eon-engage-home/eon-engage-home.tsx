@@ -80,6 +80,9 @@ export class EonEngageHome {
         <eon-button loading={true}>Testing</eon-button>
         <eon-button loading={true} loadingType="spinner">Testing</eon-button>
 
+        {/* <h3>Privacy Policy</h3> */}
+        {/* <eon-privacy-policy></eon-privacy-policy> */}
+      
         <br/>
         <br/>
         <h3>Collapse</h3>

@@ -136,8 +136,11 @@ export class EonInput {
 
   updateValue(event) {
     if (event && event.detail && event.detail.value && !_.isEmpty(event.detail.value)) {
+      const changed = this._value !== event.detail.value
       this._value = event.detail.value;
-      this.eonChange.emit(this._value);
+      if (changed) {
+        this.eonChange.emit(this._value);
+      }
     } else {
       this._value = '';
       this.eonChange.emit(this._value);

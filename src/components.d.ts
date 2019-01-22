@@ -94,6 +94,27 @@ export namespace Components {
     'type'?: 'button' | 'reset' | 'submit';
   }
 
+  interface EonCollapse {
+    'accordion': boolean;
+    'hide': (itemPosition: number) => void;
+    'hideAll': () => void;
+    'selected': number;
+    'selector': string;
+    'selectorContent': string;
+    'selectorHeader': string;
+    'show': (itemPosition: number) => void;
+    'toggle': (itemPosition: number) => void;
+  }
+  interface EonCollapseAttributes extends StencilHTMLAttributes {
+    'accordion'?: boolean;
+    'onEonHide'?: (event: CustomEvent) => void;
+    'onEonShow'?: (event: CustomEvent) => void;
+    'selected'?: number;
+    'selector'?: string;
+    'selectorContent'?: string;
+    'selectorHeader'?: string;
+  }
+
   interface EonFlip {
     'flip': () => void;
     'flipButtonId': string;
@@ -464,6 +485,7 @@ export namespace Components {
 declare global {
   interface StencilElementInterfaces {
     'EonButton': Components.EonButton;
+    'EonCollapse': Components.EonCollapse;
     'EonFlip': Components.EonFlip;
     'EonForm': Components.EonForm;
     'EonInput': Components.EonInput;
@@ -479,6 +501,7 @@ declare global {
 
   interface StencilIntrinsicElements {
     'eon-button': Components.EonButtonAttributes;
+    'eon-collapse': Components.EonCollapseAttributes;
     'eon-flip': Components.EonFlipAttributes;
     'eon-form': Components.EonFormAttributes;
     'eon-input': Components.EonInputAttributes;
@@ -497,6 +520,12 @@ declare global {
   var HTMLEonButtonElement: {
     prototype: HTMLEonButtonElement;
     new (): HTMLEonButtonElement;
+  };
+
+  interface HTMLEonCollapseElement extends Components.EonCollapse, HTMLStencilElement {}
+  var HTMLEonCollapseElement: {
+    prototype: HTMLEonCollapseElement;
+    new (): HTMLEonCollapseElement;
   };
 
   interface HTMLEonFlipElement extends Components.EonFlip, HTMLStencilElement {}
@@ -567,6 +596,7 @@ declare global {
 
   interface HTMLElementTagNameMap {
     'eon-button': HTMLEonButtonElement
+    'eon-collapse': HTMLEonCollapseElement
     'eon-flip': HTMLEonFlipElement
     'eon-form': HTMLEonFormElement
     'eon-input': HTMLEonInputElement
@@ -582,6 +612,7 @@ declare global {
 
   interface ElementTagNameMap {
     'eon-button': HTMLEonButtonElement;
+    'eon-collapse': HTMLEonCollapseElement;
     'eon-flip': HTMLEonFlipElement;
     'eon-form': HTMLEonFormElement;
     'eon-input': HTMLEonInputElement;

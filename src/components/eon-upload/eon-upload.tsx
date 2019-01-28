@@ -99,7 +99,7 @@ export class EonUpload {
       } else if (this.adapter && this.adapter.$addFiles && !this.mainImage) {
         uploaded = await this.adapter.$addFiles(preppedFiles);
       } else if (this.adapter && this.adapter.$setImage && this.mainImage && preppedFiles && preppedFiles.length) {
-        uploaded = await this.adapter.$setImage(undefined, undefined, preppedFiles[0]);
+        uploaded = await this.adapter.$setImage(preppedFiles[0]);
       } else if (this.adapter && this.adapter[this.method]) {
         uploaded = await this.adapter[this.method](preppedFiles);
       } else {

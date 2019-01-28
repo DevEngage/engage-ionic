@@ -15,11 +15,11 @@
   ],
   "scripts": {
     "build": "stencil build",
+    "build.publish": "npm run build && npm publish --access public",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watch",
     "prettier": "pretty-quick",
-    "publish": "npm run build && npm publish --access public",
     "just.publish": "npm publish --access public"
   },
   "dependencies": {

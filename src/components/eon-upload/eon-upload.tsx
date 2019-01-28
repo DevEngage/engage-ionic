@@ -290,6 +290,13 @@ export class EonUpload {
     return parseFloat((a / Math.pow(c, f)).toFixed(d)) + " " + e[f];
   }
 
+  getPreview(file) {
+    if (typeof file === 'string') {
+      return file;
+    }
+    return URL.createObjectURL(file);
+  }
+
   renderFilePreview() {
     return [
       !this.uploadOnSelect ?
@@ -309,7 +316,7 @@ export class EonUpload {
         {this.filePreviews.map(file =>
           <eon-card type="pass" class="mb-2 col-xs-12 col-sm-6 col-md-4 col-lg-3">
             {file.type.search('image') > -1 ?
-              <img class="img-fluid card-img-top" src={URL.createObjectURL(file)} alt=""/>
+              <img class="img-fluid card-img-top" src={this.getPreview(file)} alt=""/>
               :
               <h2 class="text-center fa-5x">{this.getFileTypeIcon(file.type)}</h2>
             }
@@ -353,7 +360,7 @@ export class EonUpload {
         {this.renderInput()}
         {
           this.filePreviews[0] ?
-            <img class="d-block mx-auto img-fluid w-75" src={URL.createObjectURL(this.filePreviews[0])} alt=""/>
+            <img class="d-block mx-auto img-fluid w-75" src={this.getPreview(this.filePreviews[0])} alt=""/>
           : [
             <eon-icon class="d-block mx-auto text-center" fa="fas" name={`${this.imageStyle === 'circle' ? 'user-circle' : 'user'}`} size="100px" />,
             <h5 class="text-center"> upload </h5>

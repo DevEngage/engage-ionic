@@ -277,6 +277,9 @@ export class EonUpload {
       id: this.eonId,
       files: this.filePreviews
     });
+    if (this.uploadOnSelect) {
+      this.start();
+    }
   }
 
   dragOverHandler(event) {

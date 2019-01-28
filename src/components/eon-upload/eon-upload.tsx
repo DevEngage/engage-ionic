@@ -64,6 +64,9 @@ export class EonUpload {
 
   componentDidLoad() {
     this.inputElement = this.element.querySelector('#' + this.eonId);
+    if (this.value && this.filePreviews.length === 0) {
+      this.filePreviews = [ this.value ];
+    }
   }
 
   @Method('select')

@@ -10,11 +10,110 @@ import '@stencil/core';
 import '@ionic/core';
 import 'ionicons';
 import {
+  ImageStyle,
+  Size,
+  UploadStyle,
+  UploadType,
+} from './types/theme';
+import {
   EonPrivacyPartnerInterface,
 } from './components/eon-privacy-policy/eon-privacy-policy.interface';
+import {
+  EonProgressInterface,
+} from './components/eon-progress/eon-progress.interface';
 
 
 export namespace Components {
+
+  interface EonButton {
+    'buttonType': string;
+    'color': string | undefined;
+    'disabled': boolean;
+    'enableToggle': boolean;
+    'endLoading': () => void;
+    'expand': 'block' | 'full' | undefined;
+    'fill': 'clear' | 'default' | 'outline' | 'solid' | undefined;
+    'href': string | undefined;
+    'icon': string;
+    'iconSize': string;
+    'loading': boolean;
+    'loadingColor': any;
+    'loadingCurrent': any;
+    'loadingMax': any;
+    'loadingMin': any;
+    'loadingType': 'bar' | 'spinner' | 'full' | 'center';
+    'mode': 'ios' | 'md';
+    'onClick': (event) => any;
+    'preventDefault': boolean;
+    'rightIcon': string;
+    'routerDirection': 'back' | 'forward' | 'root';
+    'setLoadingCurrent': (loadingCurrent: any) => void;
+    'shape': 'round' | undefined;
+    'size': Size | 'default' | 'large' | 'small' | undefined;
+    'startLoading': () => void;
+    'stop': boolean;
+    'stopPropagation': boolean;
+    'strong': boolean;
+    'target': string;
+    'toggle': () => void;
+    'toggleLoading': () => void;
+    'tooltip': string;
+    'tooltipPosition': 'top' | 'bottom' | 'left' | 'right';
+    'type': 'button' | 'reset' | 'submit';
+  }
+  interface EonButtonAttributes extends StencilHTMLAttributes {
+    'buttonType'?: string;
+    'color'?: string | undefined;
+    'disabled'?: boolean;
+    'enableToggle'?: boolean;
+    'expand'?: 'block' | 'full' | undefined;
+    'fill'?: 'clear' | 'default' | 'outline' | 'solid' | undefined;
+    'href'?: string | undefined;
+    'icon'?: string;
+    'iconSize'?: string;
+    'loading'?: boolean;
+    'loadingColor'?: any;
+    'loadingCurrent'?: any;
+    'loadingMax'?: any;
+    'loadingMin'?: any;
+    'loadingType'?: 'bar' | 'spinner' | 'full' | 'center';
+    'mode'?: 'ios' | 'md';
+    'onClick'?: (event) => any;
+    'onEonAction'?: (event: CustomEvent) => void;
+    'preventDefault'?: boolean;
+    'rightIcon'?: string;
+    'routerDirection'?: 'back' | 'forward' | 'root';
+    'shape'?: 'round' | undefined;
+    'size'?: Size | 'default' | 'large' | 'small' | undefined;
+    'stop'?: boolean;
+    'stopPropagation'?: boolean;
+    'strong'?: boolean;
+    'target'?: string;
+    'tooltip'?: string;
+    'tooltipPosition'?: 'top' | 'bottom' | 'left' | 'right';
+    'type'?: 'button' | 'reset' | 'submit';
+  }
+
+  interface EonCollapse {
+    'accordion': boolean;
+    'hide': (itemPosition: number) => void;
+    'hideAll': () => void;
+    'selected': number;
+    'selector': string;
+    'selectorContent': string;
+    'selectorHeader': string;
+    'show': (itemPosition: number) => void;
+    'toggle': (itemPosition: number) => void;
+  }
+  interface EonCollapseAttributes extends StencilHTMLAttributes {
+    'accordion'?: boolean;
+    'onEonHide'?: (event: CustomEvent) => void;
+    'onEonShow'?: (event: CustomEvent) => void;
+    'selected'?: number;
+    'selector'?: string;
+    'selectorContent'?: string;
+    'selectorHeader'?: string;
+  }
 
   interface EonFlip {
     'flip': () => void;
@@ -30,6 +129,42 @@ export namespace Components {
     'flipType'?: 'hover' | 'click' | 'button';
     'type'?: 'static' | 'flip' | 'pass';
     'visible'?: number;
+  }
+
+  interface EonForm {
+    'adapter': any;
+    'allowUndefined': boolean;
+    'bindSelector': string;
+    'eonId': string | number;
+    'errorSelector': string;
+    'getValues': () => object;
+    'handleUpload': boolean;
+    'inputSelector': string;
+    'path': string;
+    'propertyNameAttribute': string;
+    'refresh': boolean;
+    'reset': () => void;
+    'setValue': (value?: object) => void;
+    'submit': () => void;
+    'type': 'save' | 'update' | 'patch' | 'create' | 'custom';
+    'uploadSelector': string;
+    'value': object;
+  }
+  interface EonFormAttributes extends StencilHTMLAttributes {
+    'adapter'?: any;
+    'allowUndefined'?: boolean;
+    'bindSelector'?: string;
+    'eonId'?: string | number;
+    'errorSelector'?: string;
+    'handleUpload'?: boolean;
+    'inputSelector'?: string;
+    'onOnSubmit'?: (event: CustomEvent) => void;
+    'path'?: string;
+    'propertyNameAttribute'?: string;
+    'refresh'?: boolean;
+    'type'?: 'save' | 'update' | 'patch' | 'create' | 'custom';
+    'uploadSelector'?: string;
+    'value'?: object;
   }
 
   interface EonInput {
@@ -148,6 +283,43 @@ export namespace Components {
     'wrap'?: 'hard' | 'off' | 'soft' | undefined;
   }
 
+  interface EonLoading {
+    'adapter': any;
+    'color': string;
+    'current': number;
+    'duration': number;
+    'frequency': 'indeterminate' | 'determinate' | 'regular' | 'ion' | undefined;
+    'hide': () => void;
+    'max': number;
+    'message': string;
+    'min': number;
+    'modal': boolean;
+    'modalOptions': any;
+    'mode': 'ios' | 'md';
+    'show': () => void;
+    'size': Size;
+    'toggle': () => void;
+    'type': 'spinner' | 'bar';
+  }
+  interface EonLoadingAttributes extends StencilHTMLAttributes {
+    'adapter'?: any;
+    'color'?: string;
+    'current'?: number;
+    'duration'?: number;
+    'frequency'?: 'indeterminate' | 'determinate' | 'regular' | 'ion' | undefined;
+    'max'?: number;
+    'message'?: string;
+    'min'?: number;
+    'modal'?: boolean;
+    'modalOptions'?: any;
+    'mode'?: 'ios' | 'md';
+    'onEonFinish'?: (event: CustomEvent) => void;
+    'onEonStart'?: (event: CustomEvent) => void;
+    'onEonUpdate'?: (event: CustomEvent) => void;
+    'size'?: Size;
+    'type'?: 'spinner' | 'bar';
+  }
+
   interface EonPrivacyPolicy {
     'advertising': EonPrivacyPartnerInterface[];
     'analytics': EonPrivacyPartnerInterface[];
@@ -205,6 +377,101 @@ export namespace Components {
     'url'?: string;
   }
 
+  interface EonProgress {
+    'classes': string;
+    'color': string;
+    'current': number | EonProgressInterface | EonProgressInterface[];
+    'getProgress': () => number | EonProgressInterface | EonProgressInterface[];
+    'max': number;
+    'message': string;
+    'min': number;
+    'type': 'indeterminate' | 'determinate' | 'regular' | 'ion';
+  }
+  interface EonProgressAttributes extends StencilHTMLAttributes {
+    'classes'?: string;
+    'color'?: string;
+    'current'?: number | EonProgressInterface | EonProgressInterface[];
+    'max'?: number;
+    'message'?: string;
+    'min'?: number;
+    'onEonComplete'?: (event: CustomEvent) => void;
+    'type'?: 'indeterminate' | 'determinate' | 'regular' | 'ion';
+  }
+
+  interface EonSpinner {
+    'color': string;
+    'duration': number | undefined;
+    'name': 'bubbles' | 'circles' | 'crescent' | 'dots' | 'lines' | 'lines-small' | undefined;
+    'paused': boolean;
+    'size': Size | 'fit';
+    'type': 'indeterminate' | 'determinate' | 'regular' | 'graph' | 'ion';
+  }
+  interface EonSpinnerAttributes extends StencilHTMLAttributes {
+    'color'?: string;
+    'duration'?: number | undefined;
+    'name'?: 'bubbles' | 'circles' | 'crescent' | 'dots' | 'lines' | 'lines-small' | undefined;
+    'onEonComplete'?: (event: CustomEvent) => void;
+    'paused'?: boolean;
+    'size'?: Size | 'fit';
+    'type'?: 'indeterminate' | 'determinate' | 'regular' | 'graph' | 'ion';
+  }
+
+  interface EonUpload {
+    'accept': string;
+    'adapter': any;
+    'bindSelector': string;
+    'clear': (event?: any) => void;
+    'context': string;
+    'engStyle': UploadStyle;
+    'eonId': string;
+    'errorMsg': string;
+    'errorSelector': string;
+    'getInputElement': () => HTMLInputElement;
+    'imageStyle': ImageStyle;
+    'mainImage': boolean;
+    'method': string;
+    'multiple': boolean;
+    'name': string;
+    'pause': () => void;
+    'placeholder': string;
+    'preview': boolean;
+    'select': () => void;
+    'setAdapter': (adapter: any, onlyIfMissing?: boolean) => any;
+    'size': Size;
+    'start': (event?: any, files?: any) => Promise<any[]>;
+    'successMsg': string;
+    'type': UploadType;
+    'uploadOnSelect': boolean;
+    'value': any;
+  }
+  interface EonUploadAttributes extends StencilHTMLAttributes {
+    'accept'?: string;
+    'adapter'?: any;
+    'bindSelector'?: string;
+    'context'?: string;
+    'engStyle'?: UploadStyle;
+    'eonId'?: string;
+    'errorMsg'?: string;
+    'errorSelector'?: string;
+    'imageStyle'?: ImageStyle;
+    'mainImage'?: boolean;
+    'method'?: string;
+    'multiple'?: boolean;
+    'name'?: string;
+    'onEonFileClear'?: (event: CustomEvent) => void;
+    'onEonFileSelect'?: (event: CustomEvent) => void;
+    'onEonUploadEnd'?: (event: CustomEvent) => void;
+    'onEonUploadProgress'?: (event: CustomEvent) => void;
+    'onEonUploadStart'?: (event: CustomEvent) => void;
+    'placeholder'?: string;
+    'preview'?: boolean;
+    'size'?: Size;
+    'successMsg'?: string;
+    'type'?: UploadType;
+    'uploadOnSelect'?: boolean;
+    'value'?: any;
+  }
+
   interface EonEngageBootstrap {}
   interface EonEngageBootstrapAttributes extends StencilHTMLAttributes {}
 
@@ -217,28 +484,60 @@ export namespace Components {
 
 declare global {
   interface StencilElementInterfaces {
+    'EonButton': Components.EonButton;
+    'EonCollapse': Components.EonCollapse;
     'EonFlip': Components.EonFlip;
+    'EonForm': Components.EonForm;
     'EonInput': Components.EonInput;
+    'EonLoading': Components.EonLoading;
     'EonPrivacyPolicy': Components.EonPrivacyPolicy;
+    'EonProgress': Components.EonProgress;
+    'EonSpinner': Components.EonSpinner;
+    'EonUpload': Components.EonUpload;
     'EonEngageBootstrap': Components.EonEngageBootstrap;
     'EonEngageHome': Components.EonEngageHome;
     'EonEngageRoot': Components.EonEngageRoot;
   }
 
   interface StencilIntrinsicElements {
+    'eon-button': Components.EonButtonAttributes;
+    'eon-collapse': Components.EonCollapseAttributes;
     'eon-flip': Components.EonFlipAttributes;
+    'eon-form': Components.EonFormAttributes;
     'eon-input': Components.EonInputAttributes;
+    'eon-loading': Components.EonLoadingAttributes;
     'eon-privacy-policy': Components.EonPrivacyPolicyAttributes;
+    'eon-progress': Components.EonProgressAttributes;
+    'eon-spinner': Components.EonSpinnerAttributes;
+    'eon-upload': Components.EonUploadAttributes;
     'eon-engage-bootstrap': Components.EonEngageBootstrapAttributes;
     'eon-engage-home': Components.EonEngageHomeAttributes;
     'eon-engage-root': Components.EonEngageRootAttributes;
   }
 
 
+  interface HTMLEonButtonElement extends Components.EonButton, HTMLStencilElement {}
+  var HTMLEonButtonElement: {
+    prototype: HTMLEonButtonElement;
+    new (): HTMLEonButtonElement;
+  };
+
+  interface HTMLEonCollapseElement extends Components.EonCollapse, HTMLStencilElement {}
+  var HTMLEonCollapseElement: {
+    prototype: HTMLEonCollapseElement;
+    new (): HTMLEonCollapseElement;
+  };
+
   interface HTMLEonFlipElement extends Components.EonFlip, HTMLStencilElement {}
   var HTMLEonFlipElement: {
     prototype: HTMLEonFlipElement;
     new (): HTMLEonFlipElement;
+  };
+
+  interface HTMLEonFormElement extends Components.EonForm, HTMLStencilElement {}
+  var HTMLEonFormElement: {
+    prototype: HTMLEonFormElement;
+    new (): HTMLEonFormElement;
   };
 
   interface HTMLEonInputElement extends Components.EonInput, HTMLStencilElement {}
@@ -247,10 +546,34 @@ declare global {
     new (): HTMLEonInputElement;
   };
 
+  interface HTMLEonLoadingElement extends Components.EonLoading, HTMLStencilElement {}
+  var HTMLEonLoadingElement: {
+    prototype: HTMLEonLoadingElement;
+    new (): HTMLEonLoadingElement;
+  };
+
   interface HTMLEonPrivacyPolicyElement extends Components.EonPrivacyPolicy, HTMLStencilElement {}
   var HTMLEonPrivacyPolicyElement: {
     prototype: HTMLEonPrivacyPolicyElement;
     new (): HTMLEonPrivacyPolicyElement;
+  };
+
+  interface HTMLEonProgressElement extends Components.EonProgress, HTMLStencilElement {}
+  var HTMLEonProgressElement: {
+    prototype: HTMLEonProgressElement;
+    new (): HTMLEonProgressElement;
+  };
+
+  interface HTMLEonSpinnerElement extends Components.EonSpinner, HTMLStencilElement {}
+  var HTMLEonSpinnerElement: {
+    prototype: HTMLEonSpinnerElement;
+    new (): HTMLEonSpinnerElement;
+  };
+
+  interface HTMLEonUploadElement extends Components.EonUpload, HTMLStencilElement {}
+  var HTMLEonUploadElement: {
+    prototype: HTMLEonUploadElement;
+    new (): HTMLEonUploadElement;
   };
 
   interface HTMLEonEngageBootstrapElement extends Components.EonEngageBootstrap, HTMLStencilElement {}
@@ -272,18 +595,32 @@ declare global {
   };
 
   interface HTMLElementTagNameMap {
+    'eon-button': HTMLEonButtonElement
+    'eon-collapse': HTMLEonCollapseElement
     'eon-flip': HTMLEonFlipElement
+    'eon-form': HTMLEonFormElement
     'eon-input': HTMLEonInputElement
+    'eon-loading': HTMLEonLoadingElement
     'eon-privacy-policy': HTMLEonPrivacyPolicyElement
+    'eon-progress': HTMLEonProgressElement
+    'eon-spinner': HTMLEonSpinnerElement
+    'eon-upload': HTMLEonUploadElement
     'eon-engage-bootstrap': HTMLEonEngageBootstrapElement
     'eon-engage-home': HTMLEonEngageHomeElement
     'eon-engage-root': HTMLEonEngageRootElement
   }
 
   interface ElementTagNameMap {
+    'eon-button': HTMLEonButtonElement;
+    'eon-collapse': HTMLEonCollapseElement;
     'eon-flip': HTMLEonFlipElement;
+    'eon-form': HTMLEonFormElement;
     'eon-input': HTMLEonInputElement;
+    'eon-loading': HTMLEonLoadingElement;
     'eon-privacy-policy': HTMLEonPrivacyPolicyElement;
+    'eon-progress': HTMLEonProgressElement;
+    'eon-spinner': HTMLEonSpinnerElement;
+    'eon-upload': HTMLEonUploadElement;
     'eon-engage-bootstrap': HTMLEonEngageBootstrapElement;
     'eon-engage-home': HTMLEonEngageHomeElement;
     'eon-engage-root': HTMLEonEngageRootElement;

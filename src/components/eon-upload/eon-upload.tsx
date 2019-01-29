@@ -5,7 +5,7 @@ import {
   // State,
   Method,
   Prop,
-  Element, Listen, State,
+  Element, Listen, State, Watch
 } from '@stencil/core';
 import _ from 'lodash';
 import {ImageStyle, Size, UploadStyle, UploadType} from "../../types/theme";
@@ -38,7 +38,7 @@ export class EonUpload {
   @Prop() size: Size = 'md';
   @Prop({mutable: true}) adapter: any;
   @Prop() method: string = 'upload';
-  @Prop() preview: boolean = false;
+  @Prop() preview: boolean = true;
   @Prop() multiple: boolean = true;
   @Prop() mainImage: boolean = false;
   @Prop() imageStyle: ImageStyle = 'rounded';
@@ -64,6 +64,11 @@ export class EonUpload {
 
   componentDidLoad() {
     this.inputElement = this.element.querySelector('#' + this.eonId);
+    this.watchValue();
+  }
+
+  @Watch('value')
+  watchValue() {
     if (this.value && this.filePreviews.length === 0) {
       this.filePreviews = [ this.value ];
     }
@@ -260,16 +265,18 @@ export class EonUpload {
 
   previewFiles(event) {
     event.preventDefault();
-    if (this.mainImage) {
-      this.filePreviews = [];
-    }
-    if (event.target && event.target.files && event.target.files.length) {
-      this.filePreviews = [
-        ...this.filePreviews,
-        ..._.map(event.target.files, value => value)
-      ];
-    } else if (!this.filePreviews.length) {
-      this.filePreviews = [];
+    if (this.preview) {
+      if (this.mainImage) {
+        this.filePreviews = [];
+      }
+      if (event.target && event.target.files && event.target.files.length) {
+        this.filePreviews = [
+          ...this.filePreviews,
+          ..._.map(event.target.files, value => value)
+        ];
+      } else if (!this.filePreviews.length) {
+        this.filePreviews = [];
+      }
     }
     this.onFileSelect.emit({
       status: 'selected',

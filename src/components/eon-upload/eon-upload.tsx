@@ -265,18 +265,16 @@ export class EonUpload {
 
   previewFiles(event) {
     event.preventDefault();
-    if (this.preview) {
-      if (this.mainImage) {
-        this.filePreviews = [];
-      }
-      if (event.target && event.target.files && event.target.files.length) {
-        this.filePreviews = [
-          ...this.filePreviews,
-          ..._.map(event.target.files, value => value)
-        ];
-      } else if (!this.filePreviews.length) {
-        this.filePreviews = [];
-      }
+    if (this.mainImage) {
+      this.filePreviews = [];
+    }
+    if (event.target && event.target.files && event.target.files.length) {
+      this.filePreviews = [
+        ...this.filePreviews,
+        ..._.map(event.target.files, value => value)
+      ];
+    } else if (!this.filePreviews.length) {
+      this.filePreviews = [];
     }
     this.onFileSelect.emit({
       status: 'selected',
@@ -301,6 +299,11 @@ export class EonUpload {
   }
 
   getPreview(file) {
+    if (!this.preview && this.value) {
+      file = this.value;
+    } else if (!this.preview) {
+      return null;
+    }
     if (typeof file === 'string') {
       return file;
     }
@@ -369,7 +372,7 @@ export class EonUpload {
       <div class={`eon-profile-image profile-image-${this.imageStyle}`}>
         {this.renderInput()}
         {
-          this.filePreviews[0] ?
+          this.filePreviews[0] && (this.preview || this.value) ?
             <img class="d-block mx-auto img-fluid w-75" src={this.getPreview(this.filePreviews[0])} alt=""/>
           : [
             <eon-icon class="d-block mx-auto text-center" fa="fas" name={`${this.imageStyle === 'circle' ? 'user-circle' : 'user'}`} size="100px" />,

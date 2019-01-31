@@ -167,6 +167,35 @@ export namespace Components {
     'value'?: object;
   }
 
+  interface EonIcon {
+    'animation': 'rock' | 'ring' | 'vertical' | 'horizontal' | 'flash' | 'bounce' | 'spin' | 'float' | 'pulse' | 'shake' | 'tada' | 'passing' | 'burst';
+    'brand': 'fa' | 'nf' | 'ion' | '';
+    'color': string;
+    'fa': 'fas' | 'far' | 'fal' | 'fab' | '';
+    'name': string;
+    'rotate': number;
+    'size': string;
+    'src': string;
+    'transition': 'none' | 'bounceIn' | 'bounceInDown' | 'bounceInLeft' | 'bounceInRight' |'bounceInUp' | 'fadeIn' | 'fadeInDown' | 'fadeInDownBig' | 'fadeInLeft' | 'fadeInLeftBig' | 'fadeInRight' | 'fadeInRightBig' | 'fadeInUp' | 'fadeInUpBig' | 'flipInX' | 'flipInY' | 'lightSpeedIn' | 'rotateIn' | 'rotateInDownLeft' | 'rotateInDownRight' | 'rotateInUpLeft' | 'rotateInUpRight' | 'rollIn' | 'zoomIn' | 'zoomInDown' | 'zoomInLeft' | 'zoomInRight' | 'zoomInUp' | 'slideInDown' | 'slideInLeft' | 'slideInRight' | 'slideInUp';
+    'transitionDelay': string;
+    'transitionPosition': 'top' | 'middle' | 'bottom';
+    'type': 'static' | 'animated' | 'hover';
+  }
+  interface EonIconAttributes extends StencilHTMLAttributes {
+    'animation'?: 'rock' | 'ring' | 'vertical' | 'horizontal' | 'flash' | 'bounce' | 'spin' | 'float' | 'pulse' | 'shake' | 'tada' | 'passing' | 'burst';
+    'brand'?: 'fa' | 'nf' | 'ion' | '';
+    'color'?: string;
+    'fa'?: 'fas' | 'far' | 'fal' | 'fab' | '';
+    'name'?: string;
+    'rotate'?: number;
+    'size'?: string;
+    'src'?: string;
+    'transition'?: 'none' | 'bounceIn' | 'bounceInDown' | 'bounceInLeft' | 'bounceInRight' |'bounceInUp' | 'fadeIn' | 'fadeInDown' | 'fadeInDownBig' | 'fadeInLeft' | 'fadeInLeftBig' | 'fadeInRight' | 'fadeInRightBig' | 'fadeInUp' | 'fadeInUpBig' | 'flipInX' | 'flipInY' | 'lightSpeedIn' | 'rotateIn' | 'rotateInDownLeft' | 'rotateInDownRight' | 'rotateInUpLeft' | 'rotateInUpRight' | 'rollIn' | 'zoomIn' | 'zoomInDown' | 'zoomInLeft' | 'zoomInRight' | 'zoomInUp' | 'slideInDown' | 'slideInLeft' | 'slideInRight' | 'slideInUp';
+    'transitionDelay'?: string;
+    'transitionPosition'?: 'top' | 'middle' | 'bottom';
+    'type'?: 'static' | 'animated' | 'hover';
+  }
+
   interface EonInput {
     'accept': string | undefined;
     'autocapitalize': string;
@@ -488,6 +517,7 @@ declare global {
     'EonCollapse': Components.EonCollapse;
     'EonFlip': Components.EonFlip;
     'EonForm': Components.EonForm;
+    'EonIcon': Components.EonIcon;
     'EonInput': Components.EonInput;
     'EonLoading': Components.EonLoading;
     'EonPrivacyPolicy': Components.EonPrivacyPolicy;
@@ -504,6 +534,7 @@ declare global {
     'eon-collapse': Components.EonCollapseAttributes;
     'eon-flip': Components.EonFlipAttributes;
     'eon-form': Components.EonFormAttributes;
+    'eon-icon': Components.EonIconAttributes;
     'eon-input': Components.EonInputAttributes;
     'eon-loading': Components.EonLoadingAttributes;
     'eon-privacy-policy': Components.EonPrivacyPolicyAttributes;
@@ -538,6 +569,12 @@ declare global {
   var HTMLEonFormElement: {
     prototype: HTMLEonFormElement;
     new (): HTMLEonFormElement;
+  };
+
+  interface HTMLEonIconElement extends Components.EonIcon, HTMLStencilElement {}
+  var HTMLEonIconElement: {
+    prototype: HTMLEonIconElement;
+    new (): HTMLEonIconElement;
   };
 
   interface HTMLEonInputElement extends Components.EonInput, HTMLStencilElement {}
@@ -599,6 +636,7 @@ declare global {
     'eon-collapse': HTMLEonCollapseElement
     'eon-flip': HTMLEonFlipElement
     'eon-form': HTMLEonFormElement
+    'eon-icon': HTMLEonIconElement
     'eon-input': HTMLEonInputElement
     'eon-loading': HTMLEonLoadingElement
     'eon-privacy-policy': HTMLEonPrivacyPolicyElement
@@ -615,6 +653,7 @@ declare global {
     'eon-collapse': HTMLEonCollapseElement;
     'eon-flip': HTMLEonFlipElement;
     'eon-form': HTMLEonFormElement;
+    'eon-icon': HTMLEonIconElement;
     'eon-input': HTMLEonInputElement;
     'eon-loading': HTMLEonLoadingElement;
     'eon-privacy-policy': HTMLEonPrivacyPolicyElement;

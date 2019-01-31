@@ -57,6 +57,12 @@ export class EonEngageHome {
           </ion-card>
         </eon-flip>
 
+        <div style={{"text-align": "center"}}>
+          <eon-icon name="airplane" size="28px" animation="tada" type="animated" color="green"></eon-icon>
+          <eon-icon name="airplane" size="28px" rotate={45} color="blue"></eon-icon>
+          <eon-icon name="airplane" size="28px" transition="fadeInRight" color="red"></eon-icon>
+        </div>
+
         <br />
 
         <h3>Input</h3>
@@ -82,7 +88,7 @@ export class EonEngageHome {
 
         {/* <h3>Privacy Policy</h3> */}
         {/* <eon-privacy-policy></eon-privacy-policy> */}
-      
+
         <br/>
         <br/>
         <h3>Collapse</h3>
@@ -98,7 +104,7 @@ export class EonEngageHome {
               and climb a mountain or spend a week in the woods. Wash your spirit clean.
             </ion-card-content>
           </ion-card>
-          
+
           <ion-card>
             <ion-card-header>
               <ion-card-subtitle>Card Subtitle</ion-card-subtitle>

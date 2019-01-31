@@ -1,26 +1,36 @@
 {
-  "name": "engage-ionic",
-  "private": true,
-  "version": "0.0.1",
-  "description": "engage-ionic",
+  "name": "@dev-engage/engage-ionic",
+  "private": false,
+  "version": "0.2.7",
+  "description": "Engage ionic extends the amazing ionic component library",
+  "main": "dist/eon.js",
+  "module": "dist/index.js",
+  "types": "dist/types/components.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
   "license": "MIT",
+  "author": "DevEngage",
   "files": [
-    "dist/"
+    "dist/",
+    "scaffolding/"
   ],
   "scripts": {
     "build": "stencil build",
+    "build.publish": "npm run build && npm publish --access public",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watch",
-    "prettier": "pretty-quick"
+    "prettier": "pretty-quick",
+    "just.publish": "npm publish --access public"
   },
   "dependencies": {
     "@ionic/core": "4.0.0-rc.1",
-    "@stencil/sass": "0.1.1"
+    "@stencil/sass": "0.1.1",
+    "bootstrap": "4.2.1"
   },
   "devDependencies": {
     "@stencil/core": "0.15.2",
     "prettier": "1.15.2",
-    "pretty-quick": "1.8.0"
+    "pretty-quick": "1.8.0",
+    "workbox-build": "3.4.1"
   }
 }

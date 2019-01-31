@@ -57,6 +57,12 @@ export class EonEngageHome {
           </ion-card>
         </eon-flip>
 
+        <div style={{"text-align": "center"}}>
+          <eon-icon name="airplane" size="28px" animation="tada" type="animated" color="green"></eon-icon>
+          <eon-icon name="airplane" size="28px" rotate={45} color="blue"></eon-icon>
+          <eon-icon name="airplane" size="28px" transition="fadeInRight" color="red"></eon-icon>
+        </div>
+
         <br />
 
         <h3>Input</h3>

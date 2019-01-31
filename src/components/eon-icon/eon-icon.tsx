@@ -30,6 +30,7 @@ export class EonIcon {
   @Prop() transition: 'none' | 'bounceIn' | 'bounceInDown' | 'bounceInLeft' | 'bounceInRight' |'bounceInUp' | 'fadeIn' | 'fadeInDown' | 'fadeInDownBig' | 'fadeInLeft' | 'fadeInLeftBig' | 'fadeInRight' | 'fadeInRightBig' | 'fadeInUp' | 'fadeInUpBig' | 'flipInX' | 'flipInY' | 'lightSpeedIn' | 'rotateIn' | 'rotateInDownLeft' | 'rotateInDownRight' | 'rotateInUpLeft' | 'rotateInUpRight' | 'rollIn' | 'zoomIn' | 'zoomInDown' | 'zoomInLeft' | 'zoomInRight' | 'zoomInUp' | 'slideInDown' | 'slideInLeft' | 'slideInRight' | 'slideInUp' = 'none';
   @Prop() transitionDelay: string;
   @Prop() transitionPosition: 'top' | 'middle' | 'bottom' = 'middle';
+  @Prop() rotate: number = 0;
 
   element;
   content;
@@ -37,6 +38,7 @@ export class EonIcon {
   positionTop;
   positionLeft;
   documentScrollHandler;
+  rotateCss
 
   componentDidLoad(): void {
     if (this.brand === 'ion') this.element = this.el.querySelector('ion-icon');
@@ -55,6 +57,7 @@ export class EonIcon {
         this.addTransition()
       }, 200)
     }
+
   }
 
   addTransition() {
@@ -114,7 +117,9 @@ export class EonIcon {
   }
 
   getIconStyle() {
-    return {fontSize: this.size, color: this.color};
+    if (this.rotate) this.rotateCss = `rotate(${this.rotate}deg)`;
+    console.log('this.rotateCss', this.rotateCss);
+    return {fontSize: this.size, color: this.color, transform: this.rotateCss};
   }
 
   getIconClass() {

@@ -1,6 +1,5 @@
 import {Component, Prop, Element} from '@stencil/core';
 
-//TODO: make scroll event listener work with ionics scroll system.
 
 @Component({
   tag: 'eon-icon',
@@ -25,7 +24,7 @@ export class EonIcon {
   * fab = brand
   * */
   @Prop() fa: 'fas' | 'far' | 'fal' | 'fab' | '' = 'far';
-  @Prop() brand: 'fa' | 'nf' | 'ion' | '' = 'fa';
+  @Prop() brand: 'fa' | 'nf' | 'ion' | '' = 'ion';
   @Prop() type: 'static' | 'animated' | 'hover' = 'static';
   @Prop() animation: 'rock' | 'ring' | 'vertical' | 'horizontal' | 'flash' | 'bounce' | 'spin' | 'float' | 'pulse' | 'shake' | 'tada' | 'passing' | 'burst' = 'spin';
   @Prop() transition: 'none' | 'bounceIn' | 'bounceInDown' | 'bounceInLeft' | 'bounceInRight' |'bounceInUp' | 'fadeIn' | 'fadeInDown' | 'fadeInDownBig' | 'fadeInLeft' | 'fadeInLeftBig' | 'fadeInRight' | 'fadeInRightBig' | 'fadeInUp' | 'fadeInUpBig' | 'flipInX' | 'flipInY' | 'lightSpeedIn' | 'rotateIn' | 'rotateInDownLeft' | 'rotateInDownRight' | 'rotateInUpLeft' | 'rotateInUpRight' | 'rollIn' | 'zoomIn' | 'zoomInDown' | 'zoomInLeft' | 'zoomInRight' | 'zoomInUp' | 'slideInDown' | 'slideInLeft' | 'slideInRight' | 'slideInUp' = 'none';
@@ -40,7 +39,9 @@ export class EonIcon {
   documentScrollHandler;
 
   componentDidLoad(): void {
-    this.element = this.el.querySelector('i');
+    if (this.brand === 'ion') this.element = this.el.querySelector('ion-icon');
+      else this.element = this.el.querySelector('i');
+
     if (this.type === 'animated') {
       this.element.classList.add('animated');
       this.element.classList.add('eon-' + this.animation);
@@ -62,30 +63,24 @@ export class EonIcon {
   }
 
   addScrollListener() {
-    // this.element.style.animationDelay = this.transitionDelay + 's';
     let offset;
     if (this.transitionPosition === 'top') offset = 4;
     else if (this.transitionPosition === 'middle') offset = 2;
     else if (this.transitionPosition === 'bottom') offset = 1.1;
-    // this.element.classList.add('eon-hide');
     const transitionStartPoint = this.positionTop - window.innerHeight/offset;
-    this.documentScrollHandler = ()=> {
-      this.checkScroll(transitionStartPoint);
+    this.documentScrollHandler = (ev)=> {
+      this.checkScroll(transitionStartPoint, ev);
     };
 
-    // this.content = document.querySelector('ion-content');
-    // this.content.setAttribute('scrollEvents', true)
-    // console.log('this.content', this.content);
-    // this.content.ionScroll.subscribe(($event) => {
-    //   this.scrollAmount = $event.scrollTop;
-    //   console.log('this.scrollAmount', this.scrollAmount);
-    // });
+    const content = document.querySelector('ion-content');
+    content.scrollEvents = true;
+    content.addEventListener('ionScroll', this.documentScrollHandler);
+
     document.addEventListener("scroll", this.documentScrollHandler);
   }
 
-  checkScroll(transitionStartPoint) {
-    console.log('transitionStartPoint', transitionStartPoint);
-    const scrollAmt = window.pageYOffset || document.documentElement.scrollTop;
+  checkScroll(transitionStartPoint, ev?) {
+    const scrollAmt = window.pageYOffset || document.documentElement.scrollTop || ev.detail.currentY;
     if(scrollAmt > transitionStartPoint) {
       setTimeout(() => {
         this.element.classList.remove('eon-hide');
@@ -135,8 +130,9 @@ export class EonIcon {
 
   renderIonIcon() {
     return (
-      <i class={`icon ion-${this.name} ${this.getIconClass()}`} style={this.getIconStyle()} />
+    <ion-icon name={this.name} class={`${this.getIconClass()}`} style={this.getIconStyle()}></ion-icon>
     );
+    {/*<i class={`icon ion-${this.name} ${this.getIconClass()}`} style={this.getIconStyle()} />*/}
   }
 
   renderNfIcon() {

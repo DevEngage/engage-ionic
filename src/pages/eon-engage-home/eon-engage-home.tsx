@@ -1,4 +1,6 @@
-import { Component, State, Element } from '@stencil/core';
+import {Component, State, Element, Prop} from '@stencil/core';
+import {slideEnterAnimation} from "../../animations/slide.enter";
+import {slideLeaveAnimation} from "../../animations/slide.leave";
 
 @Component({
   tag: 'eon-engage-home',
@@ -7,6 +9,7 @@ import { Component, State, Element } from '@stencil/core';
 export class EonEngageHome {
   @Element() element: HTMLElement;
   private formElement: HTMLEonFormElement;
+  @State() isModalVisible = false;
 
   @State() fields = {
     name: '',
@@ -31,6 +34,21 @@ export class EonEngageHome {
       path: 'collection',
       save: (doc) => console.log(doc)
     }
+  }
+
+
+  @Prop({
+    connect: 'ion-modal-controller'
+  })
+  private modalCtrl: HTMLIonModalControllerElement;
+
+  async launchModal() {
+    const modal = await this.modalCtrl.create({
+      component: 'eon-privacy-policy',
+      enterAnimation: (AnimationC, baseEl, from) => slideEnterAnimation(AnimationC, baseEl, from),
+      leaveAnimation: (AnimationC, baseEl, from) =>  slideLeaveAnimation(AnimationC, baseEl, from)
+    });
+    modal.present();
   }
 
   render() {
@@ -118,6 +136,14 @@ export class EonEngageHome {
             </ion->
           </ion-list> */}
         </eon-collapse>
+
+        <eon-button onClick={() => {
+          this.isModalVisible = true;
+        }}>
+          Launch Modal
+        </eon-button>
+
+        <eon-modal id="main-modal" isVisible={this.isModalVisible} component="eon-privacy-policy"></eon-modal>
 
       </ion-content>
     ];

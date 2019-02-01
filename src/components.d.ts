@@ -445,6 +445,17 @@ export namespace Components {
     'type'?: 'indeterminate' | 'determinate' | 'regular' | 'graph' | 'ion';
   }
 
+  interface EonTooltip {
+    'background': string;
+    'color': string;
+    'text': string;
+  }
+  interface EonTooltipAttributes extends StencilHTMLAttributes {
+    'background'?: string;
+    'color'?: string;
+    'text'?: string;
+  }
+
   interface EonUpload {
     'accept': string;
     'adapter': any;
@@ -523,6 +534,7 @@ declare global {
     'EonPrivacyPolicy': Components.EonPrivacyPolicy;
     'EonProgress': Components.EonProgress;
     'EonSpinner': Components.EonSpinner;
+    'EonTooltip': Components.EonTooltip;
     'EonUpload': Components.EonUpload;
     'EonEngageBootstrap': Components.EonEngageBootstrap;
     'EonEngageHome': Components.EonEngageHome;
@@ -540,6 +552,7 @@ declare global {
     'eon-privacy-policy': Components.EonPrivacyPolicyAttributes;
     'eon-progress': Components.EonProgressAttributes;
     'eon-spinner': Components.EonSpinnerAttributes;
+    'eon-tooltip': Components.EonTooltipAttributes;
     'eon-upload': Components.EonUploadAttributes;
     'eon-engage-bootstrap': Components.EonEngageBootstrapAttributes;
     'eon-engage-home': Components.EonEngageHomeAttributes;
@@ -607,6 +620,12 @@ declare global {
     new (): HTMLEonSpinnerElement;
   };
 
+  interface HTMLEonTooltipElement extends Components.EonTooltip, HTMLStencilElement {}
+  var HTMLEonTooltipElement: {
+    prototype: HTMLEonTooltipElement;
+    new (): HTMLEonTooltipElement;
+  };
+
   interface HTMLEonUploadElement extends Components.EonUpload, HTMLStencilElement {}
   var HTMLEonUploadElement: {
     prototype: HTMLEonUploadElement;
@@ -642,6 +661,7 @@ declare global {
     'eon-privacy-policy': HTMLEonPrivacyPolicyElement
     'eon-progress': HTMLEonProgressElement
     'eon-spinner': HTMLEonSpinnerElement
+    'eon-tooltip': HTMLEonTooltipElement
     'eon-upload': HTMLEonUploadElement
     'eon-engage-bootstrap': HTMLEonEngageBootstrapElement
     'eon-engage-home': HTMLEonEngageHomeElement
@@ -659,6 +679,7 @@ declare global {
     'eon-privacy-policy': HTMLEonPrivacyPolicyElement;
     'eon-progress': HTMLEonProgressElement;
     'eon-spinner': HTMLEonSpinnerElement;
+    'eon-tooltip': HTMLEonTooltipElement;
     'eon-upload': HTMLEonUploadElement;
     'eon-engage-bootstrap': HTMLEonEngageBootstrapElement;
     'eon-engage-home': HTMLEonEngageHomeElement;

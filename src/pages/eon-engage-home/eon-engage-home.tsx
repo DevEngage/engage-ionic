@@ -1,5 +1,7 @@
 import { Component, State, Element } from '@stencil/core';
 
+// TODO: get hover effect working on tooltip
+
 @Component({
   tag: 'eon-engage-home',
   styleUrl: 'eon-engage-home.scss'
@@ -63,6 +65,9 @@ export class EonEngageHome {
           <eon-icon name="airplane" size="28px" transition="fadeInRight" color="red"></eon-icon>
         </div>
 
+        <br />
+        <eon-tooltip text="howdy mike"><span>tooltip left</span></eon-tooltip>
+        <eon-tooltip style={{"float": "right"}} text="howdy mike... again" background="#17a2b8" color="#eee"><span>tooltip right</span></eon-tooltip>
         <br />
 
         <h3>Input</h3>

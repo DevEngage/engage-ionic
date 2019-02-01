@@ -16,6 +16,9 @@ import {
   UploadType,
 } from './types/theme';
 import {
+  IEonInputItem,
+} from './components/eon-form-builder/eon-form-builder.interface';
+import {
   EonPrivacyPartnerInterface,
 } from './components/eon-privacy-policy/eon-privacy-policy.interface';
 import {
@@ -132,10 +135,10 @@ export namespace Components {
   }
 
   interface EonFormBuilder {
-    'form': any[];
+    'value': IEonInputItem[];
   }
   interface EonFormBuilderAttributes extends StencilHTMLAttributes {
-    'form'?: any[];
+    'value'?: IEonInputItem[];
   }
 
   interface EonForm {

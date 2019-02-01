@@ -9,7 +9,7 @@ export function slideEnterAnimation(AnimationC: Animation, baseEl: HTMLElement, 
   let fromAxis = 'translateY';
   let fromVal = '';
   if (from) {
-    fromAxis = from === 'bottom' || from === 'left' ? 'translateX' : 'translateY';
+    fromAxis = from === 'right' || from === 'left' ? 'translateX' : 'translateY';
     fromVal = from === 'left' || from === 'top' ? '-' : '';
   }
 

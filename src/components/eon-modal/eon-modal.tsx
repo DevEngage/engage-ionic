@@ -77,7 +77,8 @@ export class EonModal {
     // }
   ];
 
-  @Prop({mutable: true}) isVisible = false;
+  @Prop() isVisible = false;
+  @State() _isVisible = false;
 
   /* ion props */
   @Prop() animated: boolean = true;
@@ -116,11 +117,14 @@ export class EonModal {
   }
 
   @Watch('isVisible')
-  watchIsVisible() {
+  async watchIsVisible() {
+    if (this.isVisible === this._isVisible) {
+      return;
+    }
     if (this.isVisible) {
-      this.present();
+      await this.present();
     } else {
-      this.dismiss();
+      await this.dismiss();
     }
   }
 
@@ -137,7 +141,10 @@ export class EonModal {
     if (!this.component) {
       throw new Error('Missing component');
     }
-    const opts = { from: this.translateAnimationCss(this.positionMap[this.position]) };
+    console.log(this.getSizePos())
+    this._isVisible = true;
+    this.isVisible = true;
+    const opts = { from: this.translateAnimationCss(this.position && this.position.length < 3 ? this.positionMap[this.position] : this.position) };
     const enterAnimation = (AnimationC, baseEl) => slideEnterAnimation(AnimationC, baseEl, opts);
     const leaveAnimation = (AnimationC, baseEl) => slideLeaveAnimation(AnimationC, baseEl, opts);
     this.modal = await this.modalCtrl.create({
@@ -152,7 +159,6 @@ export class EonModal {
       mode: this.mode
     });
     await this.modal.present();
-    this.isVisible = true;
   }
 
   @Method('dismiss')
@@ -160,9 +166,10 @@ export class EonModal {
     if (!this.modal) {
       return;
     }
+    this._isVisible = false;
+    this.isVisible = false;
     await this.modal.dismiss();
     this.modal = undefined;
-    this.isVisible = false;
   }
 
   translateAnimationCss(value) {
@@ -180,6 +187,10 @@ export class EonModal {
       default:
         return value;
     }
+  }
+
+  styleType() {
+    return `eon-modal-${this.type}`;
   }
 
   @Method('toggle')
@@ -201,7 +212,7 @@ export class EonModal {
       size = this.sizeMap[this.size];
     }
     position = _.kebabCase(position);
-    return `eng-modal-${this.type}-${size}-${position} ${this.fit ? 'eng-modal-vertical-fit' : ''}`;
+    return `eon-modal-${this.type}-${size}-${position} ${this.fit ? 'eon-modal-vertical-fit' : ''}`;
   }
 
   animateCss() {

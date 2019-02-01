@@ -143,7 +143,12 @@ export class EonEngageHome {
           Launch Modal
         </eon-button>
 
-        <eon-modal id="main-modal" isVisible={this.isModalVisible} component="eon-privacy-policy"></eon-modal>
+        <eon-modal id="main-modal"
+          isVisible={this.isModalVisible}
+          component="eon-privacy-policy"
+          position="right"
+          type="side"
+        ></eon-modal>
 
       </ion-content>
     ];

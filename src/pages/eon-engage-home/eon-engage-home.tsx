@@ -10,7 +10,7 @@ export class EonEngageHome {
   @Element() element: HTMLElement;
   private formElement: HTMLEonFormElement;
   @State() isModalVisible = false;
-  @State() modalPosition: any = 'bottom-left';
+  @State() modalPosition: any = 'top';
 
   @State() fields = {
     name: '',
@@ -186,7 +186,7 @@ export class EonEngageHome {
           isVisible={this.isModalVisible}
           component="eon-privacy-policy"
           position={this.modalPosition}
-          type="side"
+          type="fluid"
         ></eon-modal>
 
       </ion-content>

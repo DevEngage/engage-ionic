@@ -69,13 +69,12 @@ export class EonModal {
   // @Prop() animation: string = 'slideIn';
   // @Prop() animationDuration: string = '500ms';
   // @Prop() animationDelay: string = '100ms';
-  @State() _animation;
-  @Prop() footerButtons: any[] = [
-    // {
-    //   name: 'Close',
-    //   closes: true
-    // }
-  ];
+  // @Prop() footerButtons: any[] = [
+  //   // {
+  //   //   name: 'Close',
+  //   //   closes: true
+  //   // }
+  // ];
 
   @Prop() isVisible = false;
   @State() _isVisible = false;
@@ -141,7 +140,6 @@ export class EonModal {
     if (!this.component) {
       throw new Error('Missing component');
     }
-    console.log(this.getSizePos())
     this._isVisible = true;
     this.isVisible = true;
     const opts = { from: this.translateAnimationCss(this.position && this.position.length < 3 ? this.positionMap[this.position] : this.position) };
@@ -215,13 +213,4 @@ export class EonModal {
     return `eon-modal-${this.type}-${size}-${position} ${this.fit ? 'eon-modal-vertical-fit' : ''}`;
   }
 
-  animateCss() {
-    return this._animation ? `animated ${this._animation}` : '';
-  }
-
-  // buildBodyStyle() {
-  //   return {
-  //     overflow: this.allowOverflow ? 'visible' : 'auto'
-  //   };
-  // }
 }

@@ -10,6 +10,7 @@ export class EonEngageHome {
   @Element() element: HTMLElement;
   private formElement: HTMLEonFormElement;
   @State() isModalVisible = false;
+  @State() modalPosition: any = 'bottom-left';
 
   @State() fields = {
     name: '',
@@ -137,16 +138,54 @@ export class EonEngageHome {
           </ion-list> */}
         </eon-collapse>
 
+        <br/>
+        <h3>Modals</h3>
+
+        {/*<ion-list>*/}
+
+          {/*<ion-item>*/}
+            {/*<ion-label>Size</ion-label>*/}
+            {/*<ion-select placeholder="Select One">*/}
+              {/*<ion-select-option value="f">Female</ion-select-option>*/}
+              {/*<ion-select-option value="m">Male</ion-select-option>*/}
+            {/*</ion-select>*/}
+          {/*</ion-item>*/}
+
+        {/*</ion-list>*/}
+
         <eon-button onClick={() => {
-          this.isModalVisible = true;
+          this.modalPosition = 'right';
+          const modal:any = this.element.querySelector('#main-modal');
+          modal.present();
         }}>
-          Launch Modal
+          Launch right Modal
+        </eon-button>
+        <eon-button onClick={() => {
+          this.modalPosition = 'left';
+          const modal:any = this.element.querySelector('#main-modal');
+          modal.present();
+        }}>
+          Launch left Modal
+        </eon-button>
+        <eon-button onClick={() => {
+          this.modalPosition = 'top';
+          const modal:any = this.element.querySelector('#main-modal');
+          modal.present();
+        }}>
+          Launch top Modal
+        </eon-button>
+        <eon-button onClick={() => {
+          this.modalPosition = 'bottom';
+          const modal:any = this.element.querySelector('#main-modal');
+          modal.present();
+        }}>
+          Launch bottom Modal
         </eon-button>
 
         <eon-modal id="main-modal"
           isVisible={this.isModalVisible}
           component="eon-privacy-policy"
-          position="right"
+          position={this.modalPosition}
           type="side"
         ></eon-modal>
 

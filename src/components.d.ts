@@ -349,6 +349,87 @@ export namespace Components {
     'type'?: 'spinner' | 'bar';
   }
 
+  interface EonModal {
+    'animated': boolean;
+    'backdropDismiss': boolean;
+    'component': Function | HTMLElement | null | string;
+    'componentProps': undefined | { [key: string]: any; };
+    'cssClass': string | string[] | undefined;
+    'dismiss': () => Promise<void>;
+    'enterAnimation': any;
+    'fit': boolean;
+    'footerButtons': any[];
+    'getModal': () => any;
+    'isVisible': boolean;
+    'keyboardClose': boolean;
+    'leaveAnimation': any;
+    'mode': "ios" | "md";
+    'options': any;
+    'position': 'left'
+    | 'top'
+    | 'right'
+    | 'bottom'
+    | 'center'
+    | 'l'
+    | 't'
+    | 'r'
+    | 'b'
+    | 'c'
+    | 'top left'
+    | 'top right'
+    | 'bottom left'
+    | 'bottom right'
+    | 'tl'
+    | 'tr'
+    | 'bl'
+    | 'br';
+    'present': (component?: string | Function | HTMLElement) => Promise<void>;
+    'short': 'l' | 't' | 'r' | 'b' | 'tl' | 'tr' | 'bl' | 'br' | 'c';
+    'size': 'tiny' | 'small' | 'medium' | 'large' | 'fluid' | 'full' | 's' | 'm' | 'l' | 'f' | 'xs' | 'sm' | 'md' | 'lg' | 'lg';
+    'toggle': () => void;
+    'type': 'fluid' | 'frame' | 'side' | 'central';
+  }
+  interface EonModalAttributes extends StencilHTMLAttributes {
+    'animated'?: boolean;
+    'backdropDismiss'?: boolean;
+    'component'?: Function | HTMLElement | null | string;
+    'componentProps'?: undefined | { [key: string]: any; };
+    'cssClass'?: string | string[] | undefined;
+    'enterAnimation'?: any;
+    'fit'?: boolean;
+    'footerButtons'?: any[];
+    'isVisible'?: boolean;
+    'keyboardClose'?: boolean;
+    'leaveAnimation'?: any;
+    'mode'?: "ios" | "md";
+    'onEonModalDidDismiss'?: (event: CustomEvent) => void;
+    'onEonModalDidPresent'?: (event: CustomEvent) => void;
+    'onEonModalWillDismiss'?: (event: CustomEvent) => void;
+    'onEonModalWillPresent'?: (event: CustomEvent) => void;
+    'options'?: any;
+    'position'?: 'left'
+    | 'top'
+    | 'right'
+    | 'bottom'
+    | 'center'
+    | 'l'
+    | 't'
+    | 'r'
+    | 'b'
+    | 'c'
+    | 'top left'
+    | 'top right'
+    | 'bottom left'
+    | 'bottom right'
+    | 'tl'
+    | 'tr'
+    | 'bl'
+    | 'br';
+    'short'?: 'l' | 't' | 'r' | 'b' | 'tl' | 'tr' | 'bl' | 'br' | 'c';
+    'size'?: 'tiny' | 'small' | 'medium' | 'large' | 'fluid' | 'full' | 's' | 'm' | 'l' | 'f' | 'xs' | 'sm' | 'md' | 'lg' | 'lg';
+    'type'?: 'fluid' | 'frame' | 'side' | 'central';
+  }
+
   interface EonPrivacyPolicy {
     'advertising': EonPrivacyPartnerInterface[];
     'analytics': EonPrivacyPartnerInterface[];
@@ -520,6 +601,7 @@ declare global {
     'EonIcon': Components.EonIcon;
     'EonInput': Components.EonInput;
     'EonLoading': Components.EonLoading;
+    'EonModal': Components.EonModal;
     'EonPrivacyPolicy': Components.EonPrivacyPolicy;
     'EonProgress': Components.EonProgress;
     'EonSpinner': Components.EonSpinner;
@@ -537,6 +619,7 @@ declare global {
     'eon-icon': Components.EonIconAttributes;
     'eon-input': Components.EonInputAttributes;
     'eon-loading': Components.EonLoadingAttributes;
+    'eon-modal': Components.EonModalAttributes;
     'eon-privacy-policy': Components.EonPrivacyPolicyAttributes;
     'eon-progress': Components.EonProgressAttributes;
     'eon-spinner': Components.EonSpinnerAttributes;
@@ -589,6 +672,12 @@ declare global {
     new (): HTMLEonLoadingElement;
   };
 
+  interface HTMLEonModalElement extends Components.EonModal, HTMLStencilElement {}
+  var HTMLEonModalElement: {
+    prototype: HTMLEonModalElement;
+    new (): HTMLEonModalElement;
+  };
+
   interface HTMLEonPrivacyPolicyElement extends Components.EonPrivacyPolicy, HTMLStencilElement {}
   var HTMLEonPrivacyPolicyElement: {
     prototype: HTMLEonPrivacyPolicyElement;
@@ -639,6 +728,7 @@ declare global {
     'eon-icon': HTMLEonIconElement
     'eon-input': HTMLEonInputElement
     'eon-loading': HTMLEonLoadingElement
+    'eon-modal': HTMLEonModalElement
     'eon-privacy-policy': HTMLEonPrivacyPolicyElement
     'eon-progress': HTMLEonProgressElement
     'eon-spinner': HTMLEonSpinnerElement
@@ -656,6 +746,7 @@ declare global {
     'eon-icon': HTMLEonIconElement;
     'eon-input': HTMLEonInputElement;
     'eon-loading': HTMLEonLoadingElement;
+    'eon-modal': HTMLEonModalElement;
     'eon-privacy-policy': HTMLEonPrivacyPolicyElement;
     'eon-progress': HTMLEonProgressElement;
     'eon-spinner': HTMLEonSpinnerElement;

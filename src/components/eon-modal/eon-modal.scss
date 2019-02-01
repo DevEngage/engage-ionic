@@ -1,0 +1,293 @@
+$types: fluid frame side central;
+$sizes: (
+  tiny: 100px,
+  small: 200px,
+  medium: 300px,
+  large: 500px,
+  fluid: 100%,
+  full: 100%,
+  xl: 700px,
+);
+$positions: left top right bottom center top-left top-right bottom-left bottom-right;
+
+// Define vertical, horizontal, or both position
+@mixin center($position, $size: 50%, $top: $size) {
+  position: absolute;
+
+  @if $position == 'vertical' {
+    top: $size;
+    -webkit-transform: translateY(-$size);
+    -ms-transform: translateY(-$size);
+    transform: translateY(-$size);
+  }
+  @else if $position == 'horizontal' {
+    left: $size;
+    -webkit-transform: translateX(-$size);
+    -ms-transform: translateX(-$size);
+    transform: translate(-$size);
+  }
+  @else if $position == 'both' {
+    top: $top;
+    left: $size;
+    -webkit-transform: translate(-$size, -$size);
+    -ms-transform: translate(-$size, -$size);
+    transform: translate(-$size, -$size);
+  }
+}
+
+@mixin addMediaQuery($dir, $size, $className) {
+  @if $dir == v {
+    @media all and (max-width: $size) {
+      .#{$className} {
+        width: 100%;
+        right: 0;
+        left: 0;
+      }
+    }
+
+    @media all and (max-height: $size) {
+      .#{$className} {
+        height: 100%;
+        top: 0;
+        bottom: 0;
+      }
+    }
+  } @else if $dir == h {
+
+  }
+}
+
+@mixin position($type, $position, $size) {
+  @if $type == side {
+    @if $position == top-left {
+      top: 40px;
+      left: 40px;
+    } @else if $position == top-right {
+      top: 40px;
+      right: 40px;
+    } @else if $position == bottom-left {
+      bottom: 40px;
+      left: 40px;
+    } @else if $position == bottom-right {
+      bottom: 40px;
+      right: 40px;
+    }
+  } @else if $type == fluid or $type == frame {
+    @if $position == left {
+      top: 0;
+      left: 0;
+    } @else if $position == right {
+      top: 0;
+      right: 0;
+    } @else if $position == top {
+      top: 0;
+      left: 0;
+    } @else if $position == bottom {
+      bottom: 0;
+      left: 0;
+    }
+  } @else if $type == central {
+    @if $position == top {
+      @include center('both', calc(50% - (#{$size}/2)), 100px);
+    } @else {
+      @include center('both', calc(50% - (#{$size}/2)));
+    }
+    //@if $position == center {
+    //}
+    //@else if $position == right {
+    //  top: 0;
+    //  right: 0;
+    //} @else if $position == top {
+    //  top: 0;
+    //  left: 0;
+    //} @else if $position == bottom {
+    //  bottom: 0;
+    //  left: 0;
+    //}
+  }
+}
+
+@mixin fixHeaderFooter($sizeName) {
+  @if ($sizeName == small or $sizeName == medium or $sizeName == tiny or $sizeName == sm or $sizeName == md or $sizeName == xs) {
+    .modal-footer,
+    .modal-header {
+      padding: .5rem;
+      min-height: 50px;
+      .btn {
+        padding: .50rem 1.50rem;
+      }
+    }
+  }
+}
+
+@mixin getSizes($type) {
+  @each $pName in $positions {
+    @each $name, $size in $sizes {
+      .eon-modal-#{$type}-#{$name}-#{$pName} {
+        .modal-wrapper {
+          @include position($type, $pName, $size);
+          @include fixHeaderFooter($name);
+          right: 0;
+          margin: 0;
+          @if $name == full {
+            height: calc(100% + 2px);
+            width: 100%;
+          } @else if $pName == left or $pName == right {
+            height: calc(100% + 2px);
+            width: $size;
+          } @else if $type == central or $pName == center or $pName == top-left or
+                      $pName == top-right or $pName == bottom-left or
+                      $pName == bottom-right {
+            height: $size;
+            width: $size; // calc(100% + 2px);
+          } @else if $pName == top or $pName == bottom {
+            height: $size;
+            width: 100%; // calc(100% + 2px);
+            max-width: 100%;
+          }
+
+          @if $type == fluid or $type == full { /* top, left, bottom, right */
+            position: fixed;
+          } @else if $type == frame { /* top, bottom */
+            //width: $width;
+          } @else if $type == side { /* top, left, bottom, right, and corners */
+            position: fixed;
+            //width: $width;
+          } @else if $type == central {/* center */
+            //width: $width;
+          }
+
+          @if $type == side {
+            @if $pName == top-left {
+              top: 40px;
+              left: 40px;
+            } @else if $pName == top-right {
+              top: 40px;
+              right: 40px;
+            } @else if $pName == bottom-left {
+              bottom: 40px;
+              left: 40px;
+            } @else if $pName == bottom-right {
+              bottom: 40px;
+              right: 40px;
+            }
+          } @else if $type == fluid or $type == frame {
+            @if $pName == left {
+              top: 0;
+              left: 0;
+            } @else if $pName == right {
+              top: 0;
+              right: 0;
+            } @else if $pName == top {
+              top: 0;
+              left: 0;
+            } @else if $pName == bottom {
+              bottom: 0;
+              left: 0;
+            }
+          }
+        }
+      }
+      @include addMediaQuery(v, $size, #{eon-modal-#{$type}-#{$name}-#{$pName}});
+    }
+  }
+}
+
+@mixin handleType($type) {
+  //$width: 400px;
+  //.modal-wrapper {
+  //  @if $type == fluid or $type == full { /* top, left, bottom, right */
+  //    position: fixed;
+  //  } @else if $type == frame { /* top, bottom */
+  //    //width: $width;
+  //  } @else if $type == side { /* top, left, bottom, right, and corners */
+  //    position: fixed;
+  //    //width: $width;
+  //  } @else if $type == central {/* center */
+  //    //width: $width;
+  //  }
+  //}
+  @include getSizes($type);
+  //.modal-content {
+  //  //margin-top: -29px;
+  //  height: 100%;
+  //  border-radius: 0;
+  //}
+  //.modal-body {
+  //  overflow: auto;
+  //}
+}
+
+@each $type in $types {
+  //.eon-modal-#{$type} {
+  //  @include handleType($type);
+  //}
+  @include getSizes($type);
+}
+
+.eon-modal-header-tiny,
+.eon-modal-header-xs {
+  padding: .3rem;
+  min-height: 40px;
+  .btn {
+    padding: .40rem 1rem;
+  }
+}
+.eon-modal-header-small,
+.eon-modal-header-sm {
+  padding: .5rem;
+  min-height: 50px;
+  .btn {
+    padding: .50rem 1.50rem;
+  }
+}
+.eon-modal-header-medium,
+.eon-modal-header-md {
+  padding: .7rem;
+  min-height: 50px;
+  .btn {
+    padding: .70rem 1.70rem;
+  }
+}
+.eon-modal-header-large,
+.eon-modal-header-lg {
+  padding: 1rem;
+  min-height: 50px;
+  .btn {
+    padding: 1rem 2rem;
+  }
+}
+.eon-modal-header-xl {
+  padding: 1.3rem;
+  min-height: 50px;
+  .btn {
+    padding: 1.3rem 2.3rem;
+  }
+}
+
+.eon-modal-vertical-fit {
+  .modal-wrapper {
+    min-height: 100px !important;
+    height: auto !important;
+    -webkit-transition: all 500ms;
+    -o-transition: all 500ms;
+    transition: all 500ms;
+    .card-body {
+      padding-bottom: 0;
+    }
+  }
+}
+.eon-modal-horizontal-fit {
+  .modal-wrapper {
+    min-width: 100px;
+  }
+}
+
+
+//.eon-modal-right {
+//  .modal-wrapper {
+//  right: 0;
+//  position: fixed;
+//  height: 100%;
+//  }
+//}

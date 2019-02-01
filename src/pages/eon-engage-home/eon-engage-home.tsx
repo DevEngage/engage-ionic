@@ -1,4 +1,6 @@
-import { Component, State, Element } from '@stencil/core';
+import {Component, State, Element, Prop} from '@stencil/core';
+import {slideEnterAnimation} from "../../animations/slide.enter";
+import {slideLeaveAnimation} from "../../animations/slide.leave";
 
 @Component({
   tag: 'eon-engage-home',
@@ -7,6 +9,8 @@ import { Component, State, Element } from '@stencil/core';
 export class EonEngageHome {
   @Element() element: HTMLElement;
   private formElement: HTMLEonFormElement;
+  @State() isModalVisible = false;
+  @State() modalPosition: any = 'top';
 
   @State() fields = {
     name: '',
@@ -31,6 +35,21 @@ export class EonEngageHome {
       path: 'collection',
       save: (doc) => console.log(doc)
     }
+  }
+
+
+  @Prop({
+    connect: 'ion-modal-controller'
+  })
+  private modalCtrl: HTMLIonModalControllerElement;
+
+  async launchModal() {
+    const modal = await this.modalCtrl.create({
+      component: 'eon-privacy-policy',
+      enterAnimation: (AnimationC, baseEl, from) => slideEnterAnimation(AnimationC, baseEl, from),
+      leaveAnimation: (AnimationC, baseEl, from) =>  slideLeaveAnimation(AnimationC, baseEl, from)
+    });
+    modal.present();
   }
 
   render() {
@@ -124,6 +143,57 @@ export class EonEngageHome {
             </ion->
           </ion-list> */}
         </eon-collapse>
+
+        <br/>
+        <h3>Modals</h3>
+
+        {/*<ion-list>*/}
+
+          {/*<ion-item>*/}
+            {/*<ion-label>Size</ion-label>*/}
+            {/*<ion-select placeholder="Select One">*/}
+              {/*<ion-select-option value="f">Female</ion-select-option>*/}
+              {/*<ion-select-option value="m">Male</ion-select-option>*/}
+            {/*</ion-select>*/}
+          {/*</ion-item>*/}
+
+        {/*</ion-list>*/}
+
+        <eon-button onClick={() => {
+          this.modalPosition = 'right';
+          const modal:any = this.element.querySelector('#main-modal');
+          modal.present();
+        }}>
+          Launch right Modal
+        </eon-button>
+        <eon-button onClick={() => {
+          this.modalPosition = 'left';
+          const modal:any = this.element.querySelector('#main-modal');
+          modal.present();
+        }}>
+          Launch left Modal
+        </eon-button>
+        <eon-button onClick={() => {
+          this.modalPosition = 'top';
+          const modal:any = this.element.querySelector('#main-modal');
+          modal.present();
+        }}>
+          Launch top Modal
+        </eon-button>
+        <eon-button onClick={() => {
+          this.modalPosition = 'bottom';
+          const modal:any = this.element.querySelector('#main-modal');
+          modal.present();
+        }}>
+          Launch bottom Modal
+        </eon-button>
+
+        <eon-modal id="main-modal"
+          isVisible={this.isModalVisible}
+          component="eon-privacy-policy"
+          position={this.modalPosition}
+          type="fluid"
+        ></eon-modal>
 
       </ion-content>
     ];

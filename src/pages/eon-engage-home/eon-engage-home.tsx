@@ -68,7 +68,7 @@ export class EonEngageHome {
         <h3>Input</h3>
         <eon-input placeholder="Hello" />
         <eon-input label="Test" labelPosition="floating" name="name" bind={this.fields} />
-        <eon-input label="Test" labelPosition="floating" textarea={true} />
+        <eon-input label="Test" labelPosition="floating" textarea={true} autoSize={true}/>
         <ion-button onClick={() => this.checkBind()}>Check Binding</ion-button>
 
         <h3>Form</h3>

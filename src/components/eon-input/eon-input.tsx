@@ -84,9 +84,11 @@ export class EonInput {
   @Prop() itemMode: "ios" | "md";
   @Prop() itemRouterDirection: "back" | "forward" | "root";
   @Prop() itemType: "button" | "reset" | "submit";
+  @Prop() autoSize: boolean = false;
 
   componentDidLoad() {
     this.watchTrueValue();
+    if (this.textarea && this.autoSize) this.setTextAreaListener();
   }
 
   @Method('setValue')
@@ -184,6 +186,18 @@ export class EonInput {
   //   }
   // }
 
+  adjust():void {
+    let textArea = this.element.getElementsByTagName('ion-textarea')[0].shadowRoot.querySelector('textarea');
+    textArea.style.overflow = 'hidden';
+    textArea.style.height = 'auto';
+    textArea.style.height = textArea.scrollHeight + "px";
+  }
+
+  setTextAreaListener() {
+    let textElement = this.element;
+    textElement.addEventListener('keydown', () => this.adjust())
+  }
+
   renderItem() {
     return (
       <ion-item
@@ -241,6 +255,7 @@ export class EonInput {
         // onIonInputDidUnload={(event) => this.eonInputDidUnload.emit(event.detail)}
       />
     );
+
   }
 
   renderInput() {

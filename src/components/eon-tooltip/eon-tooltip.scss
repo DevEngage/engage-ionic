@@ -1,0 +1,33 @@
+eon-tooltip {
+
+}
+
+.eon-tooltip-base {
+  //--eon-tooltip-bgColor: #36454f;
+  --eon-tooltip-bgColor: transparent;
+  --eon-tooltip-color: #ffffff;
+}
+
+.eon-tooltip-content {
+  text-align: center;
+
+  p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
+
+.eon-tooltip-base {
+
+  .sc-ion-popover-ios::after {
+     background: var(--eon-tooltip-bgColor);
+  }
+
+  .popover-content {
+    background: var(--eon-tooltip-bgColor);
+    color: var(--eon-tooltip-color);
+  }
+}
+

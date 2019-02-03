@@ -64,12 +64,12 @@ export class EonTooltip {
     if (this.popoverCtrl) {
       this.element.style.setProperty('pointer-events', 'none');
       await this.popoverCtrl.componentOnReady();
-       this.popover = await this.popoverCtrl.create({
-         component: this.popoverComponent,
-         event: ev,
-         mode: 'ios',
-         showBackdrop: false,
-         cssClass: 'eon-tooltip-base',
+      this.popover = await this.popoverCtrl.create({
+        component: this.popoverComponent,
+        event: ev,
+        mode: 'ios',
+        showBackdrop: false,
+        cssClass: 'eon-tooltip-base',
       });
       return await this.popover.present();
     }

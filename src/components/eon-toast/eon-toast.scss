@@ -1,0 +1,16 @@
+eon-toast {
+
+}
+
+.hide-eon-toast {
+  visibility: hidden !important;
+}
+
+.eon-toast-icon:host {
+  padding-left: 10px !important;
+  margin-right: -10px !important;
+}
+
+.toast-message {
+  padding: 14px 5px !important;
+}

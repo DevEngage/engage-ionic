@@ -16,6 +16,9 @@ import {
   UploadType,
 } from './types/theme';
 import {
+  IEonInputItem,
+} from './components/eon-form-builder/eon-form-builder.interface';
+import {
   EonPrivacyPartnerInterface,
 } from './components/eon-privacy-policy/eon-privacy-policy.interface';
 import {
@@ -129,6 +132,13 @@ export namespace Components {
     'flipType'?: 'hover' | 'click' | 'button';
     'type'?: 'static' | 'flip' | 'pass';
     'visible'?: number;
+  }
+
+  interface EonFormBuilder {
+    'value': IEonInputItem[];
+  }
+  interface EonFormBuilderAttributes extends StencilHTMLAttributes {
+    'value'?: IEonInputItem[];
   }
 
   interface EonForm {
@@ -358,7 +368,6 @@ export namespace Components {
     'dismiss': () => Promise<void>;
     'enterAnimation': any;
     'fit': boolean;
-    'footerButtons': any[];
     'getModal': () => any;
     'isVisible': boolean;
     'keyboardClose': boolean;
@@ -397,7 +406,6 @@ export namespace Components {
     'cssClass'?: string | string[] | undefined;
     'enterAnimation'?: any;
     'fit'?: boolean;
-    'footerButtons'?: any[];
     'isVisible'?: boolean;
     'keyboardClose'?: boolean;
     'leaveAnimation'?: any;
@@ -608,6 +616,7 @@ declare global {
     'EonButton': Components.EonButton;
     'EonCollapse': Components.EonCollapse;
     'EonFlip': Components.EonFlip;
+    'EonFormBuilder': Components.EonFormBuilder;
     'EonForm': Components.EonForm;
     'EonIcon': Components.EonIcon;
     'EonInput': Components.EonInput;
@@ -627,6 +636,7 @@ declare global {
     'eon-button': Components.EonButtonAttributes;
     'eon-collapse': Components.EonCollapseAttributes;
     'eon-flip': Components.EonFlipAttributes;
+    'eon-form-builder': Components.EonFormBuilderAttributes;
     'eon-form': Components.EonFormAttributes;
     'eon-icon': Components.EonIconAttributes;
     'eon-input': Components.EonInputAttributes;
@@ -659,6 +669,12 @@ declare global {
   var HTMLEonFlipElement: {
     prototype: HTMLEonFlipElement;
     new (): HTMLEonFlipElement;
+  };
+
+  interface HTMLEonFormBuilderElement extends Components.EonFormBuilder, HTMLStencilElement {}
+  var HTMLEonFormBuilderElement: {
+    prototype: HTMLEonFormBuilderElement;
+    new (): HTMLEonFormBuilderElement;
   };
 
   interface HTMLEonFormElement extends Components.EonForm, HTMLStencilElement {}
@@ -743,6 +759,7 @@ declare global {
     'eon-button': HTMLEonButtonElement
     'eon-collapse': HTMLEonCollapseElement
     'eon-flip': HTMLEonFlipElement
+    'eon-form-builder': HTMLEonFormBuilderElement
     'eon-form': HTMLEonFormElement
     'eon-icon': HTMLEonIconElement
     'eon-input': HTMLEonInputElement
@@ -762,6 +779,7 @@ declare global {
     'eon-button': HTMLEonButtonElement;
     'eon-collapse': HTMLEonCollapseElement;
     'eon-flip': HTMLEonFlipElement;
+    'eon-form-builder': HTMLEonFormBuilderElement;
     'eon-form': HTMLEonFormElement;
     'eon-icon': HTMLEonIconElement;
     'eon-input': HTMLEonInputElement;

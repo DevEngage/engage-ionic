@@ -200,6 +200,12 @@ export class EonEngageHome {
           type="fluid"
         ></eon-modal>
 
+        <eon-form-builder value={[
+          {
+            label: 'test'
+          }
+        ]}/>
+
       </ion-content>
     ];
   }

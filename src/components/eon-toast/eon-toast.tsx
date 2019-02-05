@@ -102,7 +102,6 @@ export class EonToast {
   }
 
   addLoading() {
-    console.log('this.autoProgress', this.autoprogress);
     let loadingPosition = 'beforebegin';
     let loadingElement = this.toastElement;
     let style = 'margin-left: 15px';

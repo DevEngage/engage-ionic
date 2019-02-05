@@ -67,7 +67,6 @@ export class EngageProgress {
   }
 
   autoProgressCheck() {
-    console.log('this.autoProgress', this.autoprogress);
     if (this.autoprogress && this.duration) {
       this.max = this.duration;
       this.startAutoProgressInterval();

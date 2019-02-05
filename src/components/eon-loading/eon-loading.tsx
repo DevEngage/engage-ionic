@@ -96,7 +96,6 @@ export class EonLoading {
   }
 
   renderBar() {
-    console.log('this.autoProgress', this.autoprogress);
     return (<eon-progress type={this.frequency} min={this.min} max={this.max} current={this.current} color={this.color} duration={this.duration} autoprogress={this.autoprogress}/>);
   }
 

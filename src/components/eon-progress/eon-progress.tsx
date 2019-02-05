@@ -19,7 +19,7 @@ export class EngageProgress {
   @Prop() message: string = '';
   @Prop() classes: string = '';
   @Prop() color: string = 'primary';
-  @Prop() autoProgress: boolean = false;
+  @Prop() autoprogress: boolean = false;
   @Prop() duration: number = 0;
   @Prop() type: 'indeterminate' | 'determinate' | 'regular' | 'ion' = 'determinate';
   @Event({eventName: 'eonComplete'}) onComplete: EventEmitter;
@@ -67,8 +67,8 @@ export class EngageProgress {
   }
 
   autoProgressCheck() {
-    console.log('this.autoProgress', this.autoProgress);
-    if (this.autoProgress && this.duration) {
+    console.log('this.autoProgress', this.autoprogress);
+    if (this.autoprogress && this.duration) {
       this.max = this.duration;
       this.startAutoProgressInterval();
     }

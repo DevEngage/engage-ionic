@@ -31,7 +31,7 @@ export class EonLoading {
   @Prop() min: number = 0;
   @Prop() max: number = 100;
   @Prop() duration: number = 10000;
-  @Prop() autoProgress: boolean = false;
+  @Prop() autoprogress: boolean = false;
   @Prop() mode: 'ios' | 'md';
   @Prop() modalOptions: any = {};
   @Prop() frequency: 'indeterminate' | 'determinate' | 'regular' | 'ion' | undefined = 'indeterminate';
@@ -96,8 +96,8 @@ export class EonLoading {
   }
 
   renderBar() {
-    console.log('this.autoProgress', this.autoProgress);
-    return (<eon-progress type={this.frequency} min={this.min} max={this.max} current={this.current} color={this.color} duration={this.duration} autoProgress={this.autoProgress}/>);
+    console.log('this.autoProgress', this.autoprogress);
+    return (<eon-progress type={this.frequency} min={this.min} max={this.max} current={this.current} color={this.color} duration={this.duration} autoprogress={this.autoprogress}/>);
   }
 
   renderType() {

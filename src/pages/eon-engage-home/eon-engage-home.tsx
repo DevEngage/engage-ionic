@@ -90,7 +90,7 @@ export class EonEngageHome {
         <br />
         <br />
         <eon-toast message="this is a toast. I repeat this is only a toast." icon="alarm" iconSize="24px" color="primary" showCloseButton={true}><ion-button>toast it up</ion-button></eon-toast>
-        <eon-toast message="this is a loading toast. I repeat this is only a loading toast." duration={4000} autoProgress={true} loading={true}><ion-button>toast with loading</ion-button></eon-toast>
+        <eon-toast message="this is a loading toast. I repeat this is only a loading toast." duration={4000} autoprogress={true} loading={true}><ion-button>toast with loading</ion-button></eon-toast>
         <br />
 
         <h3>Input</h3>

@@ -21,7 +21,7 @@ export class EonToast {
   @Prop() color: string;
   @Prop() cssClass: string = '';
   @Prop() duration: number;
-  @Prop() autoProgress: boolean = false;
+  @Prop() autoprogress: boolean = false;
   @Prop() enterAnimation: any;
   @Prop() keyboardClose: boolean;
   @Prop() leaveAnimation: any;
@@ -102,7 +102,7 @@ export class EonToast {
   }
 
   addLoading() {
-    console.log('this.autoProgress', this.autoProgress);
+    console.log('this.autoProgress', this.autoprogress);
     let loadingPosition = 'beforebegin';
     let loadingElement = this.toastElement;
     let style = 'margin-left: 15px';
@@ -119,7 +119,7 @@ export class EonToast {
         current=${this.loadingMin}
         size="xs"
         duration=${this.duration * .96 - 200}
-        autoProgress=${this.autoProgress}
+        autoprogress=${this.autoprogress}
         min=${this.loadingMin}
         max=${this.duration * .96 - 200}
       />`;

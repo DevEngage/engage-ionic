@@ -88,6 +88,11 @@ export class EonEngageHome {
         <eon-tooltip text="howdy mike"><span>tooltip left</span></eon-tooltip>
         <eon-tooltip style={{"float": "right"}} text="howdy mike... again" background="#17a2b8" color="#eee"><span>tooltip right</span></eon-tooltip>
         <br />
+        <br />
+        <eon-toast message="this is a toast. I repeat this is only a toast." icon="alarm" iconSize="24px" color="primary" showCloseButton={true}><ion-button>toast with icon</ion-button></eon-toast>
+        <eon-toast message="this is a loading toast. I repeat this is only a loading toast." duration={4000} autoprogress={true} loading={true}><ion-button>toast with progressBar</ion-button></eon-toast>
+        <eon-toast message="this is a loading toast. I repeat this is only a loading toast." duration={40000} loadingType="spinner" loading={true}><ion-button>toast with spinner</ion-button></eon-toast>
+        <br />
 
         <h3>Input</h3>
         <eon-input placeholder="Hello" />

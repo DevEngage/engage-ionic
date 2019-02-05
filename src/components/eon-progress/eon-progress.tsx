@@ -1,4 +1,4 @@
-import {Component, Element, Prop, Event, EventEmitter, Method, Watch} from '@stencil/core';
+import {Component, Element, Prop, State, Event, EventEmitter, Method, Watch} from '@stencil/core';
 import _ from 'lodash';
 import {EngageColor} from "../../global/color";
 import { EonProgressInterface } from './eon-progress.interface';
@@ -19,29 +19,38 @@ export class EngageProgress {
   @Prop() message: string = '';
   @Prop() classes: string = '';
   @Prop() color: string = 'primary';
+  @Prop() autoprogress: boolean = false;
+  @Prop() duration: number = 0;
   @Prop() type: 'indeterminate' | 'determinate' | 'regular' | 'ion' = 'determinate';
   @Event({eventName: 'eonComplete'}) onComplete: EventEmitter;
 
+  @State() _current: any;
+
   componentDidLoad(): void {
+  }
+
+  componentWillLoad() {
+    this.watchProgressCurrent();
+    this.autoProgressCheck();
   }
 
   @Watch('current')
   watchCurrent() {
     let completed = false;
     let progress: number | EonProgressInterface | EonProgressInterface[] = 0;
-    if (_.isNumber(this.current) || _.isString(this.current)) {
-      progress = this.current;
-      if (parseInt(this.current + '') >= 100) {
+    if (_.isNumber(this._current) || _.isString(this._current)) {
+      progress = this._current;
+      if (parseInt(this._current + '') >= 100) {
         completed = true;
       }
-    } else if (this.current && this.current['current']) {
-      progress = this.current['current'];
-      if (parseInt(this.current['current']) >= 100) {
+    } else if (this._current && this._current['current']) {
+      progress = this._current['current'];
+      if (parseInt(this._current['current']) >= 100) {
         completed = true;
       }
     }
     this.onComplete.emit({
-      current: this.current,
+      current: this._current,
       progress,
       completed,
     });
@@ -49,7 +58,19 @@ export class EngageProgress {
 
   @Method('getProgress')
   getProgress() {
-    return this.current;
+    return this._current;
+  }
+
+  @Watch('current')
+  watchProgressCurrent() {
+    this._current = this.current;
+  }
+
+  autoProgressCheck() {
+    if (this.autoprogress && this.duration) {
+      this.max = this.duration;
+      this.startAutoProgressInterval();
+    }
   }
 
   convertToInt(str): number {
@@ -80,24 +101,32 @@ export class EngageProgress {
     );
   }
 
+  startAutoProgressInterval() {
+    this._current = 0;
+    const loadingInterval = setInterval(() => {
+      this._current = this._current + 100;
+      if (this._current >= this.duration) clearInterval(loadingInterval);
+    }, 100)
+  }
+
   renderRegular() {
-    if (typeof this.current === 'number') {
+    if (typeof this._current === 'number') {
       return this.renderBar({
         message: this.message,
-        current: this.current,
+        current: this._current,
         min: this.min,
         max: this.max,
         classes: this.classes
       });
-    } else if (typeof this.current === 'object' && this.current['length']) {
+    } else if (typeof this._current === 'object' && this._current['length']) {
       const bars = [];
-      for (let index in this.current) {
-        const bar = this.current[index];
+      for (let index in this._current) {
+        const bar = this._current[index];
         bars.push(this.renderBar(bar));
       }
       return bars;
-    } else if (typeof this.current === 'object') {
-      return this.renderBar(this.current);
+    } else if (typeof this._current === 'object') {
+      return this.renderBar(this._current);
     }
   }
 
@@ -119,9 +148,8 @@ export class EngageProgress {
   }
 
   renderDeterminate() {
-    console.log(this.colorService.classContextBg(this.color, true));
     const calculated = this.calcProgress(
-      _.isObject(this.current) ? this.current : { current: parseInt(this['current'] + '') }
+      _.isObject(this._current) ? this._current : { current: parseInt(this['_current'] + '') }
       );
     return (
       <div

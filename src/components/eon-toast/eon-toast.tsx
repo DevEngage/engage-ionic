@@ -104,17 +104,17 @@ export class EonToast {
   addLoading() {
     let loadingPosition = 'beforebegin';
     let loadingElement = this.toastElement;
-    let style = 'margin-left: 15px';
+    let marginLeft = "15px";
     if (this.loadingType == 'bar') {
       loadingPosition = 'afterend';
-      style = '';
       loadingElement = this.body.getElementsByTagName('ion-toast')[0].shadowRoot.querySelector('.toast-container');
+      marginLeft = "0";
     };
       const loadingHtml = `<eon-loading
         class='button-loading-${this.loadingType}'
-        style=${style}
+        style="margin-left: ${marginLeft}"
         type=${this.loadingType === 'bar' ? 'bar' : 'spinner'}
-        frequency=${this.duration > -1 ?  'determinate' : 'indeterminate'}
+        frequency=${this.duration > -1 && this.loadingType === 'bar' ?  'determinate' : 'indeterminate'}
         current=${this.loadingMin}
         size="xs"
         duration=${this.duration * .96 - 200}

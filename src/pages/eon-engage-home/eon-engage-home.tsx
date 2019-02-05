@@ -108,10 +108,10 @@ export class EonEngageHome {
         <ion-button onClick={() => this.submitForm()}>Submit</ion-button>
 
         <h3>Loading</h3>
-        {/*<eon-loading />*/}
+        <eon-loading />
         <eon-spinner />
-        {/*<eon-progress current={50} />*/}
-        {/*<eon-button loading={true}>Testing</eon-button>*/}
+        <eon-progress current={50} />
+        <eon-button loading={true}>Testing</eon-button>
         <eon-button loading={true} loadingType="spinner">Testing</eon-button>
 
         {/* <h3>Privacy Policy</h3> */}

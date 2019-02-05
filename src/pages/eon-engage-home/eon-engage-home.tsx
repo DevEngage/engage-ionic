@@ -90,7 +90,7 @@ export class EonEngageHome {
         <br />
         <br />
         <eon-toast message="this is a toast. I repeat this is only a toast." icon="alarm" iconSize="24px" color="primary" showCloseButton={true}><ion-button>toast it up</ion-button></eon-toast>
-        <eon-toast message="this is a loading toast. I repeat this is only a loading toast." duration={2000} loading={true}><ion-button>toast with loading</ion-button></eon-toast>
+        <eon-toast message="this is a loading toast. I repeat this is only a loading toast." duration={4000} autoProgress={true} loading={true}><ion-button>toast with loading</ion-button></eon-toast>
         <br />
 
         <h3>Input</h3>
@@ -108,10 +108,10 @@ export class EonEngageHome {
         <ion-button onClick={() => this.submitForm()}>Submit</ion-button>
 
         <h3>Loading</h3>
-        <eon-loading />
+        {/*<eon-loading />*/}
         <eon-spinner />
-        <eon-progress current={50} />
-        <eon-button loading={true}>Testing</eon-button>
+        {/*<eon-progress current={50} />*/}
+        {/*<eon-button loading={true}>Testing</eon-button>*/}
         <eon-button loading={true} loadingType="spinner">Testing</eon-button>
 
         {/* <h3>Privacy Policy</h3> */}

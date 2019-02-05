@@ -21,6 +21,7 @@ export class EonToast {
   @Prop() color: string;
   @Prop() cssClass: string = '';
   @Prop() duration: number;
+  @Prop() autoProgress: boolean = false;
   @Prop() enterAnimation: any;
   @Prop() keyboardClose: boolean;
   @Prop() leaveAnimation: any;
@@ -71,14 +72,14 @@ export class EonToast {
     this._loading = this.loading;
   }
 
-  startLoadingInterval() {
-    this._loadingCurrent = 0;
-    const loadingInterval = setInterval(() => {
-      this._loadingCurrent = this._loadingCurrent + 100;
-      console.log('this._loadingCurrent', this._loadingCurrent);
-      if (this._loadingCurrent >= this.duration) clearInterval(loadingInterval);
-    }, 100)
-  }
+  // startLoadingInterval() {
+  //   this._loadingCurrent = 0;
+  //   const loadingInterval = setInterval(() => {
+  //     this._loadingCurrent = this._loadingCurrent + 100;
+  //     console.log('this._loadingCurrent', this._loadingCurrent);
+  //     if (this._loadingCurrent >= this.duration) clearInterval(loadingInterval);
+  //   }, 100)
+  // }
 
   addEventListener() {
     this.element = this.el;
@@ -87,13 +88,13 @@ export class EonToast {
 
   async modifyToast() {
     this.toastElement = this.body.getElementsByTagName('ion-toast')[0].shadowRoot.querySelector('.toast-message');
-    console.log('this.toastElement', this.toastElement);
+    // console.log('this.toastElement', this.toastElement);
 
     if (this.loading) await this.addLoading();
     if (this.icon) await this.addIcon();
 
     const ionToast:any = this.body.getElementsByTagName('ion-toast')[0];
-    console.log('ionToast', ionToast);
+    // console.log('ionToast', ionToast);
     if (this.loadingType == 'bar') {
       setTimeout(() => ionToast.classList.remove('hide-eon-toast'), 50)
     } else ionToast.classList.remove('hide-eon-toast');
@@ -101,7 +102,7 @@ export class EonToast {
   }
 
   addLoading() {
-    console.log('hit loading' );
+    console.log('this.autoProgress', this.autoProgress);
     let loadingPosition = 'beforebegin';
     let loadingElement = this.toastElement;
     let style = 'margin-left: 15px';
@@ -114,17 +115,18 @@ export class EonToast {
         class='button-loading-${this.loadingType}'
         style=${style}
         type=${this.loadingType === 'bar' ? 'bar' : 'spinner'}
-        frequency=${this._loadingCurrent > -1 ?  'determinate' : 'indeterminate'}
-        current=${this._loadingCurrent}
+        frequency=${this.duration > -1 ?  'determinate' : 'indeterminate'}
+        current=${this.loadingMin}
         size="xs"
+        duration=${this.duration * .96 - 200}
+        autoProgress=${this.autoProgress}
         min=${this.loadingMin}
-        max=${this.duration}
+        max=${this.duration * .96 - 200}
       />`;
         loadingElement.insertAdjacentHTML(loadingPosition, loadingHtml);
         if (this.loadingType == 'bar') {
           setTimeout(() => {
             const progressElement: any = this.body.getElementsByTagName('ion-toast')[0].shadowRoot.querySelector('.progress-md');
-            console.log('progressElement', progressElement);
             progressElement.style.margin = '0px';
           }, 50);
         };
@@ -156,7 +158,7 @@ export class EonToast {
         translucent: this.translucent,
       });
       await this.toast.present();
-      if (this.loading && this.loadingType == 'bar' && this.duration) this.startLoadingInterval();
+      // if (this.loading && this.loadingType == 'bar' && this.duration) this.startLoadingInterval();
       await this.modifyToast();
 
       return;

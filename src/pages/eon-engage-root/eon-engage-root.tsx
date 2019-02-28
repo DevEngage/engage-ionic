@@ -13,7 +13,6 @@ export class EonEngageRoot {
       <ion-app>
         <ion-router useHash={false}>
           <ion-route url="/" component="eon-engage-home" />
-          <ion-route url="/bootstrap" component="eon-engage-bootstrap" />
         </ion-router>
         <ion-nav />
       </ion-app>

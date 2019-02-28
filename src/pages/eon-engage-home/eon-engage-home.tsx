@@ -64,10 +64,6 @@ export class EonEngageHome {
 
       <ion-content padding>
 
-        <ion-button href="/bootstrap" expand="block">
-          Bootstrap page
-        </ion-button>
-
         <eon-flip>
           <ion-card class="ion-text-center">
             <p>James Rocks</p>

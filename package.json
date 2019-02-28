@@ -1,7 +1,7 @@
 {
   "name": "@dev-engage/engage-ionic",
   "private": false,
-  "version": "0.2.7",
+  "version": "0.5.0",
   "description": "Engage ionic extends the amazing ionic component library",
   "main": "dist/eon.js",
   "module": "dist/index.js",
@@ -10,8 +10,7 @@
   "license": "MIT",
   "author": "DevEngage",
   "files": [
-    "dist/",
-    "scaffolding/"
+    "dist/"
   ],
   "scripts": {
     "build": "stencil build",
@@ -24,8 +23,7 @@
   },
   "dependencies": {
     "@ionic/core": "4.0.0-rc.1",
-    "@stencil/sass": "0.1.1",
-    "bootstrap": "4.2.1"
+    "@stencil/sass": "0.1.1"
   },
   "devDependencies": {
     "@stencil/core": "0.15.2",

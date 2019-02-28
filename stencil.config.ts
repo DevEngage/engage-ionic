@@ -9,7 +9,8 @@ export const config: Config = {
   ],
   outputTargets: [
     { type: 'www' },
-    { type: 'dist' }
+    { type: 'dist' },
+    { type: 'docs' }
   ],
   globalScript: 'src/global/eon.ts',
   globalStyle: 'src/global/eon.css'

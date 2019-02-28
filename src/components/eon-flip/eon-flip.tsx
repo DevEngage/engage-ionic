@@ -8,10 +8,7 @@ import _ from 'lodash';
 
 @Component({
   tag: 'eon-flip',
-  styleUrl: 'eon-flip.scss',
-  host: {
-    theme: 'eon-flip'
-  }
+  styleUrl: 'eon-flip.scss'
 })
 export class EonFlipCard {
 
@@ -93,6 +90,12 @@ export class EonFlipCard {
       this.innerElement.classList.remove('eon-flip-card-flipped');
     } else {
       this.innerElement.classList.add('eon-flip-card-flipped');
+    }
+  }
+
+  hostData() {
+    return {
+      theme: 'eon-flip'
     }
   }
 

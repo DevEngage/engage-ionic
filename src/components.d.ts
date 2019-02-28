@@ -41,7 +41,7 @@ export namespace Components {
     'iconSize': string;
     'loading': boolean;
     'loadingColor': any;
-    'loadingCurrent': any;
+    'loadingCurrent': number;
     'loadingMax': any;
     'loadingMin': any;
     'loadingType': 'bar' | 'spinner' | 'full' | 'center';
@@ -76,7 +76,7 @@ export namespace Components {
     'iconSize'?: string;
     'loading'?: boolean;
     'loadingColor'?: any;
-    'loadingCurrent'?: any;
+    'loadingCurrent'?: number;
     'loadingMax'?: any;
     'loadingMin'?: any;
     'loadingType'?: 'bar' | 'spinner' | 'full' | 'center';
@@ -556,8 +556,8 @@ export namespace Components {
     'keyboardClose': boolean;
     'leaveAnimation': any;
     'loading': boolean;
-    'loadingColor': any;
-    'loadingCurrent': any;
+    'loadingColor': string;
+    'loadingCurrent': number;
     'loadingMax': number;
     'loadingMin': number;
     'loadingType': 'bar' | 'spinner' | 'full' | 'center';
@@ -581,8 +581,8 @@ export namespace Components {
     'keyboardClose'?: boolean;
     'leaveAnimation'?: any;
     'loading'?: boolean;
-    'loadingColor'?: any;
-    'loadingCurrent'?: any;
+    'loadingColor'?: string;
+    'loadingCurrent'?: number;
     'loadingMax'?: number;
     'loadingMin'?: number;
     'loadingType'?: 'bar' | 'spinner' | 'full' | 'center';

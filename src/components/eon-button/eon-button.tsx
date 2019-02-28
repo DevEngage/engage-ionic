@@ -66,7 +66,7 @@ export class EonButton {
 
   /* LOADING */
   @Prop() loading = false;
-  @Prop() loadingCurrent;
+  @Prop() loadingCurrent: number;
   @Prop() loadingColor;
   @Prop() loadingMin;
   @Prop() loadingMax;
@@ -320,7 +320,7 @@ export class EonButton {
     return [
       // size={this.fontSize}
       this.icon && <eon-icon name={this.icon} size={this.iconSize || this.size} />,
-      <slot/>,
+      <slot />,
       this.rightIcon && <eon-icon name={this.rightIcon} />,
       this._loading && this.loadingType !== 'bar' && this.renderLoading()
     ];

@@ -6,10 +6,7 @@ import { Component, Prop, Element, Watch, State } from '@stencil/core';
 
 @Component({
   tag: 'eon-toast',
-  styleUrl: 'eon-toast.scss',
-  host: {
-    theme: 'eon-toast'
-  }
+  styleUrl: 'eon-toast.scss'
 })
 export class EonToast {
 
@@ -35,8 +32,8 @@ export class EonToast {
   @Prop() iconSize: string;
 
   @Prop() loading: boolean;
-  @Prop() loadingCurrent;
-  @Prop() loadingColor;
+  @Prop() loadingCurrent: number;
+  @Prop() loadingColor: string;
   @Prop() loadingMin = 0;
   @Prop() loadingMax = 100;
   @Prop() loadingType: 'bar' | 'spinner' | 'full' | 'center' = 'bar';
@@ -164,12 +161,9 @@ export class EonToast {
     }
   }
 
-
-
-
-  render() {
-  }
-
-  componentDidUnload(): void {
+  hostData() {
+    return {
+      theme: 'eon-toast'
+    }
   }
 }

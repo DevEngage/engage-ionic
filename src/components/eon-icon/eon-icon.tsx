@@ -3,10 +3,7 @@ import {Component, Prop, Element} from '@stencil/core';
 
 @Component({
   tag: 'eon-icon',
-  styleUrl: 'eon-icon.scss',
-  host: {
-    theme: 'eon-icon'
-  }
+  styleUrl: 'eon-icon.scss'
 })
 export class EonIcon {
 
@@ -90,7 +87,7 @@ export class EonIcon {
         this.element.classList.add('animated');
         this.element.classList.add(this.transition);
         this.removeScrollListener();
-      }, this.transitionDelay);
+      }, parseInt(this.transitionDelay));
     }
   }
 
@@ -125,6 +122,12 @@ export class EonIcon {
   getIconClass() {
     if (this.transition !== 'none') return 'eon-hide';
     else return '';
+  }
+
+  hostData() {
+    return {
+      theme: 'eon-icon'
+    }
   }
 
   renderFaIcon() {

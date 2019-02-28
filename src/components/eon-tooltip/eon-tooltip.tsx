@@ -6,10 +6,7 @@ import {Component, Prop, Element} from '@stencil/core';
 
 @Component({
   tag: 'eon-tooltip',
-  styleUrl: 'eon-tooltip.scss',
-  host: {
-    theme: 'eon-tooltip'
-  }
+  styleUrl: 'eon-tooltip.scss'
 })
 export class EonTooltip {
 
@@ -75,11 +72,9 @@ export class EonTooltip {
     }
   }
 
-
-  render() {
-  }
-
-  componentDidUnload(): void {
-
+  hostData() {
+    return {
+      theme: 'eon-tooltip'
+    }
   }
 }

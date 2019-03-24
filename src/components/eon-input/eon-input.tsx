@@ -112,7 +112,12 @@ export class EonInput {
   }
 
   @Method('setFocus')
-  setFocus() {
+  getInputElement(): Promise<HTMLInputElement> {
+    return this.element.querySelector('ion-input').getInputElement();
+  }
+
+  @Method('setFocus')
+  setFocus(): void {
     this.element.querySelector('ion-input').setFocus();
   }
 

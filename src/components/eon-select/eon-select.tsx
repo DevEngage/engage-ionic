@@ -1,12 +1,6 @@
 import { Component, EventEmitter, Method, Prop, State, Watch, Element, Event } from '@stencil/core';
+import { EngageISelectOption } from '../../types/components';
 import _ from 'lodash';
-
-interface IEonSelectOption {
-  disabled?: boolean;
-  selected?: boolean;
-  value?: any;
-  title?: any;
-}
 
 /*
  * TODO:
@@ -62,7 +56,7 @@ export class EonInput {
   @Prop() itemShow: boolean;
 
   /* ion select option */
-  @Prop() options: IEonSelectOption[] | string[] = [];
+  @Prop() options: EngageISelectOption[] | string[] = [];
 
   /* ion label */
   @Prop() label: string = '';

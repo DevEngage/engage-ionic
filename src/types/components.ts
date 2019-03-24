@@ -131,3 +131,10 @@ export interface EngageIButton {
   ripple?: boolean | 'center';
   onClick?: (event) => any;
 }
+
+export interface EngageISelectOption {
+  disabled?: boolean;
+  selected?: boolean;
+  value?: any;
+  title?: any;
+}

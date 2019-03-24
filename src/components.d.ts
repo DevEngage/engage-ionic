@@ -224,6 +224,7 @@ export namespace Components {
     'disabled': boolean;
     'errorMsg': string;
     'errorSelector': string;
+    'getInputElement': () => Promise<HTMLInputElement>;
     'getName': () => string;
     'getValue': () => any;
     'inputmode': string | undefined;
@@ -524,6 +525,90 @@ export namespace Components {
     'type'?: 'indeterminate' | 'determinate' | 'regular' | 'ion';
   }
 
+  interface EonSelect {
+    'bind': any;
+    'bindSelector': string;
+    'cancelText': string | undefined;
+    'clear': () => void;
+    'color': string | undefined;
+    'compareWith': ((currentValue: any, compareValue: any) => boolean) | null | string | undefined;
+    'disabled': boolean | undefined;
+    'errorMsg': string;
+    'errorSelector': string;
+    'getName': () => string;
+    'getValue': () => any;
+    'interface': 'action-sheet' | 'alert' | 'popover';
+    'interfaceOptions': any;
+    'itemButton': boolean;
+    'itemColor': string | undefined;
+    'itemDetail': boolean | undefined;
+    'itemDetailIcon': string;
+    'itemDisabled': boolean;
+    'itemHref': string | undefined;
+    'itemLines': "full" | "inset" | "none" | undefined;
+    'itemMode': "ios" | "md";
+    'itemRouterDirection': "back" | "forward" | "root";
+    'itemShow': boolean;
+    'itemType': "button" | "reset" | "submit";
+    'label': string;
+    'labelColor': string | undefined;
+    'labelMode': 'ios' | 'md';
+    'labelPosition': 'floating' | 'fixed' | 'stacked' | undefined;
+    'mode': 'ios' | 'md';
+    'multiple': boolean | undefined;
+    'name': string | undefined;
+    'okText': string | undefined;
+    'open': (ev?: UIEvent) => Promise<HTMLIonActionSheetElement | HTMLIonAlertElement | HTMLIonPopoverElement>;
+    'options': IEonSelectOption[] | string[];
+    'placeholder': null | string | undefined;
+    'selectedText': null | string | undefined;
+    'setValue': (value?: string) => void;
+    'successMsg': string;
+    'value': any;
+  }
+  interface EonSelectAttributes extends StencilHTMLAttributes {
+    'bind'?: any;
+    'bindSelector'?: string;
+    'cancelText'?: string | undefined;
+    'color'?: string | undefined;
+    'compareWith'?: ((currentValue: any, compareValue: any) => boolean) | null | string | undefined;
+    'disabled'?: boolean | undefined;
+    'errorMsg'?: string;
+    'errorSelector'?: string;
+    'interface'?: 'action-sheet' | 'alert' | 'popover';
+    'interfaceOptions'?: any;
+    'itemButton'?: boolean;
+    'itemColor'?: string | undefined;
+    'itemDetail'?: boolean | undefined;
+    'itemDetailIcon'?: string;
+    'itemDisabled'?: boolean;
+    'itemHref'?: string | undefined;
+    'itemLines'?: "full" | "inset" | "none" | undefined;
+    'itemMode'?: "ios" | "md";
+    'itemRouterDirection'?: "back" | "forward" | "root";
+    'itemShow'?: boolean;
+    'itemType'?: "button" | "reset" | "submit";
+    'label'?: string;
+    'labelColor'?: string | undefined;
+    'labelMode'?: 'ios' | 'md';
+    'labelPosition'?: 'floating' | 'fixed' | 'stacked' | undefined;
+    'mode'?: 'ios' | 'md';
+    'multiple'?: boolean | undefined;
+    'name'?: string | undefined;
+    'okText'?: string | undefined;
+    'onEonBlur'?: (event: CustomEvent) => void;
+    'onEonCancel'?: (event: CustomEvent) => void;
+    'onEonChange'?: (event: CustomEvent) => void;
+    'onEonFocus'?: (event: CustomEvent) => void;
+    'onEonInputDidLoad'?: (event: CustomEvent) => void;
+    'onEonInputDidUnload'?: (event: CustomEvent) => void;
+    'options'?: IEonSelectOption[] | string[];
+    'placeholder'?: null | string | undefined;
+    'selectedText'?: null | string | undefined;
+    'successMsg'?: string;
+    'value'?: any;
+  }
+
   interface EonSpinner {
     'color': string;
     'duration': number | undefined;
@@ -680,6 +765,7 @@ declare global {
     'EonModal': Components.EonModal;
     'EonPrivacyPolicy': Components.EonPrivacyPolicy;
     'EonProgress': Components.EonProgress;
+    'EonSelect': Components.EonSelect;
     'EonSpinner': Components.EonSpinner;
     'EonToast': Components.EonToast;
     'EonTooltip': Components.EonTooltip;
@@ -700,6 +786,7 @@ declare global {
     'eon-modal': Components.EonModalAttributes;
     'eon-privacy-policy': Components.EonPrivacyPolicyAttributes;
     'eon-progress': Components.EonProgressAttributes;
+    'eon-select': Components.EonSelectAttributes;
     'eon-spinner': Components.EonSpinnerAttributes;
     'eon-toast': Components.EonToastAttributes;
     'eon-tooltip': Components.EonTooltipAttributes;
@@ -775,6 +862,12 @@ declare global {
     new (): HTMLEonProgressElement;
   };
 
+  interface HTMLEonSelectElement extends Components.EonSelect, HTMLStencilElement {}
+  var HTMLEonSelectElement: {
+    prototype: HTMLEonSelectElement;
+    new (): HTMLEonSelectElement;
+  };
+
   interface HTMLEonSpinnerElement extends Components.EonSpinner, HTMLStencilElement {}
   var HTMLEonSpinnerElement: {
     prototype: HTMLEonSpinnerElement;
@@ -823,6 +916,7 @@ declare global {
     'eon-modal': HTMLEonModalElement
     'eon-privacy-policy': HTMLEonPrivacyPolicyElement
     'eon-progress': HTMLEonProgressElement
+    'eon-select': HTMLEonSelectElement
     'eon-spinner': HTMLEonSpinnerElement
     'eon-toast': HTMLEonToastElement
     'eon-tooltip': HTMLEonTooltipElement
@@ -843,6 +937,7 @@ declare global {
     'eon-modal': HTMLEonModalElement;
     'eon-privacy-policy': HTMLEonPrivacyPolicyElement;
     'eon-progress': HTMLEonProgressElement;
+    'eon-select': HTMLEonSelectElement;
     'eon-spinner': HTMLEonSpinnerElement;
     'eon-toast': HTMLEonToastElement;
     'eon-tooltip': HTMLEonTooltipElement;

@@ -25,7 +25,7 @@ interface IEonSelectOption {
  * */
 @Component({
   tag: 'eon-select',
-  styleUrl: 'eon-input.scss'
+  styleUrl: 'eon-select.scss'
 })
 export class EonInput {
   @Element() element: HTMLElement;

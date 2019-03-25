@@ -7,59 +7,42 @@
 
 ## Properties
 
-| Property              | Attribute               | Description | Type                                                                                            | Default         |
-| --------------------- | ----------------------- | ----------- | ----------------------------------------------------------------------------------------------- | --------------- |
-| `accept`              | `accept`                |             | `string`                                                                                        | `undefined`     |
-| `autoSize`            | `auto-size`             |             | `boolean`                                                                                       | `false`         |
-| `autocapitalize`      | `autocapitalize`        |             | `string`                                                                                        | `undefined`     |
-| `autocomplete`        | `autocomplete`          |             | `"off" \| "on"`                                                                                 | `undefined`     |
-| `autocorrect`         | `autocorrect`           |             | `"off" \| "on"`                                                                                 | `undefined`     |
-| `autofocus`           | `autofocus`             |             | `boolean`                                                                                       | `undefined`     |
-| `bind`                | `bind`                  |             | `any`                                                                                           | `undefined`     |
-| `bindSelector`        | `bind-selector`         |             | `string`                                                                                        | `'[eon-bind]'`  |
-| `clearInput`          | `clear-input`           |             | `boolean`                                                                                       | `undefined`     |
-| `clearOnEdit`         | `clear-on-edit`         |             | `boolean`                                                                                       | `undefined`     |
-| `color`               | `color`                 |             | `string`                                                                                        | `undefined`     |
-| `cols`                | `cols`                  |             | `number`                                                                                        | `undefined`     |
-| `debounce`            | `debounce`              |             | `number`                                                                                        | `undefined`     |
-| `disabled`            | `disabled`              |             | `boolean`                                                                                       | `undefined`     |
-| `errorMsg`            | `error-msg`             |             | `string`                                                                                        | `''`            |
-| `errorSelector`       | `error-selector`        |             | `string`                                                                                        | `'[eon-error]'` |
-| `inputmode`           | `inputmode`             |             | `string`                                                                                        | `undefined`     |
-| `itemButton`          | `item-button`           |             | `boolean`                                                                                       | `undefined`     |
-| `itemColor`           | `item-color`            |             | `string`                                                                                        | `undefined`     |
-| `itemDetail`          | `item-detail`           |             | `boolean`                                                                                       | `undefined`     |
-| `itemDetailIcon`      | `item-detail-icon`      |             | `string`                                                                                        | `undefined`     |
-| `itemDisabled`        | `item-disabled`         |             | `boolean`                                                                                       | `undefined`     |
-| `itemHref`            | `item-href`             |             | `string`                                                                                        | `undefined`     |
-| `itemLines`           | `item-lines`            |             | `"full" \| "inset" \| "none"`                                                                   | `undefined`     |
-| `itemMode`            | `item-mode`             |             | `"ios" \| "md"`                                                                                 | `undefined`     |
-| `itemRouterDirection` | `item-router-direction` |             | `"back" \| "forward" \| "root"`                                                                 | `undefined`     |
-| `itemType`            | `item-type`             |             | `"button" \| "reset" \| "submit"`                                                               | `undefined`     |
-| `label`               | `label`                 |             | `string`                                                                                        | `''`            |
-| `labelColor`          | `label-color`           |             | `string`                                                                                        | `undefined`     |
-| `labelMode`           | `label-mode`            |             | `"ios" \| "md"`                                                                                 | `undefined`     |
-| `labelPosition`       | `label-position`        |             | `"fixed" \| "floating" \| "stacked"`                                                            | `undefined`     |
-| `max`                 | `max`                   |             | `string`                                                                                        | `undefined`     |
-| `maxlength`           | `maxlength`             |             | `number`                                                                                        | `undefined`     |
-| `min`                 | `min`                   |             | `string`                                                                                        | `undefined`     |
-| `minlength`           | `minlength`             |             | `number`                                                                                        | `undefined`     |
-| `mode`                | `mode`                  |             | `"ios" \| "md"`                                                                                 | `undefined`     |
-| `multiple`            | `multiple`              |             | `boolean`                                                                                       | `undefined`     |
-| `name`                | `name`                  |             | `string`                                                                                        | `undefined`     |
-| `pattern`             | `pattern`               |             | `string`                                                                                        | `undefined`     |
-| `placeholder`         | `placeholder`           |             | `string`                                                                                        | `undefined`     |
-| `readonly`            | `readonly`              |             | `boolean`                                                                                       | `undefined`     |
-| `required`            | `required`              |             | `boolean`                                                                                       | `undefined`     |
-| `rows`                | `rows`                  |             | `number`                                                                                        | `undefined`     |
-| `size`                | `size`                  |             | `number`                                                                                        | `undefined`     |
-| `spellcheck`          | `spellcheck`            |             | `boolean`                                                                                       | `undefined`     |
-| `step`                | `step`                  |             | `string`                                                                                        | `undefined`     |
-| `successMsg`          | `success-msg`           |             | `string`                                                                                        | `''`            |
-| `textarea`            | `textarea`              |             | `boolean`                                                                                       | `undefined`     |
-| `type`                | `type`                  |             | `"date" \| "email" \| "number" \| "password" \| "search" \| "tel" \| "text" \| "time" \| "url"` | `undefined`     |
-| `value`               | `value`                 |             | `number \| string`                                                                              | `undefined`     |
-| `wrap`                | `wrap`                  |             | `"hard" \| "off" \| "soft"`                                                                     | `undefined`     |
+| Property              | Attribute               | Description | Type                                                            | Default         |
+| --------------------- | ----------------------- | ----------- | --------------------------------------------------------------- | --------------- |
+| `bind`                | `bind`                  |             | `any`                                                           | `undefined`     |
+| `bindSelector`        | `bind-selector`         |             | `string`                                                        | `'[eon-bind]'`  |
+| `cancelText`          | `cancel-text`           |             | `string`                                                        | `'Cancel'`      |
+| `color`               | `color`                 |             | `string`                                                        | `undefined`     |
+| `compareWith`         | `compare-with`          |             | `((currentValue: any, compareValue: any) => boolean) \| string` | `undefined`     |
+| `disabled`            | `disabled`              |             | `boolean`                                                       | `false`         |
+| `errorMsg`            | `error-msg`             |             | `string`                                                        | `''`            |
+| `errorSelector`       | `error-selector`        |             | `string`                                                        | `'[eon-error]'` |
+| `interface`           | `interface`             |             | `"action-sheet" \| "alert" \| "popover"`                        | `'alert'`       |
+| `interfaceOptions`    | `interface-options`     |             | `any`                                                           | `{}`            |
+| `itemButton`          | `item-button`           |             | `boolean`                                                       | `undefined`     |
+| `itemColor`           | `item-color`            |             | `string`                                                        | `undefined`     |
+| `itemDetail`          | `item-detail`           |             | `boolean`                                                       | `undefined`     |
+| `itemDetailIcon`      | `item-detail-icon`      |             | `string`                                                        | `undefined`     |
+| `itemDisabled`        | `item-disabled`         |             | `boolean`                                                       | `undefined`     |
+| `itemHref`            | `item-href`             |             | `string`                                                        | `undefined`     |
+| `itemLines`           | `item-lines`            |             | `"full" \| "inset" \| "none"`                                   | `undefined`     |
+| `itemMode`            | `item-mode`             |             | `"ios" \| "md"`                                                 | `undefined`     |
+| `itemRouterDirection` | `item-router-direction` |             | `"back" \| "forward" \| "root"`                                 | `undefined`     |
+| `itemShow`            | `item-show`             |             | `boolean`                                                       | `undefined`     |
+| `itemType`            | `item-type`             |             | `"button" \| "reset" \| "submit"`                               | `undefined`     |
+| `label`               | `label`                 |             | `string`                                                        | `''`            |
+| `labelColor`          | `label-color`           |             | `string`                                                        | `undefined`     |
+| `labelMode`           | `label-mode`            |             | `"ios" \| "md"`                                                 | `undefined`     |
+| `labelPosition`       | `label-position`        |             | `"fixed" \| "floating" \| "stacked"`                            | `undefined`     |
+| `mode`                | `mode`                  |             | `"ios" \| "md"`                                                 | `undefined`     |
+| `multiple`            | `multiple`              |             | `boolean`                                                       | `false`         |
+| `name`                | `name`                  |             | `string`                                                        | `undefined`     |
+| `okText`              | `ok-text`               |             | `string`                                                        | `'OK'`          |
+| `options`             | --                      |             | `EngageISelectOption[] \| string[]`                             | `[]`            |
+| `placeholder`         | `placeholder`           |             | `string`                                                        | `undefined`     |
+| `selectedText`        | `selected-text`         |             | `string`                                                        | `undefined`     |
+| `successMsg`          | `success-msg`           |             | `string`                                                        | `''`            |
+| `value`               | `value`                 |             | `any`                                                           | `undefined`     |
 
 
 ## Events
@@ -67,9 +50,9 @@
 | Event               | Description | Type                |
 | ------------------- | ----------- | ------------------- |
 | `eonBlur`           |             | `CustomEvent<void>` |
+| `eonCancel`         |             | `CustomEvent<void>` |
 | `eonChange`         |             | `CustomEvent<void>` |
 | `eonFocus`          |             | `CustomEvent<void>` |
-| `eonInput`          |             | `CustomEvent<void>` |
 | `eonInputDidLoad`   |             | `CustomEvent<void>` |
 | `eonInputDidUnload` |             | `CustomEvent<void>` |
 
@@ -106,13 +89,19 @@ Type: `any`
 
 
 
-### `setFocus() => void`
+### `open(ev?: UIEvent) => Promise<HTMLIonActionSheetElement | HTMLIonAlertElement | HTMLIonPopoverElement>`
 
 
+
+#### Parameters
+
+| Name | Type      | Description |
+| ---- | --------- | ----------- |
+| `ev` | `UIEvent` |             |
 
 #### Returns
 
-Type: `void`
+Type: `Promise<HTMLIonActionSheetElement | HTMLIonAlertElement | HTMLIonPopoverElement>`
 
 
 

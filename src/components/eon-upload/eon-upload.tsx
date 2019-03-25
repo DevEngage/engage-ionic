@@ -12,6 +12,7 @@ import {ImageStyle, Size, UploadStyle, UploadType} from "../../types/theme";
 
 /*
 * TODO:
+* [ ] Finish the ion-item integration
 * [ ] Add Input TOO
 * [ ] Add Progress bars, etc
 * [ ] Add style list, simple
@@ -58,6 +59,28 @@ export class EonUpload {
   @State() fileSelected: boolean = false;
   @State() filePreviews: any[] = [];
   uploadedFiles: any[] = [];
+
+  /* ion */
+  @Prop() mode: 'ios' | 'md';
+  @Prop() color: string | undefined;
+
+  /* ion label */
+  @Prop() label: string = '';
+  @Prop() labelPosition: 'floating' | 'fixed' | 'stacked' | undefined;
+  @Prop() labelColor: string | undefined;
+  @Prop() labelMode: 'ios' | 'md';
+
+  /* ion item */
+  @Prop() itemButton: boolean;
+  @Prop() itemColor: string | undefined;
+  @Prop() itemDetail: boolean | undefined;
+  @Prop() itemDetailIcon: string;
+  @Prop() itemDisabled: boolean;
+  @Prop() itemHref: string | undefined;
+  @Prop() itemLines: "full" | "inset" | "none" | undefined;
+  @Prop() itemMode: "ios" | "md";
+  @Prop() itemRouterDirection: "back" | "forward" | "root";
+  @Prop() itemType: "button" | "reset" | "submit";
 
 
   private inputElement: HTMLInputElement;
@@ -419,7 +442,38 @@ export class EonUpload {
     }
   }
 
+  renderItem() {
+    return (
+      <ion-item
+        button={this.itemButton}
+        color={this.itemColor || this.color}
+        detail={this.itemDetail}
+        detailIcon={this.itemDetailIcon}
+        disabled={this.itemDisabled}
+        href={this.itemHref}
+        lines={this.itemLines}
+        mode={this.itemMode || this.mode}
+        routerDirection={this.itemRouterDirection}
+        type={this.itemType}
+        onDragOver={(e) => this.dragOverHandler(e)}
+        onDrop={(e) => this.previewFilesDrop(e)}
+      >
+        <ion-label
+          position={this.labelPosition}
+          mode={this.labelMode || this.mode}
+          color={this.labelColor || this.color}
+        >
+          {this.label}
+        </ion-label>
+        {this.renderType()}
+      </ion-item>
+    );
+  }
+
   render() {
+    if (this.label) {
+      return this.renderItem();
+    }
     return (
       <div onDragOver={(e) => this.dragOverHandler(e)} onDrop={(e) => this.previewFilesDrop(e)}>
         {this.renderType()}

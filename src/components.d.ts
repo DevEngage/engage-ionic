@@ -24,6 +24,9 @@ import {
 import {
   EonProgressInterface,
 } from './components/eon-progress/eon-progress.interface';
+import {
+  EngageISelectOption,
+} from './types/components';
 
 
 export namespace Components {
@@ -559,7 +562,7 @@ export namespace Components {
     'name': string | undefined;
     'okText': string | undefined;
     'open': (ev?: UIEvent) => Promise<HTMLIonActionSheetElement | HTMLIonAlertElement | HTMLIonPopoverElement>;
-    'options': IEonSelectOption[] | string[];
+    'options': EngageISelectOption[] | string[];
     'placeholder': null | string | undefined;
     'selectedText': null | string | undefined;
     'setValue': (value?: string) => void;
@@ -602,7 +605,7 @@ export namespace Components {
     'onEonFocus'?: (event: CustomEvent) => void;
     'onEonInputDidLoad'?: (event: CustomEvent) => void;
     'onEonInputDidUnload'?: (event: CustomEvent) => void;
-    'options'?: IEonSelectOption[] | string[];
+    'options'?: EngageISelectOption[] | string[];
     'placeholder'?: null | string | undefined;
     'selectedText'?: null | string | undefined;
     'successMsg'?: string;

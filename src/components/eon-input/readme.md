@@ -86,6 +86,16 @@ Type: `void`
 
 
 
+### `getInputElement() => Promise<HTMLInputElement>`
+
+
+
+#### Returns
+
+Type: `Promise<HTMLInputElement>`
+
+
+
 ### `getName() => string`
 
 

@@ -216,7 +216,7 @@ export class EonUpload {
     return _.filter(files, value => value && value.state !== 'success');
   }
 
-  getFileTypeIcon(type: string) {
+  getFileTypeIcongetFileTypeIcon(type: string = '') {
     let icon = 'file';
     if (type.search('image') > -1) {
       icon = 'file-image';

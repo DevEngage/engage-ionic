@@ -351,7 +351,7 @@ export class EonUpload {
       <div class="row">
         {this.filePreviews.map(file =>
           <eon-card type="pass" class="mb-2 col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            {file.type.search('image') > -1 ?
+            {file && (file.type && file.type.search('image') > -1 ) || (typeof file === 'string') ?
               <img class="img-fluid card-img-top" src={this.getPreview(file)} alt=""/>
               :
               <h2 class="text-center fa-5x">{this.getFileTypeIcon(file.type)}</h2>

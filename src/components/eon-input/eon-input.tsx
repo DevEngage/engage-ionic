@@ -2,9 +2,6 @@ import { Component, EventEmitter, Method, Prop, State, Watch, Element, Event } f
 import _ from 'lodash';
 /*
  * TODO:
- *  [X] add ion-item with label/floating to this input
- *  [X] Disabled
- *  [X] Textarea
  *  [ ] Add error text below input
  *  [ ] large and small sizes
  *  [ ] Icon left and right side
@@ -14,7 +11,7 @@ import _ from 'lodash';
  *  [ ] Help Text
  *  [ ] More validation -password - number -url -tel
  *  [ ] Mask -tel -custom - date -time -color
- *  [ ] Add different component for -checkbox -radio -range -switch -file
+ *  [ ] Add different component for -range
  *  [ ] Reveal input on icon click
  * */
 @Component({

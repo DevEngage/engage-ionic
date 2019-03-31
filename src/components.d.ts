@@ -100,6 +100,81 @@ export namespace Components {
     'type'?: 'button' | 'reset' | 'submit';
   }
 
+  interface EonCheckbox {
+    'autoSize': boolean;
+    'bind': any;
+    'bindSelector': string;
+    'checked': boolean;
+    'clear': () => void;
+    'color': string | undefined;
+    'disabled': boolean;
+    'errorMsg': string;
+    'errorSelector': string;
+    'getChecked': () => any;
+    'getName': () => string;
+    'getValue': () => any;
+    'indeterminate': boolean;
+    'itemButton': boolean;
+    'itemColor': string | undefined;
+    'itemDetail': boolean | undefined;
+    'itemDetailIcon': string;
+    'itemDisabled': boolean;
+    'itemHref': string | undefined;
+    'itemLines': "full" | "inset" | "none" | undefined;
+    'itemMode': "ios" | "md";
+    'itemRouterDirection': "back" | "forward" | "root";
+    'itemType': "button" | "reset" | "submit";
+    'label': string;
+    'labelColor': string | undefined;
+    'labelMode': 'ios' | 'md';
+    'labelPosition': 'floating' | 'fixed' | 'stacked' | undefined;
+    'mode': 'ios' | 'md';
+    'name': string;
+    'radioList': any;
+    'setChecked': () => void;
+    'setToggle': () => void;
+    'setUnchecked': () => void;
+    'setValue': (value?: any) => void;
+    'successMsg': string;
+    'type': 'checkbox' | 'radio' | 'toggle';
+    'value': null | string | undefined | number;
+  }
+  interface EonCheckboxAttributes extends StencilHTMLAttributes {
+    'autoSize'?: boolean;
+    'bind'?: any;
+    'bindSelector'?: string;
+    'checked'?: boolean;
+    'color'?: string | undefined;
+    'disabled'?: boolean;
+    'errorMsg'?: string;
+    'errorSelector'?: string;
+    'indeterminate'?: boolean;
+    'itemButton'?: boolean;
+    'itemColor'?: string | undefined;
+    'itemDetail'?: boolean | undefined;
+    'itemDetailIcon'?: string;
+    'itemDisabled'?: boolean;
+    'itemHref'?: string | undefined;
+    'itemLines'?: "full" | "inset" | "none" | undefined;
+    'itemMode'?: "ios" | "md";
+    'itemRouterDirection'?: "back" | "forward" | "root";
+    'itemType'?: "button" | "reset" | "submit";
+    'label'?: string;
+    'labelColor'?: string | undefined;
+    'labelMode'?: 'ios' | 'md';
+    'labelPosition'?: 'floating' | 'fixed' | 'stacked' | undefined;
+    'mode'?: 'ios' | 'md';
+    'name'?: string;
+    'onEonBlur'?: (event: CustomEvent) => void;
+    'onEonChange'?: (event: CustomEvent) => void;
+    'onEonFocus'?: (event: CustomEvent) => void;
+    'onEonSelect'?: (event: CustomEvent) => void;
+    'radioList'?: any;
+    'successMsg'?: string;
+    'type'?: 'checkbox' | 'radio' | 'toggle';
+    'value'?: null | string | undefined | number;
+  }
+
   interface EonCollapse {
     'accordion': boolean;
     'hide': (itemPosition: number) => void;
@@ -790,6 +865,7 @@ export namespace Components {
 declare global {
   interface StencilElementInterfaces {
     'EonButton': Components.EonButton;
+    'EonCheckbox': Components.EonCheckbox;
     'EonCollapse': Components.EonCollapse;
     'EonFlip': Components.EonFlip;
     'EonFormBuilder': Components.EonFormBuilder;
@@ -811,6 +887,7 @@ declare global {
 
   interface StencilIntrinsicElements {
     'eon-button': Components.EonButtonAttributes;
+    'eon-checkbox': Components.EonCheckboxAttributes;
     'eon-collapse': Components.EonCollapseAttributes;
     'eon-flip': Components.EonFlipAttributes;
     'eon-form-builder': Components.EonFormBuilderAttributes;
@@ -835,6 +912,12 @@ declare global {
   var HTMLEonButtonElement: {
     prototype: HTMLEonButtonElement;
     new (): HTMLEonButtonElement;
+  };
+
+  interface HTMLEonCheckboxElement extends Components.EonCheckbox, HTMLStencilElement {}
+  var HTMLEonCheckboxElement: {
+    prototype: HTMLEonCheckboxElement;
+    new (): HTMLEonCheckboxElement;
   };
 
   interface HTMLEonCollapseElement extends Components.EonCollapse, HTMLStencilElement {}
@@ -941,6 +1024,7 @@ declare global {
 
   interface HTMLElementTagNameMap {
     'eon-button': HTMLEonButtonElement
+    'eon-checkbox': HTMLEonCheckboxElement
     'eon-collapse': HTMLEonCollapseElement
     'eon-flip': HTMLEonFlipElement
     'eon-form-builder': HTMLEonFormBuilderElement
@@ -962,6 +1046,7 @@ declare global {
 
   interface ElementTagNameMap {
     'eon-button': HTMLEonButtonElement;
+    'eon-checkbox': HTMLEonCheckboxElement;
     'eon-collapse': HTMLEonCollapseElement;
     'eon-flip': HTMLEonFlipElement;
     'eon-form-builder': HTMLEonFormBuilderElement;

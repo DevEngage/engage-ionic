@@ -181,15 +181,6 @@ export class EonCheckbox {
   //   }
   // }
 
-  renderType() {
-    if (this.type === 'radio') {
-      return this.renderRadio();
-    } else if (this.type === 'toggle') {
-      return this.renderToggle();
-    }
-    return this.renderCheckbox();
-  }
-
   renderItem() {
     return (
       <ion-item
@@ -250,7 +241,7 @@ export class EonCheckbox {
 
   renderToggle() {
     return (
-      <ion-checkbox
+      <ion-toggle
         color={this.color}
         disabled={this.disabled}
         name={this.name}
@@ -260,8 +251,17 @@ export class EonCheckbox {
         onIonBlur={(event) => this.eonBlur.emit(event.detail)}
         onIonChange={(event) => this.updateChecked(event)}
         onIonFocus={(event) => this.eonFocus.emit(event.detail)}
-      > <slot /> </ion-checkbox>
+      > <slot /> </ion-toggle>
     );
+  }
+
+  renderType() {
+    if (this.type === 'radio') {
+      return this.renderRadio();
+    } else if (this.type === 'toggle') {
+      return this.renderToggle();
+    }
+    return this.renderCheckbox();
   }
 
   render() {

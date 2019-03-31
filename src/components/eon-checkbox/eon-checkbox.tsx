@@ -75,7 +75,7 @@ export class EonCheckbox {
 
   @Method('getValue')
   getValue() {
-    if (this.type === 'checkbox') {
+    if (this.type === 'checkbox' || this.type === 'toggle') {
       return this._checked;
     }
     return this._value;

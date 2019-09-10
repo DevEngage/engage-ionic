@@ -198,6 +198,7 @@ export namespace Components {
 
   interface EonInput {
     'accept': string | undefined;
+    'autoSize': boolean;
     'autocapitalize': string;
     'autocomplete': 'off' | 'on';
     'autocorrect': 'off' | 'on';
@@ -255,6 +256,7 @@ export namespace Components {
   }
   interface EonInputAttributes extends StencilHTMLAttributes {
     'accept'?: string | undefined;
+    'autoSize'?: boolean;
     'autocapitalize'?: string;
     'autocomplete'?: 'off' | 'on';
     'autocorrect'?: 'off' | 'on';
@@ -314,6 +316,7 @@ export namespace Components {
 
   interface EonLoading {
     'adapter': any;
+    'autoprogress': boolean;
     'color': string;
     'current': number;
     'duration': number;
@@ -332,6 +335,7 @@ export namespace Components {
   }
   interface EonLoadingAttributes extends StencilHTMLAttributes {
     'adapter'?: any;
+    'autoprogress'?: boolean;
     'color'?: string;
     'current'?: number;
     'duration'?: number;
@@ -358,7 +362,6 @@ export namespace Components {
     'dismiss': () => Promise<void>;
     'enterAnimation': any;
     'fit': boolean;
-    'footerButtons': any[];
     'getModal': () => any;
     'isVisible': boolean;
     'keyboardClose': boolean;
@@ -397,7 +400,6 @@ export namespace Components {
     'cssClass'?: string | string[] | undefined;
     'enterAnimation'?: any;
     'fit'?: boolean;
-    'footerButtons'?: any[];
     'isVisible'?: boolean;
     'keyboardClose'?: boolean;
     'leaveAnimation'?: any;
@@ -488,19 +490,23 @@ export namespace Components {
   }
 
   interface EonProgress {
+    'autoprogress': boolean;
     'classes': string;
     'color': string;
     'current': number | EonProgressInterface | EonProgressInterface[];
-    'getProgress': () => number | EonProgressInterface | EonProgressInterface[];
+    'duration': number;
+    'getProgress': () => any;
     'max': number;
     'message': string;
     'min': number;
     'type': 'indeterminate' | 'determinate' | 'regular' | 'ion';
   }
   interface EonProgressAttributes extends StencilHTMLAttributes {
+    'autoprogress'?: boolean;
     'classes'?: string;
     'color'?: string;
     'current'?: number | EonProgressInterface | EonProgressInterface[];
+    'duration'?: number;
     'max'?: number;
     'message'?: string;
     'min'?: number;
@@ -524,6 +530,57 @@ export namespace Components {
     'paused'?: boolean;
     'size'?: Size | 'fit';
     'type'?: 'indeterminate' | 'determinate' | 'regular' | 'graph' | 'ion';
+  }
+
+  interface EonToast {
+    'animated': boolean;
+    'autoprogress': boolean;
+    'background': string;
+    'closeButtonText': string;
+    'color': string;
+    'cssClass': string;
+    'duration': number;
+    'enterAnimation': any;
+    'icon': string;
+    'iconSize': string;
+    'keyboardClose': boolean;
+    'leaveAnimation': any;
+    'loading': boolean;
+    'loadingColor': any;
+    'loadingCurrent': any;
+    'loadingMax': number;
+    'loadingMin': number;
+    'loadingType': 'bar' | 'spinner' | 'full' | 'center';
+    'message': string;
+    'mode': 'ios' | 'md';
+    'position': 'bottom' | 'middle' | 'top';
+    'showCloseButton': boolean;
+    'translucent': boolean;
+  }
+  interface EonToastAttributes extends StencilHTMLAttributes {
+    'animated'?: boolean;
+    'autoprogress'?: boolean;
+    'background'?: string;
+    'closeButtonText'?: string;
+    'color'?: string;
+    'cssClass'?: string;
+    'duration'?: number;
+    'enterAnimation'?: any;
+    'icon'?: string;
+    'iconSize'?: string;
+    'keyboardClose'?: boolean;
+    'leaveAnimation'?: any;
+    'loading'?: boolean;
+    'loadingColor'?: any;
+    'loadingCurrent'?: any;
+    'loadingMax'?: number;
+    'loadingMin'?: number;
+    'loadingType'?: 'bar' | 'spinner' | 'full' | 'center';
+    'message'?: string;
+    'mode'?: 'ios' | 'md';
+    'position'?: 'bottom' | 'middle' | 'top';
+    'showCloseButton'?: boolean;
+    'translucent'?: boolean;
   }
 
   interface EonTooltip {
@@ -616,6 +673,7 @@ declare global {
     'EonPrivacyPolicy': Components.EonPrivacyPolicy;
     'EonProgress': Components.EonProgress;
     'EonSpinner': Components.EonSpinner;
+    'EonToast': Components.EonToast;
     'EonTooltip': Components.EonTooltip;
     'EonUpload': Components.EonUpload;
     'EonEngageBootstrap': Components.EonEngageBootstrap;
@@ -635,6 +693,7 @@ declare global {
     'eon-privacy-policy': Components.EonPrivacyPolicyAttributes;
     'eon-progress': Components.EonProgressAttributes;
     'eon-spinner': Components.EonSpinnerAttributes;
+    'eon-toast': Components.EonToastAttributes;
     'eon-tooltip': Components.EonTooltipAttributes;
     'eon-upload': Components.EonUploadAttributes;
     'eon-engage-bootstrap': Components.EonEngageBootstrapAttributes;
@@ -709,6 +768,12 @@ declare global {
     new (): HTMLEonSpinnerElement;
   };
 
+  interface HTMLEonToastElement extends Components.EonToast, HTMLStencilElement {}
+  var HTMLEonToastElement: {
+    prototype: HTMLEonToastElement;
+    new (): HTMLEonToastElement;
+  };
+
   interface HTMLEonTooltipElement extends Components.EonTooltip, HTMLStencilElement {}
   var HTMLEonTooltipElement: {
     prototype: HTMLEonTooltipElement;
@@ -751,6 +816,7 @@ declare global {
     'eon-privacy-policy': HTMLEonPrivacyPolicyElement
     'eon-progress': HTMLEonProgressElement
     'eon-spinner': HTMLEonSpinnerElement
+    'eon-toast': HTMLEonToastElement
     'eon-tooltip': HTMLEonTooltipElement
     'eon-upload': HTMLEonUploadElement
     'eon-engage-bootstrap': HTMLEonEngageBootstrapElement
@@ -770,6 +836,7 @@ declare global {
     'eon-privacy-policy': HTMLEonPrivacyPolicyElement;
     'eon-progress': HTMLEonProgressElement;
     'eon-spinner': HTMLEonSpinnerElement;
+    'eon-toast': HTMLEonToastElement;
     'eon-tooltip': HTMLEonTooltipElement;
     'eon-upload': HTMLEonUploadElement;
     'eon-engage-bootstrap': HTMLEonEngageBootstrapElement;
